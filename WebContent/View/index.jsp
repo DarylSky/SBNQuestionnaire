@@ -65,6 +65,8 @@
 </head>
 <body>
 
+Yes
+
 <div id="div">
 <textArea id ="textarea" disabled="disabled"></textArea>
 <img src="../Images/Movingcursor.png" height="10px" width="10px" />
