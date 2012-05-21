@@ -65,7 +65,6 @@
 </head>
 <body>
 
-Yes
 
 <div id="div">
 <textArea id ="textarea" disabled="disabled"></textArea>
