@@ -8,6 +8,7 @@
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
 <script type="text/javascript" src="jquery.js"></script>
+<script src="../Js/basic.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -15,31 +16,11 @@
 			$(".panel").slideToggle("slow");
 			changeBtn();
 		});
-
-		
-		
 	});
-	
-	function changeBtn()
-	{
-		if (document.getElementById('plusBtn').value == "+")
-		 {
-			$("#plusBtn").html('-');
-			document.getElementById('plusBtn').value = "-";
-		 }
-	
-		else if (document.getElementById('plusBtn').value == "-")
-		{
-			$("#plusBtn").html('+');
-			document.getElementById('plusBtn').value = "+";
-		}
-	}
-	
 </script>
 
-
 <style type="text/css">
-	p.flip {
+p.flip {
 	margin: 0px;
 	padding: 5px;
 	text-align: center;
@@ -59,21 +40,42 @@ div.panel {
 <body>
 
 	<table border="1">
+		<tr>
+			<td>Select Response Type: </td>
+			<td><select name="responseType" id="responseType">
+				<option value="null" selected>Default</option>
+				<option value="Text">Text</option>
+				<option value="Text With Unit">Text With Unit</option>
+				<option value="Radio Buttons">Radio Buttons</option>
+				<option value="Check Boxes">Check Boxes</option>
+				<option value="Paragraph Text">Paragraph Text</option>
+			</select></td>
+		</tr>
+	</table>
+	<table border="1">
+
 
 		<tr>
-			<th width="1000"><p class="flip" >Question #</p></th>
-			<th><button type="button" class="plusBtn" id="plusBtn" value="+">+</button></th>			
+			<th width="1000"><p class="flip">Question #</p></th>
+			<th><button type="button" class="plusBtn" id="plusBtn" value="+">+</button></th>
 		</tr>
 
-
+			
 		<tr>
 			<td><div class="panel">
-			<p>Question Information</p>
-			</div></td>
+					<p>Response Type</p>
+					<span id="insert"></span>
+					<span id="insert2"></span>
+				</div></td>
 		</tr>
 		
-		
+
 	</table>
+	<%
+
+	
+	%>
+
 
 </body>
 

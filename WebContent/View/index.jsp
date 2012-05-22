@@ -5,33 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Questionnaire System</title>
 
-<style type="text/css">
-#div1 {
-    width: 350px;
-    height: 70px;
-    padding: 10px;
-    border: 1px solid #aaaaaa;
-}
 
-#drag {
-    position: relative;
-    display: block;
-    
-}
-
-#headerblock {
-    width: 18em;
-    background-color: black;
-    color: blue;
-}
-#wrapper {
-    width: 18em;
-    height: auto;
-    background-color: grey;
-    color: blue;
-}
-
-</style>
 
   <script src="../Js/jquery-1.7.2.js"></script>
   <script src="../Js/jquery-ui-1.8.20.custom.js"></script>
