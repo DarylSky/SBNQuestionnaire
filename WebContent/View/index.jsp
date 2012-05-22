@@ -86,8 +86,56 @@
 					    var enter2 = document.createElement("<br/>");
 					    foo.appendChild(enter2);
 	                });
-				
+					
+				  $('#paragraph').click(function() {
+					  	type="textarea";
+					  	
+					  
+					  	var element = document.createElement("textarea"); 
+					    //Assign different attributes to the element.
+					    //element.setAttribute("type", type);
+					    element.setAttribute("value", "");
+					    element.setAttribute("name", type);
+					    element.setAttribute("rows",4);
+					    element.setAttribute("columns",20);
+					 
+					    var foo = document.getElementById("paragraphtext");
+					 
+					    //Append the element in page (in span).
+					    foo.appendChild(element);
+					    var enter = document.createElement("<br/>");
+					    foo.appendChild(enter);
+					    var enter2 = document.createElement("<br/>");
+					    foo.appendChild(enter2);
+	                });
+				  
+				  $('#checkbox').click(function() {
+					  	type="checkbox";
+					  	type2="text";
+					  	
+					  
+					  	var element = document.createElement("input"); 
+					    //Assign different attributes to the element.
+					    element.setAttribute("type", type);
+					    element.setAttribute("value", "");
+					    element.setAttribute("name", type);
+					    var element2 = document.createElement("input"); 
+					    element2.setAttribute("type", type2);
+					    element2.setAttribute("value", "");
+					    element2.setAttribute("name", type2);
+					    var foo = document.getElementById("check");
+					 
+					    //Append the element in page (in span).
+					    foo.appendChild(element);
+					    foo.appendChild(element2);
+					    var enter = document.createElement("<br/>");
+					    foo.appendChild(enter);
+					    var enter2 = document.createElement("<br/>");
+					    foo.appendChild(enter2);
+	                });
 			 	 });
+			  
+			  	
   
   			</script>
   
@@ -106,7 +154,7 @@
                     <li id="text"><a href="#">Text</a></li>
                     <li><a href="#">Text With Unit</a></li>
                     <li id="paragraph"><a href="#">Paragraph Text</a></li>
-                    <li><a href="#">Check Box</a></li>
+                    <li id="checkbox"><a href="#">Check Box</a></li>
                     <li><a href="#">Drop Down List</a></li>
                     <li id="radio"><a href="#">Radio Button</a></li>
                 </ul>
@@ -132,7 +180,7 @@
 		<span id="textbox"></span>
 		<span id="paragraphtext"></span>
 		<span id="dropdownlist"></span>
-		<span id="checkbox"></span>
+		<span id="check"></span>
 		<span id="radiobutton"></span>
 	
 	</body>
