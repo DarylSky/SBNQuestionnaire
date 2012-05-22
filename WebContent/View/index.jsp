@@ -41,9 +41,53 @@
 		                        //hide its submenu
 		                        $('ul', this).slideUp(100);        
 		                    }
-		                );
+		          );
 			  
-			 	 })
+				  $('#text').click(function() {
+					  	type="text";
+					  	
+					  
+					  	var element = document.createElement("input"); 
+					    //Assign different attributes to the element.
+					    element.setAttribute("type", type);
+					    element.setAttribute("value", "");
+					    element.setAttribute("name", type);
+					 
+					    var foo = document.getElementById("textbox");
+					 
+					    //Append the element in page (in span).
+					    foo.appendChild(element);
+					    var enter = document.createElement("<br/>");
+					    foo.appendChild(enter);
+					    var enter2 = document.createElement("<br/>");
+					    foo.appendChild(enter2);
+	                });
+				  $('#radio').click(function() {
+					  	type="radio";
+					  	type2="text";
+					  	
+					  
+					  	var element = document.createElement("input"); 
+					    //Assign different attributes to the element.
+					    element.setAttribute("type", type);
+					    element.setAttribute("value", "");
+					    element.setAttribute("name", type);
+					    var element2 = document.createElement("input"); 
+					    element2.setAttribute("type", type2);
+					    element2.setAttribute("value", "");
+					    element2.setAttribute("name", type2);
+					    var foo = document.getElementById("radiobutton");
+					 
+					    //Append the element in page (in span).
+					    foo.appendChild(element);
+					    foo.appendChild(element2);
+					    var enter = document.createElement("<br/>");
+					    foo.appendChild(enter);
+					    var enter2 = document.createElement("<br/>");
+					    foo.appendChild(enter2);
+	                });
+				
+			 	 });
   
   			</script>
   
@@ -59,18 +103,19 @@
             </li>
             <li><a href="">Answer Field</a>    
                 <ul>
-                    <li><a href="#">Text</a></li>
+                    <li id="text"><a href="#">Text</a></li>
                     <li><a href="#">Text With Unit</a></li>
-                    <li><a href="#">Paragraph Text</a></li>
+                    <li id="paragraph"><a href="#">Paragraph Text</a></li>
                     <li><a href="#">Check Box</a></li>
                     <li><a href="#">Drop Down List</a></li>
-                    <li><a href="#">Radio Button</a></li>
+                    <li id="radio"><a href="#">Radio Button</a></li>
                 </ul>
             </li>
             <li id="guidance"><a href="">Guidance</a></li>
             <li id="attachment"><a href="">Attachment</a></li>
         </ul>
 
+		<br/>
         <div class="clear"></div>
 		<br/>
 		<div id="div">
@@ -82,6 +127,13 @@
 		<input id="TextField" type="text" disabled="disabled" />
 		<img src="../Images/Movingcursor.png" height="10px" width="10px" />
 		</div>
+		
+		
+		<span id="textbox"></span>
+		<span id="paragraphtext"></span>
+		<span id="dropdownlist"></span>
+		<span id="checkbox"></span>
+		<span id="radiobutton"></span>
 	
 	</body>
 </html>
