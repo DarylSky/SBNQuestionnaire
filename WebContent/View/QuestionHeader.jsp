@@ -7,6 +7,8 @@
 <head>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
 <script type="text/javascript" src="jquery.js"></script>
+<script src="../Js/jquery-1.7.2.js"></script>
+<script src="../Js/jquery-ui-1.8.20.custom.js"></script>
 <script src="../Js/basic.js"></script>
 <link rel="stylesheet" type="text/css" href="../CSS/style.css" />	
 
