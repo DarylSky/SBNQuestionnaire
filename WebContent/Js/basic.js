@@ -81,8 +81,8 @@ function resizeElementHeight(element) {
 
 
 $(document).ready(function(){
-	
-	
+
+
 	$("#PlusBtn").click(function(){
 	    $("#tableslide").slideToggle("slow");
 	  });
@@ -115,6 +115,18 @@ $(document).ready(function(){
 	                  $('ul', this).slideUp(100);
 	              }
 	    );
+
+
+	    $('#question').click(function(){
+
+	        document.getElementById('question1').innerHTML += "<table border=\"1\"><tr><th width=\"1000\"><p class=\"flip\">Question #</p></th>" +
+	                "<th><button type=\"button\" class=\"plusBtn\" id=\"plusBtn\" value=\"+\">+</button></th></tr><tr><td><div class=\"panel\">" +
+	                        "<p>Response Type</p><span id=\"insert\"></span><span id=\"insert2\"></span></div></td></tr></table>";
+
+	    });
+
+
+
 	    $('#questionnumber').click(function() {
 	          type="text";
 
@@ -142,7 +154,7 @@ $(document).ready(function(){
 	          var enter2 = document.createElement("<br/>");
 	          foo.appendChild(enter2);
 	      });
-	    
+
 	    $('#shorttext').click(function() {
 	          type="text";
 

@@ -61,6 +61,7 @@ $(document).ready(function() {
 		<img src="../Images/Movingcursor.png" height="10px" width="10px" />
 		</div>
 		
+        <span id="question1"></span>
 		<span id="questionnum"></span>
 		<span id="shorttextbox"></span>
 		<span id="longtextbox"></span>
