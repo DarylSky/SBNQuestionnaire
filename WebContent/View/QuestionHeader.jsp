@@ -62,11 +62,15 @@ div.panel {
 
 			
 		<tr>
-			<td><div class="panel">
+			<td>
+			<div class="panel">
+			
 					<p>Response Type</p>
 					<span id="insert"></span>
 					<span id="insert2"></span>
-				</div></td>
+					
+			</div>
+			</td>
 		</tr>
 		
 

@@ -134,6 +134,14 @@ body {font-family:arial; font-size:11px;}
     color: blue;
 }
 
+p.flip {
+	margin: 0px;
+	padding: 5px;
+	text-align: center;
+	background: #A9A9F5;
+	border: solid 1px #c3c3c3;
+}
+
 
 
 
