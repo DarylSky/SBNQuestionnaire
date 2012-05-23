@@ -64,18 +64,6 @@ function changeBtn()
 	}
 }
 
-function resizeElementHeight(element) {
-	  var height = 0;
-	  var body = window.document.body;
-	  if (window.innerHeight) {
-	      height = window.innerHeight;
-	  } else if (body.parentElement.clientHeight) {
-	      height = body.parentElement.clientHeight;
-	  } else if (body && body.clientHeight) {
-	      height = body.clientHeight;
-	  }
-	  element.style.height = ((height - element.offsetTop) + "px");
-	}
 
 $(document).ready(function() {
     $('#append').click(function() {
@@ -291,7 +279,17 @@ $(document).ready(function() {
 
       });
 
-
-
    });
 
+function resizeElementHeight(element) {
+	  var height = 0;
+	  var body = window.document.body;
+	  if (window.innerHeight) {
+	      height = window.innerHeight;
+	  } else if (body.parentElement.clientHeight) {
+	      height = body.parentElement.clientHeight;
+	  } else if (body && body.clientHeight) {
+	      height = body.clientHeight;
+	  }
+	  element.style.height = ((height - element.offsetTop) + "px");
+	}
