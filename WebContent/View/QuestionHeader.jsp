@@ -5,10 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
 <script type="text/javascript" src="jquery.js"></script>
 <script src="../Js/basic.js"></script>
+<link rel="stylesheet" type="text/css" href="../CSS/style.css" />	
+
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -19,21 +20,7 @@
 	});
 </script>
 
-<style type="text/css">
-p.flip {
-	margin: 0px;
-	padding: 5px;
-	text-align: center;
-	background: #A9A9F5;
-	border: solid 1px #c3c3c3;
-}
 
-div.panel {
-	height: 120px;
-	display: none;
-	background: white;
-}
-</style>
 </head>
 
 

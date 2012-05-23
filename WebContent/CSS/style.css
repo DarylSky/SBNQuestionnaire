@@ -22,3 +22,17 @@
     background-color: grey;
     color: blue;
 }
+
+p.flip {
+	margin: 0px;
+	padding: 5px;
+	text-align: center;
+	background: #A9A9F5;
+	border: solid 1px #c3c3c3;
+}
+
+div.panel {
+	height: 120px;
+	display: none;
+	background: white;
+}
