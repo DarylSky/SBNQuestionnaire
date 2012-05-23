@@ -49,9 +49,9 @@ $(".PlusBtn").click(function(){
 		</tr>
 
 			
-		<tr>
+		<tr id="questionpanel">
 			<td>
-			<div class="questionPanel">
+			<div>
 			
 					<p>Response Type</p>
 					<span id="insert"></span>

@@ -28,6 +28,7 @@ $(document).ready(function() {
             <li id="question"><a href="#">Question</a></li>
             <li><a href="">Text Field</a> 
                 <ul>
+                	 <li id="questionnumber"><a href="#">Question Number</a></li>
                     <li id="shorttext"><a href="#">Short</a></li>
                     <li id="longtext"><a href="#">Long</a></li>
                 </ul>
@@ -40,6 +41,7 @@ $(document).ready(function() {
                     <li id="checkbox"><a href="#">Check Box</a></li>
                     <li id="dropdown"><a href="#">Drop Down List</a></li>
                     <li id="radio"><a href="#">Radio Button</a></li>
+                     <li id="timetable"><a href="#">Time Table</a></li>
                 </ul>
             </li>
             <li id="guidance"><a href="">Guidance</a></li>
@@ -59,6 +61,7 @@ $(document).ready(function() {
 		<img src="../Images/Movingcursor.png" height="10px" width="10px" />
 		</div>
 		
+		<span id="questionnum"></span>
 		<span id="shorttextbox"></span>
 		<span id="longtextbox"></span>
 		<span id="textbox"></span>

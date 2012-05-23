@@ -82,6 +82,7 @@ function resizeElementHeight(element) {
 
 $(document).ready(function(){
 	
+	
 	$("#PlusBtn").click(function(){
 	    $("#tableslide").slideToggle("slow");
 	  });
@@ -114,6 +115,34 @@ $(document).ready(function(){
 	                  $('ul', this).slideUp(100);
 	              }
 	    );
+	    $('#questionnumber').click(function() {
+	          type="text";
+
+
+	          var element = document.createElement("input");
+	          //Assign different attributes to the element.
+	          element.setAttribute("type", type);
+	          element.setAttribute("name", type);
+	          element.setAttribute("size", 5);
+	          element.setAttribute("maxlength", 5);
+	          //<img src="../Images/Movingcursor.png" height="10px" width="10px" />
+	          var image = document.createElement("img");
+	          image.setAttribute("src","../Images/Movingcursor.png");
+	          image.setAttribute("height","10px");
+	          image.setAttribute("width","10px");
+
+
+	          var foo = document.getElementById("questionnum");
+
+	          //Append the element in page (in span).
+	          foo.appendChild(element);
+	          foo.appendChild(image);
+	          var enter = document.createElement("<br/>");
+	          foo.appendChild(enter);
+	          var enter2 = document.createElement("<br/>");
+	          foo.appendChild(enter2);
+	      });
+	    
 	    $('#shorttext').click(function() {
 	          type="text";
 
