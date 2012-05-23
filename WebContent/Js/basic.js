@@ -64,6 +64,8 @@ function changeBtn()
 	}
 }
 
+
+
 function resizeElementHeight(element) {
 	  var height = 0;
 	  var body = window.document.body;
@@ -77,221 +79,222 @@ function resizeElementHeight(element) {
 	  element.style.height = ((height - element.offsetTop) + "px");
 	}
 
-$(document).ready(function() {
-    $('#append').click(function() {
-        $(this).parent().append('<div id="divId"><br/><input type="checkbox" id="checkboxId" /><input id="inputId" /><br/><br/><input type="button" id="removeButton" value="close" />');
-    });
-    $('#removeButton').click(function() {
-        $(this).parent().remove();
-    });
-    $('#drag').draggable({
-        cancel: 'input'
-    });
 
-    $(function(){
-        $("div").draggable();
-        $("div2").draggable();
-        $("textarea").draggable();
-        $("TextField").draggable();
+$(document).ready(function(){
+	
+	$("#PlusBtn").click(function(){
+	    $("#tableslide").slideToggle("slow");
+	  });
+	 $('#append').click(function() {
+	        $(this).parent().append('<div id="divId"><br/><input type="checkbox" id="checkboxId" /><input id="inputId" /><br/><br/><input type="button" id="removeButton" value="close" />');
+	    });
+	    $('#removeButton').click(function() {
+	        $(this).parent().remove();
+	    });
+	    $('#drag').draggable({
+	        cancel: 'input'
+	    });
 
-    });
+	    $(function(){
+	        $("div").draggable();
+	        $("div2").draggable();
+	        $("textarea").draggable();
+	        $("TextField").draggable();
 
-    $('#nav li').hover(
-              function () {
-                  //show its submenu
-                  $('ul', this).slideDown(100);
+	    });
 
-              },
-              function () {
-                  //hide its submenu
-                  $('ul', this).slideUp(100);
-              }
-    );
-    $('#shorttext').click(function() {
-          type="text";
+	    $('#nav li').hover(
+	              function () {
+	                  //show its submenu
+	                  $('ul', this).slideDown(100);
 
-
-          var element = document.createElement("input");
-          //Assign different attributes to the element.
-          element.setAttribute("type", type);
-          element.setAttribute("name", type);
-          element.setAttribute("size", 20);
-
-          var foo = document.getElementById("shorttextbox");
-
-          //Append the element in page (in span).
-          foo.appendChild(element);
-          var enter = document.createElement("<br/>");
-          foo.appendChild(enter);
-          var enter2 = document.createElement("<br/>");
-          foo.appendChild(enter2);
-      });
+	              },
+	              function () {
+	                  //hide its submenu
+	                  $('ul', this).slideUp(100);
+	              }
+	    );
+	    $('#shorttext').click(function() {
+	          type="text";
 
 
-    $('#longtext').click(function() {
-          type="text";
+	          var element = document.createElement("input");
+	          //Assign different attributes to the element.
+	          element.setAttribute("type", type);
+	          element.setAttribute("name", type);
+	          element.setAttribute("size", 20);
+
+	          var foo = document.getElementById("shorttextbox");
+
+	          //Append the element in page (in span).
+	          foo.appendChild(element);
+	          var enter = document.createElement("<br/>");
+	          foo.appendChild(enter);
+	          var enter2 = document.createElement("<br/>");
+	          foo.appendChild(enter2);
+	      });
 
 
-          var element = document.createElement("input");
-          //Assign different attributes to the element.
-          element.setAttribute("type", type);
-          element.setAttribute("name", type);
-          element.setAttribute("size", 100);
-
-          var foo = document.getElementById("longtextbox");
-
-          //Append the element in page (in span).
-          foo.appendChild(element);
-          var enter = document.createElement("<br/>");
-          foo.appendChild(enter);
-          var enter2 = document.createElement("<br/>");
-          foo.appendChild(enter2);
-      });
-    $('#text').click(function() {
-          type="text";
+	    $('#longtext').click(function() {
+	          type="text";
 
 
-          var element = document.createElement("input");
-          //Assign different attributes to the element.
-          element.setAttribute("type", type);
-          element.setAttribute("name", type);
-          element.setAttribute("disabled","disabled");
+	          var element = document.createElement("input");
+	          //Assign different attributes to the element.
+	          element.setAttribute("type", type);
+	          element.setAttribute("name", type);
+	          element.setAttribute("size", 100);
 
-          var foo = document.getElementById("textbox");
+	          var foo = document.getElementById("longtextbox");
 
-          //Append the element in page (in span).
-          foo.appendChild(element);
-          var enter = document.createElement("<br/>");
-          foo.appendChild(enter);
-          var enter2 = document.createElement("<br/>");
-          foo.appendChild(enter2);
-      });
-    $('#radio').click(function() {
-          type="radio";
-          type2="text";
-
-
-          var element = document.createElement("input");
-          //Assign different attributes to the element.
-          element.setAttribute("type", type);
-          element.setAttribute("value", "");
-          element.setAttribute("name", type);
-          var element2 = document.createElement("input");
-          element2.setAttribute("type", type2);
-          element2.setAttribute("value", "");
-          element2.setAttribute("name", type2);
-          var foo = document.getElementById("radiobutton");
-
-          //Append the element in page (in span).
-          foo.appendChild(element);
-          foo.appendChild(element2);
-          var enter = document.createElement("<br/>");
-          foo.appendChild(enter);
-          var enter2 = document.createElement("<br/>");
-          foo.appendChild(enter2);
-      });
-
-    $('#paragraph').click(function() {
-          type="textarea";
+	          //Append the element in page (in span).
+	          foo.appendChild(element);
+	          var enter = document.createElement("<br/>");
+	          foo.appendChild(enter);
+	          var enter2 = document.createElement("<br/>");
+	          foo.appendChild(enter2);
+	      });
+	    $('#text').click(function() {
+	          type="text";
 
 
-          var element = document.createElement("textarea");
-          //Assign different attributes to the element.
-          //element.setAttribute("type", type);
-          element.setAttribute("value", "");
-          element.setAttribute("name", type);
-          element.setAttribute("rows",4);
-          element.setAttribute("columns",20);
+	          var element = document.createElement("input");
+	          //Assign different attributes to the element.
+	          element.setAttribute("type", type);
+	          element.setAttribute("name", type);
+	          element.setAttribute("disabled","disabled");
 
-          var foo = document.getElementById("paragraphtext");
+	          var foo = document.getElementById("textbox");
 
-          //Append the element in page (in span).
-          foo.appendChild(element);
-          var enter = document.createElement("<br/>");
-          foo.appendChild(enter);
-          var enter2 = document.createElement("<br/>");
-          foo.appendChild(enter2);
-      });
-
-    $('#checkbox').click(function() {
-          type="checkbox";
-          type2="text";
+	          //Append the element in page (in span).
+	          foo.appendChild(element);
+	          var enter = document.createElement("<br/>");
+	          foo.appendChild(enter);
+	          var enter2 = document.createElement("<br/>");
+	          foo.appendChild(enter2);
+	      });
+	    $('#radio').click(function() {
+	          type="radio";
+	          type2="text";
 
 
-          var element = document.createElement("input");
-          //Assign different attributes to the element.
-          element.setAttribute("type", type);
-          element.setAttribute("value", "");
-          element.setAttribute("name", type);
-          var element2 = document.createElement("input");
-          element2.setAttribute("type", type2);
-          element2.setAttribute("value", "");
-          element2.setAttribute("name", type2);
-          var foo = document.getElementById("check");
+	          var element = document.createElement("input");
+	          //Assign different attributes to the element.
+	          element.setAttribute("type", type);
+	          element.setAttribute("value", "");
+	          element.setAttribute("name", type);
+	          var element2 = document.createElement("input");
+	          element2.setAttribute("type", type2);
+	          element2.setAttribute("value", "");
+	          element2.setAttribute("name", type2);
+	          var foo = document.getElementById("radiobutton");
 
-          //Append the element in page (in span).
-          foo.appendChild(element);
-          foo.appendChild(element2);
-          var enter = document.createElement("<br/>");
-          foo.appendChild(enter);
-          var enter2 = document.createElement("<br/>");
-          foo.appendChild(enter2);
-      });
+	          //Append the element in page (in span).
+	          foo.appendChild(element);
+	          foo.appendChild(element2);
+	          var enter = document.createElement("<br/>");
+	          foo.appendChild(enter);
+	          var enter2 = document.createElement("<br/>");
+	          foo.appendChild(enter2);
+	      });
 
-    $('#dropdown').click(function() {
-          type="width:100px";
-          type2="text";
-
-
-          var element = document.createElement("select");
-          //Assign different attributes to the element.
-          element.setAttribute("style", type);
-
-          var foo = document.getElementById("dropdownlist");
-
-          //Append the element in page (in span).
-          foo.appendChild(element);
-
-          var enter = document.createElement("<br/>");
-          foo.appendChild(enter);
-          var enter2 = document.createElement("<br/>");
-          foo.appendChild(enter2);
-
-      });
-
-    $('#textunit').click(function() {
-          type="width:100px";
+	    $('#paragraph').click(function() {
+	          type="textarea";
 
 
+	          var element = document.createElement("textarea");
+	          //Assign different attributes to the element.
+	          //element.setAttribute("type", type);
+	          element.setAttribute("value", "");
+	          element.setAttribute("name", type);
+	          element.setAttribute("rows",4);
+	          element.setAttribute("columns",20);
 
-          var element = document.createElement("select");
-          //Assign different attributes to the element.
-          element.setAttribute("style", type);
+	          var foo = document.getElementById("paragraphtext");
 
-          type2="text";
+	          //Append the element in page (in span).
+	          foo.appendChild(element);
+	          var enter = document.createElement("<br/>");
+	          foo.appendChild(enter);
+	          var enter2 = document.createElement("<br/>");
+	          foo.appendChild(enter2);
+	      });
+
+	    $('#checkbox').click(function() {
+	          type="checkbox";
+	          type2="text";
 
 
-          var element2 = document.createElement("input");
-          //Assign different attributes to the element.
-          element2.setAttribute("type", type2);
-          element2.setAttribute("name", type2);
+	          var element = document.createElement("input");
+	          //Assign different attributes to the element.
+	          element.setAttribute("type", type);
+	          element.setAttribute("value", "");
+	          element.setAttribute("name", type);
+	          var element2 = document.createElement("input");
+	          element2.setAttribute("type", type2);
+	          element2.setAttribute("value", "");
+	          element2.setAttribute("name", type2);
+	          var foo = document.getElementById("check");
+
+	          //Append the element in page (in span).
+	          foo.appendChild(element);
+	          foo.appendChild(element2);
+	          var enter = document.createElement("<br/>");
+	          foo.appendChild(enter);
+	          var enter2 = document.createElement("<br/>");
+	          foo.appendChild(enter2);
+	      });
+
+	    $('#dropdown').click(function() {
+	          type="width:100px";
+	          type2="text";
 
 
-          var foo = document.getElementById("textu");
+	          var element = document.createElement("select");
+	          //Assign different attributes to the element.
+	          element.setAttribute("style", type);
 
-          //Append the element in page (in span).
-          foo.appendChild(element2);
+	          var foo = document.getElementById("dropdownlist");
 
-          foo.appendChild(element);
+	          //Append the element in page (in span).
+	          foo.appendChild(element);
 
-          var enter = document.createElement("<br/>");
-          foo.appendChild(enter);
-          var enter2 = document.createElement("<br/>");
-          foo.appendChild(enter2);
+	          var enter = document.createElement("<br/>");
+	          foo.appendChild(enter);
+	          var enter2 = document.createElement("<br/>");
+	          foo.appendChild(enter2);
 
-      });
+	      });
+
+	    $('#textunit').click(function() {
+	          type="width:100px";
 
 
 
-   });
+	          var element = document.createElement("select");
+	          //Assign different attributes to the element.
+	          element.setAttribute("style", type);
 
+	          type2="text";
+
+
+	          var element2 = document.createElement("input");
+	          //Assign different attributes to the element.
+	          element2.setAttribute("type", type2);
+	          element2.setAttribute("name", type2);
+
+
+	          var foo = document.getElementById("textu");
+
+	          //Append the element in page (in span).
+	          foo.appendChild(element2);
+
+	          foo.appendChild(element);
+
+	          var enter = document.createElement("<br/>");
+	          foo.appendChild(enter);
+	          var enter2 = document.createElement("<br/>");
+	          foo.appendChild(enter2);
+
+	      });
+	});

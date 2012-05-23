@@ -7,19 +7,18 @@
 <head>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
 <script type="text/javascript" src="jquery.js"></script>
-<script src="../Js/jquery-1.7.2.js"></script>
-<script src="../Js/jquery-ui-1.8.20.custom.js"></script>
+		  <script src="../Js/jquery-1.7.2.js"></script>
+		  <script src="../Js/jquery-ui-1.8.20.custom.js"></script>
 <script src="../Js/basic.js"></script>
 <link rel="stylesheet" type="text/css" href="../CSS/style.css" />	
 
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		$(".plusBtn").click(function() {
-			$(".panel").slideToggle("slow");
-			changeBtn();
-		});
-	});
+<script type="text/javascript"> 
+$(document).ready(function(){
+$(".PlusBtn").click(function(){
+    $(".questionPanel").slideToggle("slow");
+  });
+});
 </script>
 
 
@@ -46,13 +45,13 @@
 
 		<tr>
 			<th width="1000"><p class="flip">Question #</p></th>
-			<th><button type="button" class="plusBtn" id="plusBtn" value="+">+</button></th>
+			<th><button type="button" class="plusBtn" id="PlusBtn" value="+">+</button></th>
 		</tr>
 
 			
 		<tr>
 			<td>
-			<div class="panel">
+			<div class="questionPanel">
 			
 					<p>Response Type</p>
 					<span id="insert"></span>

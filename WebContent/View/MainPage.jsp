@@ -12,6 +12,15 @@
 		  <style type="text/css">
 		    #draggable { width: 100px; height: 70px; background: silver; }
 		  </style>
+<script>
+$(document).ready(function() {
+   
+
+   });
+
+
+</script>
+
   
 	</head>
 	<body>
