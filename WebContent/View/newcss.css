@@ -1,24 +1,26 @@
-/* 
-    Document   : newcss
-    Created on : May 18, 2012, 3:33:43 PM
-    Author     : I071985
-    Description:
-        Purpose of the stylesheet follows.
-*/
 
 root { 
-    display: block;
-    
-    
+    display: block;   
 }
 
-body {font-family:arial; font-size:11px;}
-.clear {clear:both}
-/* remove the list style */
+body {
+	font-family:arial;
+	font-size:11px;
+ 	margin:0;
+    padding:0;
+    }
+    
+.clear{
+	clear:both
+	}
+
 #nav {
     margin:0;
     padding:0;
     list-style:none;
+    position: fixed;
+  	background: blue;
+  	vertical-align: top;
 }  
      
     /* make the LI display inline */
@@ -141,7 +143,6 @@ p.flip {
 	background: #A9A9F5;
 	border: solid 1px #c3c3c3;
 }
-
 
 
 

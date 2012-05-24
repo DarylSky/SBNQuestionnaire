@@ -10,7 +10,7 @@
 		  <script src="../Js/jquery-ui-1.8.20.custom.js"></script>
           <script src="../Js/basic.js"></script>
 		  <style type="text/css">
-		    #draggable { width: 100px; height: 70px; background: silver; }
+		  #draggable { width: 100px; height: 70px; background: silver; }
 		  </style>
 <script>
 $(document).ready(function() {
@@ -24,6 +24,7 @@ $(document).ready(function() {
   
 	</head>
 	<body>
+  <div id = "mainPanel" width="1000">
 		<ul id="nav">
             <li id="question"><a href="#">Question</a></li>
             <li><a href="">Text Field</a> 
@@ -47,29 +48,14 @@ $(document).ready(function() {
             <li id="guidance"><a href="">Guidance</a></li>
             <li id="attachment"><a href="">Attachment</a></li>
         </ul>
-
+		
+		<br/>
 		<br/>
         <div class="clear"></div>
 		<br/>
-		<div id="div">
-		<textArea id ="textarea" disabled="disabled"></textArea>
-		<img src="../Images/Movingcursor.png" height="10px" width="10px" />
-		</div>
 		
-		<div id="div2">
-		<input id="TextField" type="text" disabled="disabled" />
-		<img src="../Images/Movingcursor.png" height="10px" width="10px" />
-		</div>
-		
-		<span id="questionnum"></span>
-		<span id="shorttextbox"></span>
-		<span id="longtextbox"></span>
-		<span id="textbox"></span>
-		<span id="paragraphtext"></span>
-		<span id="dropdownlist"></span>
-		<span id="check"></span>
-		<span id="textu"></span>
-		<span id="radiobutton"></span>
+        <div id="question1"></div>
 	
+  </div>
 	</body>
 </html>
