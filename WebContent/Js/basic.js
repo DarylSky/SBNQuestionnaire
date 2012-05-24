@@ -116,7 +116,7 @@ $(document).ready(function(){
 
 	       $('#question').click(function(){
 
-	            document.getElementById('question1').innerHTML += "<table border=\"1\"><tr><th width=\"800\"><p class=\"flip\">Question #</p></th><th><button type=\"button\" href=\"#\" class=\"plusBtn\" id=\"PlusBtn\" value=\"+\">+</button></th>" +
+	            document.getElementById('question1').innerHTML += "<table border=\"1\"><tr><th width=\"965\"><p class=\"flip\">Question #</p></th><th><button type=\"button\" href=\"#\" class=\"plusBtn\" id=\"PlusBtn\" value=\"+\">+</button></th>" +
 	            "</tr><tr id=\"tableslide\" href=\"#\"><td><div><p>Response Type</p><span id=\"insert\"></span><span id=\"insert2\"></span>"+
 	            "</div> </td></tr></table>"; /*+
 	                            "<script type=\"text/javascript\">  $(document).ready(function(){$(\".PlusBtn\").click(function(){$(\".tableslide\").slideToggle(\"slow\");" +

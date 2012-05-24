@@ -10,7 +10,7 @@
 		  <script src="../Js/jquery-ui-1.8.20.custom.js"></script>
           <script src="../Js/basic.js"></script>
 		  <style type="text/css">
-		    #draggable { width: 100px; height: 70px; background: silver; }
+		  #draggable { width: 100px; height: 70px; background: silver; }
 		  </style>
 <script>
 $(document).ready(function() {
@@ -48,7 +48,8 @@ $(document).ready(function() {
             <li id="guidance"><a href="">Guidance</a></li>
             <li id="attachment"><a href="">Attachment</a></li>
         </ul>
-
+		
+		<br/>
 		<br/>
         <div class="clear"></div>
 		<br/>
