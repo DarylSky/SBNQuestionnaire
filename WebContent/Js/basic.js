@@ -22,6 +22,7 @@ $(function(){
        if(selected.text()=="Radio Buttons"){
           // $("#insert").html("");
            $("#insert").html('<button type="button" id="addRadio">Add Radio</button>');
+           $("#insert").append("#insert");
            $("#addRadio").click(function(){
                var $radio = $('<br /><input type="radio" name="answerRadio"><input type="text" name="radioAns">');
                $("#insert").append($radio);
@@ -82,10 +83,6 @@ function resizeElementHeight(element) {
 
 $(document).ready(function(){
 
-
-	$("#PlusBtn").click(function(){
-	    $("#tableslide").slideToggle("slow");
-	  });
 	 $('#append').click(function() {
 	        $(this).parent().append('<div id="divId"><br/><input type="checkbox" id="checkboxId" /><input id="inputId" /><br/><br/><input type="button" id="removeButton" value="close" />');
 	    });
@@ -117,15 +114,20 @@ $(document).ready(function(){
 	    );
 
 
-	    $('#question').click(function(){
+	       $('#question').click(function(){
 
-	        document.getElementById('question1').innerHTML += "<table border=\"1\"><tr><th width=\"1000\"><p class=\"flip\">Question #</p></th>" +
-	                "<th><button type=\"button\" class=\"plusBtn\" id=\"plusBtn\" value=\"+\">+</button></th></tr><tr><td><div class=\"panel\">" +
-	                        "<p>Response Type</p><span id=\"insert\"></span><span id=\"insert2\"></span></div></td></tr></table>";
+	            document.getElementById('question1').innerHTML += "<table border=\"1\"><tr><th width=\"800\"><p class=\"flip\">Question #</p></th><th><button type=\"button\" href=\"#\" class=\"plusBtn\" id=\"PlusBtn\" value=\"+\">+</button></th>" +
+	            "</tr><tr id=\"tableslide\" href=\"#\"><td><div><p>Response Type</p><span id=\"insert\"></span><span id=\"insert2\"></span>"+
+	            "</div> </td></tr></table>"; /*+
+	                            "<script type=\"text/javascript\">  $(document).ready(function(){$(\".PlusBtn\").click(function(){$(\".tableslide\").slideToggle(\"slow\");" +
+	                            "}); });</script>";*/
+	       });
 
-	    });
-
-
+	       $(document).ready(function(){
+	           $("#PlusBtn").click(function(){
+	               $("#tableslide").slideToggle("slow");
+	             });
+	           });
 
 	    $('#questionnumber').click(function() {
 	          type="text";
@@ -158,7 +160,6 @@ $(document).ready(function(){
 	    $('#shorttext').click(function() {
 	          type="text";
 
-
 	          var element = document.createElement("input");
 	          //Assign different attributes to the element.
 	          element.setAttribute("type", type);
@@ -168,7 +169,9 @@ $(document).ready(function(){
 	          var foo = document.getElementById("shorttextbox");
 
 	          //Append the element in page (in span).
+
 	          foo.appendChild(element);
+	          foo.appendChild(image);
 	          var enter = document.createElement("<br/>");
 	          foo.appendChild(enter);
 	          var enter2 = document.createElement("<br/>");
@@ -242,7 +245,6 @@ $(document).ready(function(){
 	    $('#paragraph').click(function() {
 	          type="textarea";
 
-
 	          var element = document.createElement("textarea");
 	          //Assign different attributes to the element.
 	          //element.setAttribute("type", type);
@@ -259,6 +261,8 @@ $(document).ready(function(){
 	          foo.appendChild(enter);
 	          var enter2 = document.createElement("<br/>");
 	          foo.appendChild(enter2);
+
+
 	      });
 
 	    $('#checkbox').click(function() {
@@ -338,4 +342,4 @@ $(document).ready(function(){
 	          foo.appendChild(enter2);
 
 	      });
-	});
+	    });

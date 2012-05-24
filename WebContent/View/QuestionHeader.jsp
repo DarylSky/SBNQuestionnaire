@@ -16,7 +16,7 @@
 <script type="text/javascript"> 
 $(document).ready(function(){
 $(".PlusBtn").click(function(){
-    $(".questionPanel").slideToggle("slow");
+    $(".tableslide").slideToggle("slow");
   });
 });
 </script>
@@ -49,7 +49,7 @@ $(".PlusBtn").click(function(){
 		</tr>
 
 			
-		<tr id="questionpanel">
+		<tr id="tableslide">
 			<td>
 			<div>
 			

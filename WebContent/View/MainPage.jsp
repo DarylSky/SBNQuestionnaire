@@ -24,6 +24,7 @@ $(document).ready(function() {
   
 	</head>
 	<body>
+  <div id = "mainPanel" width="1000">
 		<ul id="nav">
             <li id="question"><a href="#">Question</a></li>
             <li><a href="">Text Field</a> 
@@ -51,17 +52,8 @@ $(document).ready(function() {
 		<br/>
         <div class="clear"></div>
 		<br/>
-		<div id="div">
-		<textArea id ="textarea" disabled="disabled"></textArea>
-		<img src="../Images/Movingcursor.png" height="10px" width="10px" />
-		</div>
 		
-		<div id="div2">
-		<input id="TextField" type="text" disabled="disabled" />
-		<img src="../Images/Movingcursor.png" height="10px" width="10px" />
-		</div>
-		
-        <span id="question1"></span>
+        <div id="question1"></div>
 		<span id="questionnum"></span>
 		<span id="shorttextbox"></span>
 		<span id="longtextbox"></span>
@@ -72,5 +64,6 @@ $(document).ready(function() {
 		<span id="textu"></span>
 		<span id="radiobutton"></span>
 	
+  </div>
 	</body>
 </html>
