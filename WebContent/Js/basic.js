@@ -82,6 +82,7 @@ function resizeElementHeight(element) {
 
 $(document).ready(function(){
 	
+	intquestion=0;
 	
 	$("#PlusBtn").click(function(){
 	    $("#tableslide").slideToggle("slow");
@@ -117,30 +118,55 @@ $(document).ready(function(){
 	    );
 	    $('#questionnumber').click(function() {
 	          type="text";
+	          intquestion++;
+	          imagenumber ="imagenumber"+intquestion;
+	          questionname="questionnumber" + intquestion;
+	          
 
 
 	          var element = document.createElement("input");
 	          //Assign different attributes to the element.
 	          element.setAttribute("type", type);
-	          element.setAttribute("name", type);
+	          element.setAttribute("id", questionname);
+	          element.setAttribute("name", questionname);
 	          element.setAttribute("size", 5);
 	          element.setAttribute("maxlength", 5);
 	          //<img src="../Images/Movingcursor.png" height="10px" width="10px" />
 	          var image = document.createElement("img");
-	          image.setAttribute("src","../Images/Movingcursor.png");
+	          /*image.setAttribute("src","../Images/Movingcursor.png");
 	          image.setAttribute("height","10px");
 	          image.setAttribute("width","10px");
+	          
+	          image.setAttribute("id",questionname);*/
+	          
+	          $(image).attr({ 
+	        	  src: "../Images/Movingcursor.png",
+	        	  height: "10px",
+	        	  width: "10px",
+	        	  id: imagenumber
+	        	}).click(function (e) {
+		        	$(e.delegateTarget).prev().remove();
+		        	$(e.delegateTarget).remove();
+		        	
+		        	
+	        		
+		          });
 
 
-	          var foo = document.getElementById("questionnum");
 
+	          //a = $(image).attr("id");
+	          //document.getElementById("questionnum").innerHTML+=("<p>" + a + "</p>");
+	          //var foo=document.getElementById("questionnum");
+	          var foo = $('#questionnum');
+	          foo.append(element);
 	          //Append the element in page (in span).
-	          foo.appendChild(element);
-	          foo.appendChild(image);
-	          var enter = document.createElement("<br/>");
-	          foo.appendChild(enter);
-	          var enter2 = document.createElement("<br/>");
-	          foo.appendChild(enter2);
+	          //foo.appendChild(element);
+	          foo.append(image);
+	          var enter = document.createElement("br");
+	          foo.append(enter);
+	          var enter2 = document.createElement("br");
+	          foo.append(enter2);
+	          
 	      });
 	    
 	    $('#shorttext').click(function() {
@@ -155,11 +181,12 @@ $(document).ready(function(){
 
 	          var foo = document.getElementById("shorttextbox");
 
+	          document.getElementById("shorttextbox").innerHTML+=("Question:");
 	          //Append the element in page (in span).
 	          foo.appendChild(element);
-	          var enter = document.createElement("<br/>");
+	          var enter = document.createElement("br");
 	          foo.appendChild(enter);
-	          var enter2 = document.createElement("<br/>");
+	          var enter2 = document.createElement("br");
 	          foo.appendChild(enter2);
 	      });
 
@@ -325,5 +352,12 @@ $(document).ready(function(){
 	          var enter2 = document.createElement("<br/>");
 	          foo.appendChild(enter2);
 
+	      });
+	    
+	    $("img").on("click",function(){
+	       
+	    	document.getElementById("questionnum").innerHTML+=("<p>" +"adgasdg" + "</p>");
+	    	a = $(image).attr("id");
+	        document.getElementById("questionnum").innerHTML+=("<p>" + a + "</p>");
 	      });
 	});
