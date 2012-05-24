@@ -93,13 +93,6 @@ $(document).ready(function(){
 	        cancel: 'input'
 	    });
 
-	    $(function(){
-	        $("div").draggable();
-	        $("div2").draggable();
-	        $("textarea").draggable();
-	        $("TextField").draggable();
-
-	    });
 
 	    $('#nav li').hover(
 	              function () {
@@ -117,17 +110,17 @@ $(document).ready(function(){
 	       $('#question').click(function(){
 
 	            document.getElementById('question1').innerHTML += "<table border=\"1\"><tr><th width=\"800\"><p class=\"flip\">Question #</p></th><th><button type=\"button\" href=\"#\" class=\"plusBtn\" id=\"PlusBtn\" value=\"+\">+</button></th>" +
-	            "</tr><tr id=\"tableslide\" href=\"#\"><td><div><p>Response Type</p><span id=\"insert\"></span><span id=\"insert2\"></span>"+
-	            "</div> </td></tr></table>"; /*+
-	                            "<script type=\"text/javascript\">  $(document).ready(function(){$(\".PlusBtn\").click(function(){$(\".tableslide\").slideToggle(\"slow\");" +
-	                            "}); });</script>";*/
-	       });
+	            "</tr><tr id=\"tableslide\" href=\"#\"><td><table><tr><div id=\"shorttextbox\" href=\"#\"></div></tr><tr><div id=\"questionnum\"></div></tr><tr><div id=\"longtextbox\"></div></tr>" +
+	            "<tr><div id=\"textbox\"></div></tr><tr><div id=\"paragraphtext\"></div></tr><tr><div id=\"dropdownlist\"></div></tr><tr><div id=\"check\"></div></tr><tr><div id=\"textu\"></div></tr>" +
+                "<tr><div id=\"radiobutton\"></div></tr></table>"+
+	            "</td></tr></table>";
 
-	       $(document).ready(function(){
-	           $("#PlusBtn").click(function(){
-	               $("#tableslide").slideToggle("slow");
-	             });
-	           });
+	            $(document).ready(function(){
+	                $("#PlusBtn").click(function(){
+	                    $("#tableslide").slideToggle("slow");
+	                  });
+	                });
+	       });
 
 	    $('#questionnumber').click(function() {
 	          type="text";

@@ -54,15 +54,6 @@ $(document).ready(function() {
 		<br/>
 		
         <div id="question1"></div>
-		<span id="questionnum"></span>
-		<span id="shorttextbox"></span>
-		<span id="longtextbox"></span>
-		<span id="textbox"></span>
-		<span id="paragraphtext"></span>
-		<span id="dropdownlist"></span>
-		<span id="check"></span>
-		<span id="textu"></span>
-		<span id="radiobutton"></span>
 	
   </div>
 	</body>
