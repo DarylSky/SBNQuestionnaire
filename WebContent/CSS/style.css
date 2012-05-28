@@ -24,15 +24,15 @@
 }
 
 p.flip {
-	margin: 0px;
-	padding: 5px;
-	text-align: center;
-	background: #A9A9F5;
-	border: solid 1px #c3c3c3;
+       margin: 0px;
+       padding: 5px;
+       text-align: center;
+       background: #FF9966; 
+       border: solid 1px #c3c3c3;
 }
 
 div.panel {
-	height: 120px;
-	display: none;
-	background: white;
+       height: 120px;
+       display: none;
+       background: white;
 }
