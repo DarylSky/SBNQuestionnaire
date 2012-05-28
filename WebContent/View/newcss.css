@@ -8,6 +8,7 @@ body {
        margin-top: 0;
        margin-left:auto;
        margin-right:auto;
+   
        
 }
 
@@ -36,11 +37,7 @@ body {
 
 #answerField {
        list-style-image: url(../Images/AnswerFieldHeader.png);
-<<<<<<< HEAD
              
-=======
-             	
->>>>>>> ebfdb97960dfcde425d8317eba89aa72296c4701
        
 }
 
@@ -58,7 +55,7 @@ body {
 #nav li {
        float: left;
        width: 200px;
-       background: #3399FF;
+       background: #808080;
        position: relative;
        z-index: 500;
        margin: 0 1px;
@@ -75,6 +72,8 @@ body {
        vertical-align: middle;
        color: white;
        font-size: 120%;
+       font-family:"Eurostile"} 
+
 }
 
 #nav li a:hover {
@@ -171,11 +170,4 @@ div.panel {
        display: none;
        background: white;
 }
-
-p:hover {
-
-border: solid 1px #c3c3c3;
-    
-}
-
 

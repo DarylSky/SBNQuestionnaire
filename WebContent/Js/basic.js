@@ -59,7 +59,7 @@ $(document).ready(function(){
               "<script src=\"../Js/JqueryUI/jquery.ui.widget.js\"></script>" +
               "<script src=\"../Js/JqueryUI/jquery.ui.mouse.js\"></script>" +
               "<script src=\"../Js/JqueryUI/jquery.ui.sortable.js\"></script>" +
-              "<link rel=\"stylesheet\" type=\"text/css\" href=\"../CSS/style.css\" /></head>" +
+              "</head>" +
               "<table border=\"1\">" +
               "<tr>" +
               "<th width=\"965\"><p class=\"flip\">Question #</p></th>" +
@@ -140,8 +140,11 @@ $(document).ready(function(){
 	          intquestion++;
 	          imagenumber ="imagenumber"+intquestion;
 	          questionname="questionnumber" + intquestion;
-	          
 
+	          var draggable_image = document.createElement("img");
+	          draggable_image.setAttribute("src", "../Images/sort_icons.png");
+	          draggable_image.setAttribute("height", "20px");
+	          draggable_image.setAttribute("width", "20px");
 
 	          var element = document.createElement("input");
 	          //Assign different attributes to the element.
@@ -150,11 +153,11 @@ $(document).ready(function(){
 	          element.setAttribute("name", questionname);
 	          element.setAttribute("size", 5);
 	          element.setAttribute("maxlength", 5);
-	         
+
 	          var image = document.createElement("img");
-	         
-	          
-	          $(image).attr({ 
+
+
+	          $(image).attr({
 	        	  src: "../Images/Delete.jpg",
 	        	  height: "10px",
 	        	  width: "10px",
@@ -165,17 +168,17 @@ $(document).ready(function(){
 		        	$(e.target).prev().remove('br');
 		        	$(e.target).prev().remove('br');
 		        	$(e.target).remove();
-		        	
-		        	
-	        		
+
+
+
 		          });
 
 
-
-	          
-	          $("#questionnum").append("<b>Question #:</b>");
-	          
 	          var foo = $('#questionnum');
+	          foo.append(draggable_image);
+	          $("#questionnum").append("<b>Question #:</b>");
+
+
 	          foo.append(element);
 	          //Append the element in page (in span).
 	          //foo.appendChild(element);
@@ -193,6 +196,11 @@ $(document).ready(function(){
 	          shortimagenumber ="shortimagenumber"+intshort;
 	          shortbox="shorttextbox" + intshort;
 
+	           var draggable_image = document.createElement("img");
+	              draggable_image.setAttribute("src", "../Images/sort_icons.png");
+	              draggable_image.setAttribute("height", "20px");
+	              draggable_image.setAttribute("width", "20px");
+
 
 	          var element = document.createElement("input");
 	          //Assign different attributes to the element.
@@ -200,9 +208,9 @@ $(document).ready(function(){
 	          element.setAttribute("name",shortbox);
 	          element.setAttribute("id", shortbox);
 	          element.setAttribute("size", 20);
-	          
+
 	         var image = document.createElement("img");
-	          $(image).attr({ 
+	          $(image).attr({
 	        	  src:  "../Images/Delete.jpg",
 	        	  height: "10px",
 	        	  width: "10px",
@@ -213,12 +221,14 @@ $(document).ready(function(){
 		        	$(e.target).prev().remove('br');
 		        	$(e.target).prev().remove('br');
 		        	$(e.target).remove();
-		        	
-	        		
+
+
 		      });
 
+	           var foo = $('#shorttextbox');
+	           foo.append(draggable_image);
+
 	          $("#shorttextbox").append("<b>Question:</b>");
-	          var foo = $('#shorttextbox');
 	          foo.append(element);
 	          //Append the element in page (in span).
 	          //foo.appendChild(element);
@@ -236,6 +246,11 @@ $(document).ready(function(){
 	         longimagenumber ="longimagenumber"+intlong;
 	         longbox="longtext" + intlong;
 
+	            var draggable_image = document.createElement("img");
+	              draggable_image.setAttribute("src", "../Images/sort_icons.png");
+	              draggable_image.setAttribute("height", "20px");
+	              draggable_image.setAttribute("width", "20px");
+
 
 	          var element = document.createElement("input");
 	          //Assign different attributes to the element.
@@ -244,7 +259,7 @@ $(document).ready(function(){
 	          element.setAttribute("size", 100);
 
 	         var image = document.createElement("img");
-	          $(image).attr({ 
+	          $(image).attr({
 	        	  src:  "../Images/Delete.jpg",
 	        	  height: "10px",
 	        	  width: "10px",
@@ -254,11 +269,13 @@ $(document).ready(function(){
 		        	$(e.delegateTarget).prev().remove('b');
 		        	$(e.target).prev().remove('br');
 		        	$(e.target).prev().remove('br');
-		        	$(e.target).remove();	
+		        	$(e.target).remove();
 		      });
 
+	           var foo = $('#longtextbox');
+	          foo.append(draggable_image);
+
 	          $("#longtextbox").append("<b>Question:</b>");
-	          var foo = $('#longtextbox');
 	          foo.append(element);
 	          foo.append(image);
 	          var enter = document.createElement("br");
@@ -272,6 +289,10 @@ $(document).ready(function(){
 	        imagetextnumber ="imagetextnumber"+inttext;
 	        textnumber="text" + inttext;
 
+            var draggable_image = document.createElement("img");
+            draggable_image.setAttribute("src", "../Images/sort_icons.png");
+            draggable_image.setAttribute("height", "20px");
+            draggable_image.setAttribute("width", "20px");
 
 	          var element = document.createElement("input");
 	          //Assign different attributes to the element.
@@ -279,9 +300,9 @@ $(document).ready(function(){
 	          element.setAttribute("name", textnumber);
 	          element.setAttribute("id",textnumber);
 	          element.setAttribute("disabled","disabled");
-	          
+
 	         var image = document.createElement("img");
-	          $(image).attr({ 
+	          $(image).attr({
 	        	  src:  "../Images/Delete.jpg",
 	        	  height: "10px",
 	        	  width: "10px",
@@ -292,12 +313,13 @@ $(document).ready(function(){
 		        	$(e.target).prev().remove('br');
 		        	$(e.target).prev().remove('br');
 		        	$(e.target).remove();
-		        		        		
+
 		      });
 
-	        
-	          $("#textbox").append("<b>Answer:</b>"); 
-	          var foo = $('#textbox');
+	           var foo = $('#textbox');
+	           foo.append(draggable_image);
+
+	          $("#textbox").append("<b>Answer:</b>");
 	          foo.append(element);
 	          //Append the element in page (in span).
 	          //foo.appendChild(element);
@@ -307,7 +329,7 @@ $(document).ready(function(){
 	          var enter2 = document.createElement("br");
 	          foo.append(enter2);
        });
-       
+
        $('#radio').click(function() {
     	   type="text";
 	    	type2="radio";
@@ -316,21 +338,26 @@ $(document).ready(function(){
 	        radiotextnumber="radiotextnumber" + intradio;
 	        radiobuttonnumber = "radiobuttonnumber" +intradio;
 
+            var draggable_image = document.createElement("img");
+            draggable_image.setAttribute("src", "../Images/sort_icons.png");
+            draggable_image.setAttribute("height", "20px");
+            draggable_image.setAttribute("width", "20px");
+
 
 	          var element = document.createElement("input");
 	          //Assign different attributes to the element.
 	          element.setAttribute("type", type);
 	          element.setAttribute("name", radiotextnumber);
 	          element.setAttribute("id",radiotextnumber);
-	         
-	          
+
+
 	          var element2= document.createElement("input");
 	          element2.setAttribute("type", type2);
 	          element2.setAttribute("name", radiobuttonnumber);
 	          element2.setAttribute("id",radiobuttonnumber);
-	          
+
 	         var image = document.createElement("img");
-	          $(image).attr({ 
+	          $(image).attr({
 	        	  src:  "../Images/Delete.jpg",
 	        	  height: "10px",
 	        	  width: "10px",
@@ -341,12 +368,13 @@ $(document).ready(function(){
 		        	$(e.target).prev().remove('br');
 		        	$(e.target).prev().remove('br');
 		        	$(e.target).remove();
-		        		        		
+
 		      });
 
-	        
-	         
+
+
 	          var foo = $('#radiobutton');
+	            foo.append(draggable_image);
 	          foo.append(element2);
 	          foo.append(element);
 	          //Append the element in page (in span).
@@ -364,6 +392,10 @@ $(document).ready(function(){
 	          paragraphnumber = "paragraphnumber" + intparagraph;
 	          paragraphimagenumber = "paragraphimagenumber" + intparagraph;
 
+	           var draggable_image = document.createElement("img");
+	              draggable_image.setAttribute("src", "../Images/sort_icons.png");
+	              draggable_image.setAttribute("height", "20px");
+	              draggable_image.setAttribute("width", "20px");
 
 	          var element = document.createElement("textarea");
 	          //Assign different attributes to the element.
@@ -372,9 +404,9 @@ $(document).ready(function(){
 	          element.setAttribute("rows",4);
 	          element.setAttribute("columns",20);
 	          element.setAttribute("disabled","disabled");
-	          
+
 	         var image = document.createElement("img");
-	          $(image).attr({ 
+	          $(image).attr({
 	        	  src:  "../Images/Delete.jpg",
 	        	  height: "10px",
 	        	  width: "10px",
@@ -385,10 +417,11 @@ $(document).ready(function(){
 		        	$(e.target).prev().remove('br');
 		        	$(e.target).prev().remove('br');
 		        	$(e.target).remove();
-		        		        		
+
 		      });
 
 	          var foo = $("#paragraphtext");
+	            foo.append(draggable_image);
 	          foo.append("<b>Paragraph:</b>");
 	          //Append the element in page (in span).
 	          foo.append(element);
@@ -407,21 +440,25 @@ $(document).ready(function(){
 	        checktextbox="checktextnumber" + intcheck;
 	        checkbuttonbox = "checkbuttonnumber" +intcheck;
 
+            var draggable_image = document.createElement("img");
+            draggable_image.setAttribute("src", "../Images/sort_icons.png");
+            draggable_image.setAttribute("height", "20px");
+            draggable_image.setAttribute("width", "20px");
 
 	          var element = document.createElement("input");
 	          //Assign different attributes to the element.
 	          element.setAttribute("type", type);
 	          element.setAttribute("name", checktextbox);
 	          element.setAttribute("id",checktextbox);
-	         
-	          
+
+
 	          var element2= document.createElement("input");
 	          element2.setAttribute("type", type2);
 	          element2.setAttribute("name", checkbuttonbox);
 	          element2.setAttribute("id",checkbuttonbox);
-	          
+
 	         var image = document.createElement("img");
-	          $(image).attr({ 
+	          $(image).attr({
 	        	  src:  "../Images/Delete.jpg",
 	        	  height: "10px",
 	        	  width: "10px",
@@ -432,12 +469,13 @@ $(document).ready(function(){
 		        	$(e.target).prev().remove('br');
 		        	$(e.target).prev().remove('br');
 		        	$(e.target).remove();
-		        		        		
+
 		      });
 
-	        
-	         
+
+
 	          var foo = $('#check');
+	            foo.append(draggable_image);
 	          foo.append(element2);
 	          foo.append(element);
 	          //Append the element in page (in span).
@@ -456,8 +494,12 @@ $(document).ready(function(){
 	          dropdownid= "dropdownid" + intdropdown;
 	          var textbox = document.createElement("input");
 	          textbox.setAttribute("type", "text");
-	          
-	          
+
+	           var draggable_image = document.createElement("img");
+	              draggable_image.setAttribute("src", "../Images/sort_icons.png");
+	              draggable_image.setAttribute("height", "20px");
+	              draggable_image.setAttribute("width", "20px");
+
 	          //var a = $(textbox).val();
 
 
@@ -466,47 +508,47 @@ $(document).ready(function(){
 	          element.setAttribute("style", style);
 	          element.setAttribute("id", dropdownid);
 	          var image = document.createElement("img");
-	        
-	          
+
+
 	         var foo = $("#dropdownlist");
-	          $(image).attr({ 
+	          $(image).attr({
 	        	  src: "../Images/Movingcursor.png",
 	        	  height: "10px",
 	        	  width: "10px",
-	        	 
+
 	        	}).click(function (e) {
-	        		
+
 	        		$(element).append('<option value=' + $(textbox).val()+'>'+ $(textbox).val() +'</option>');
-		        		        		
+
 		      });
-	          
+
 	          var image2 = document.createElement("img");
-	          
-	 	        
-		          $(image2).attr({ 
+
+
+		          $(image2).attr({
 		        	  src: "../Images/Movingcursor.png",
 		        	  height: "10px",
 		        	  width: "10px",
-		        	 
+
 		        	}).click(function (e) {
-		        		
+
 		        		var x=$(element).attr("id");
 		        		var y =$(element).attr("value");
 		        		//foo.append(x);
 		        		$("#" + x +" option[value='"+y+"']").remove();
-			        		        		
+
 			      });
-		          
+
 		          var image3 = document.createElement("img");
-	 	          
-		 	        
-		          $(image3).attr({ 
+
+
+		          $(image3).attr({
 		        	  src:  "../Images/Delete.jpg",
 		        	  height: "10px",
 		        	  width: "10px",
-		        	 
+
 		        	}).click(function (e) {
-		        		
+
 		        		$(e.delegateTarget).prev().remove();
 		        		$(e.delegateTarget).prev().remove();
 		        		$(e.delegateTarget).prev().remove();
@@ -514,14 +556,15 @@ $(document).ready(function(){
 	 		        	$(e.target).prev().remove('br');
 	 		        	$(e.target).prev().remove('br');
 	 		        	$(e.target).remove();
-			        		        		
+
 			      });
-	          
-	        
+
+
 
 	          //Append the element in page (in span).
-	          foo.append(element);
-	          
+		            foo.append(draggable_image);
+		          foo.append(element);
+
 	          foo.append(textbox);
 	          foo.append(image);
 	          foo.append(image2);
@@ -539,14 +582,19 @@ $(document).ready(function(){
 	          inttextunit++;
 	          textwithunit= "textwithunit"+inttextunit;
 
+	           var draggable_image = document.createElement("img");
+	              draggable_image.setAttribute("src", "../Images/sort_icons.png");
+	              draggable_image.setAttribute("height", "20px");
+	              draggable_image.setAttribute("width", "20px");
+
 
 	          var element = document.createElement("select");
 	          //Assign different attributes to the element.
 	          element.setAttribute("style", type);
 	          element.setAttribute("id", textwithunit);
-	          
 
-	          
+
+
 	          var textbox = document.createElement("input");
 	          textbox.setAttribute("type", "text");
 
@@ -558,49 +606,49 @@ $(document).ready(function(){
 	          element2.setAttribute("disabled","disabled");
 
 
-	         
-	          
+
+
 	         var foo = $("#textu");
 	         var image = document.createElement("img");
-	          $(image).attr({ 
+	          $(image).attr({
 	        	  src: "../Images/Movingcursor.png",
 	        	  height: "10px",
 	        	  width: "10px",
-	        	 
+
 	        	}).click(function (e) {
-	        		
+
 	        		$(element).append('<option value=' + $(textbox).val()+'>'+ $(textbox).val() +'</option>');
-		        		        		
+
 		      });
 
 	          //Append the element in page (in span).
 	          var image2 = document.createElement("img");
-	          
-	 	        
-	          $(image2).attr({ 
+
+
+	          $(image2).attr({
 	        	  src: "../Images/Movingcursor.png",
 	        	  height: "10px",
 	        	  width: "10px",
-	        	 
+
 	        	}).click(function (e) {
-	        		
+
 	        		var x=$(element).attr("id");
 	        		var y =$(element).attr("value");
 	        		//foo.append(x);
 	        		$("#" + x +" option[value='"+y+"']").remove();
-		        		        		
+
 		      });
-	          
+
 	          var image3 = document.createElement("img");
-	          
-	 	        
-	          $(image3).attr({ 
+
+
+	          $(image3).attr({
 	        	  src:  "../Images/Delete.jpg",
 	        	  height: "10px",
 	        	  width: "10px",
-	        	 
+
 	        	}).click(function (e) {
-	        		
+
 	        		/*$(e.delegateTarget).prev().remove();
 	        		$(e.delegateTarget).prev().remove();
 	        		$(e.delegateTarget).prev().remove();
@@ -625,41 +673,43 @@ $(document).ready(function(){
 		        	$(e.target).prev().remove('br');
 		        	$(e.target).prev().remove('br');
 		        	$(e.target).remove();
-		        		        		
-		      });
-	          $("#textu").append("<b>Answer:</b>"); 
-	          foo.append(element2);
 
+		      });
+
+
+	          foo.append(draggable_image);
+	          $("#textu").append("<b>Answer:</b>");
+	          foo.append(element2);
 	          foo.append(element);
-	          
-	          
+
+
 
 	          var enter = document.createElement("br");
 	          foo.append(enter);
 	          /*$("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;"); 
-	          $("#textu").append("&nbsp;"); 
-	          $("#textu").append("&nbsp;"); 
-	          $("#textu").append("&nbsp;"); 
-	          $("#textu").append("&nbsp;"); 
-	          $("#textu").append("&nbsp;"); 
-	          $("#textu").append("&nbsp;"); 
-	          $("#textu").append("&nbsp;"); 
-	          $("#textu").append("&nbsp;"); 
-	          $("#textu").append("&nbsp;"); 
-	          $("#textu").append("&nbsp;"); 
-	          $("#textu").append("&nbsp;"); 
-	          $("#textu").append("&nbsp;"); 
+	          $("#textu").append("&nbsp;");
+	          $("#textu").append("&nbsp;");
+	          $("#textu").append("&nbsp;");
+	          $("#textu").append("&nbsp;");
+	          $("#textu").append("&nbsp;");
+	          $("#textu").append("&nbsp;");
+	          $("#textu").append("&nbsp;");
+	          $("#textu").append("&nbsp;");
+	          $("#textu").append("&nbsp;");
+	          $("#textu").append("&nbsp;");
+	          $("#textu").append("&nbsp;");
+	          $("#textu").append("&nbsp;");
+	          $("#textu").append("&nbsp;");
 	          $("#textu").append("&nbsp;"); */
-	          
-	          
+
+
 	          foo.append(textbox);
 	          foo.append(image);
 	          foo.append(image2);
 	          foo.append(image3);
 	          var enter2 = document.createElement("br");
 	          foo.append(enter2);
-	          
+
 	          var enter3 = document.createElement("br");
 	          foo.append(enter3);
 
