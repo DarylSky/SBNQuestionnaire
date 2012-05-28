@@ -22,14 +22,16 @@
 <script>
 $(document).ready(function() {
    
+
+	 
    });
  
 </script>
 
 
 </head>
-<body
-    style="border: 2px double #003366; width: 1010px;">
+<body style="border: 2px double #003366; width: 1010px;">
+	<img src="../Images/Untitled.png" alt="Pulpit rock" width="1010" height="60"/><br/><br/>
     <div id="mainPanel" width="1000">
 
         <ul id="nav" style="vertical-align: middle;">

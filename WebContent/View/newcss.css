@@ -29,11 +29,15 @@ body {
 }
 
 #textField {
-       list-style-image: url(../Images/TextFieldHeader.gif);
+       list-style-image: url(../Images/TextFieldHeader.png);
+
+       
 }
 
 #answerField {
-       list-style-image: url(../Images/AnswerFieldHeader.gif);
+       list-style-image: url(../Images/AnswerFieldHeader.png);
+             	
+       
 }
 
 #guidance {
@@ -149,19 +153,12 @@ div.fullscreen {
        color: blue;
 }
 
-p.flip {
-       margin: 0px;
-       padding: 5px;
-       text-align: center;
-       background: #A9A9F5;
-       border: solid 1px #c3c3c3;
-}
 
 p.flip {
        margin: 0px;
        padding: 5px;
        text-align: center;
-       background: #FCF8DC;
+       background: #F2F2F2;
        border: solid 1px #c3c3c3;
 }
 
