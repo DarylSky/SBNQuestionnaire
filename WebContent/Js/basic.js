@@ -450,49 +450,82 @@ $(document).ready(function(){
        });
 
        $('#dropdown').click(function() {
-    	   type="text";
-	    	type2="checkbox";
-	        intcheck++;
-	        imagechecknumber ="imagechecknumber"+intcheck;
-	        checktextnumber="checktextnumber" + intcheck;
-	        checkbuttonnumber = "checkbuttonnumber" +intcheck;
+    	   intdropdown++;
+	          style="width:100px";
+	          type2="text";
+	          dropdownid= "dropdownid" + intdropdown;
+	          var textbox = document.createElement("input");
+	          textbox.setAttribute("type", "text");
+	          
+	          
+	          //var a = $(textbox).val();
 
 
-	          var element = document.createElement("input");
+	          var element = document.createElement("select");
 	          //Assign different attributes to the element.
-	          element.setAttribute("type", type);
-	          element.setAttribute("name", checktextnumber);
-	          element.setAttribute("id",checktextnumber);
-	         
+	          element.setAttribute("style", style);
+	          element.setAttribute("id", dropdownid);
+	          var image = document.createElement("img");
+	        
 	          
-	          var element2= document.createElement("input");
-	          element2.setAttribute("type", type2);
-	          element2.setAttribute("name", checkbuttonnumber);
-	          element2.setAttribute("id",checkbuttonnumber);
-	          
-	         var image = document.createElement("img");
+	         var foo = $("#dropdownlist");
 	          $(image).attr({ 
-	        	  src:  "../Images/Delete.jpg",
+	        	  src: "../Images/Movingcursor.png",
 	        	  height: "10px",
 	        	  width: "10px",
-	        	  id: imagechecknumber
+	        	 
 	        	}).click(function (e) {
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-		        	$(e.target).prev().remove('br');
-		        	$(e.target).prev().remove('br');
-		        	$(e.target).remove();
+	        		
+	        		$(element).append('<option value=' + $(textbox).val()+'>'+ $(textbox).val() +'</option>');
 		        		        		
 		      });
-
+	          
+	          var image2 = document.createElement("img");
+	          
+	 	        
+		          $(image2).attr({ 
+		        	  src: "../Images/Movingcursor.png",
+		        	  height: "10px",
+		        	  width: "10px",
+		        	 
+		        	}).click(function (e) {
+		        		
+		        		var x=$(element).attr("id");
+		        		var y =$(element).attr("value");
+		        		//foo.append(x);
+		        		$("#" + x +" option[value='"+y+"']").remove();
+			        		        		
+			      });
+		          
+		          var image3 = document.createElement("img");
+	 	          
+		 	        
+		          $(image3).attr({ 
+		        	  src:  "../Images/Delete.jpg",
+		        	  height: "10px",
+		        	  width: "10px",
+		        	 
+		        	}).click(function (e) {
+		        		
+		        		$(e.delegateTarget).prev().remove();
+		        		$(e.delegateTarget).prev().remove();
+		        		$(e.delegateTarget).prev().remove();
+		        		$(e.delegateTarget).prev().remove();
+	 		        	$(e.target).prev().remove('br');
+	 		        	$(e.target).prev().remove('br');
+	 		        	$(e.target).remove();
+			        		        		
+			      });
+	          
 	        
-	         
-	          var foo = $('#checkbutton');
-	          foo.append(element2);
-	          foo.append(element);
+
 	          //Append the element in page (in span).
-	          //foo.appendChild(element);
+	          foo.append(element);
+	          
+	          foo.append(textbox);
 	          foo.append(image);
+	          foo.append(image2);
+	          foo.append(image3);
 	          var enter = document.createElement("br");
 	          foo.append(enter);
 	          var enter2 = document.createElement("br");
