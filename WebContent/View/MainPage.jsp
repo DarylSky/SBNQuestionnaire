@@ -36,13 +36,13 @@ $(document).ready(function() {
 
         <ul id="nav" style="vertical-align: middle;">
             <li id="question"><a href="#">Question</a></li>
-            <li id="textField"><a href="">Text Field</a>
+            <li id="textField"><a href="#">Text Field</a>
                 <ul id="fieldsInTextField" style="list-style: none;">
                     <li id="questionnumber"><a href="#">Question Number</a></li>
                     <li id="shorttext"><a href="#">Short</a></li>
                     <li id="longtext"><a href="#">Long</a></li>
                 </ul></li>
-            <li id="answerField"><a href="">Answer Field</a>
+            <li id="answerField"><a href="#">Answer Field</a>
                 <ul style="list-style: none;">
                     <li id="text"><a href="#">Text</a></li>
                     <li id="textunit"><a href="#">Text With Unit</a></li>
@@ -52,8 +52,8 @@ $(document).ready(function() {
                     <li id="radio"><a href="#">Radio Button</a></li>
                     <li id="timetable"><a href="#">Time Table</a></li>
                 </ul></li>
-            <li id="guidance"><a href="">Guidance</a></li>
-            <li id="attachment"><a href="">Attachment</a></li>
+            <li id="guidance"><a href="#">Guidance</a></li>
+            <li id="attachment"><a href="#">Attachment</a></li>
         </ul>
 
         <br /> <br />
