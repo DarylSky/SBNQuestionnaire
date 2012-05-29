@@ -59,7 +59,7 @@ $(document).ready(function(){
               "<script src=\"../Js/JqueryUI/jquery.ui.widget.js\"></script>" +
               "<script src=\"../Js/JqueryUI/jquery.ui.mouse.js\"></script>" +
               "<script src=\"../Js/JqueryUI/jquery.ui.sortable.js\"></script>" +
-              "</head>" +
+              "<link rel=\"stylesheet\" type=\"text/css\" href=\"../View/newcss.css\" /></head>" +
               "<table border=\"1\">" +
               "<tr>" +
               "<th width=\"965\"><p class=\"flip\">Question #</p></th>" +
@@ -101,11 +101,6 @@ $(document).ready(function(){
 
 
               });
-
-              $('#questionrow').hover(
-
-              );
-
 
 
               function changeBtn()
@@ -512,9 +507,9 @@ $(document).ready(function(){
 
 	         var foo = $("#dropdownlist");
 	          $(image).attr({
-	        	  src: "../Images/Movingcursor.png",
-	        	  height: "10px",
-	        	  width: "10px",
+	        	  src: "../Images/plus_icon.png",
+	        	  height: "15px",
+	        	  width: "15px",
 
 	        	}).click(function (e) {
 
@@ -526,9 +521,9 @@ $(document).ready(function(){
 
 
 		          $(image2).attr({
-		        	  src: "../Images/Movingcursor.png",
-		        	  height: "10px",
-		        	  width: "10px",
+		        	  src: "../Images/minus_icon.png",
+		        	  height: "15px",
+		        	  width: "15px",
 
 		        	}).click(function (e) {
 
@@ -611,9 +606,9 @@ $(document).ready(function(){
 	         var foo = $("#textu");
 	         var image = document.createElement("img");
 	          $(image).attr({
-	        	  src: "../Images/Movingcursor.png",
-	        	  height: "10px",
-	        	  width: "10px",
+	        	  src: "../Images/plus_icon.png",
+	        	  height: "15px",
+	        	  width: "15px",
 
 	        	}).click(function (e) {
 
@@ -626,9 +621,9 @@ $(document).ready(function(){
 
 
 	          $(image2).attr({
-	        	  src: "../Images/Movingcursor.png",
-	        	  height: "10px",
-	        	  width: "10px",
+	        	  src: "../Images/minus_icon.png",
+	        	  height: "15px",
+	        	  width: "15px",
 
 	        	}).click(function (e) {
 
@@ -682,10 +677,6 @@ $(document).ready(function(){
 	          foo.append(element2);
 	          foo.append(element);
 
-
-
-	          var enter = document.createElement("br");
-	          foo.append(enter);
 	          /*$("#textu").append("&nbsp;");
 	          $("#textu").append("&nbsp;");
 	          $("#textu").append("&nbsp;");

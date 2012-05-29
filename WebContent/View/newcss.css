@@ -76,6 +76,7 @@ body {
 
 }
 
+
 #nav li a:hover {
        color: #FEF0C9;
 }
@@ -117,6 +118,12 @@ body {
 /* should put it into separate file : ) */
 * html #nav ul {
        margin: 0 0 0 -2px;
+}
+
+p:hover {
+    
+     border: 1px solid #aaaaaa;     
+    
 }
 
 div.fullscreen {

@@ -30,8 +30,9 @@ $(document).ready(function() {
 </head>
 <body
     style="border: 2px double #003366; width: 1010px;">
-    <img src="../Images/Untitled.png" alt="Pulpit rock" width="1010" height="60"/><br/>
     <div id="mainPanel" width="1000">
+    
+    <div id="hello"><img src="../Images/Untitled.png" width="1010" height="60" style="position:fixed"/><br/><br/><br/><br/></div>
 
         <ul id="nav" style="vertical-align: middle;">
             <li id="question"><a href="#">Question</a></li>
