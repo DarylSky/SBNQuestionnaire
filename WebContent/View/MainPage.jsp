@@ -63,5 +63,7 @@ $(document).ready(function() {
         <div id="question1"></div>
 
     </div>
+    
+    <center><div id="version"><label>SBN Questionnaire System beta: 0.1</label></div></center>
 </body>
 </html>

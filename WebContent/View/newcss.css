@@ -163,6 +163,13 @@ div.fullscreen {
        color: blue;
 }
 
+#version{
+    
+    background-color: #F0AB00;
+    font-weight:bold;
+    olor:white;
+    width= 1000px;
+}
 
 p.flip {
        margin: 0px;

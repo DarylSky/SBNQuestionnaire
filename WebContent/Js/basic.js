@@ -44,6 +44,26 @@ $(document).ready(function(){
     intdropdown=0;
     inttextunit=0;
 
+    if ($('#question1').html() =='')
+
+    {
+           textField.disabled="true";
+    fieldsInTextField.disabled="true";
+    answerField.disabled="true";
+    guidance.disabled="true";
+    attachment.disabled="true";
+ }
+
+    $('#question').click(function(){
+           textField.disabled=false;
+           fieldsInTextField.disabled=false;
+           answerField.disabled=false;
+           guidance.disabled=false;
+           attachment.disabled=false;
+});
+
+
+
     $('#append').click(function() {
         $(this).parent().append('<div id="divId"><br/><input type="checkbox" id="checkboxId" /><input id="inputId" /><br/><br/><input type="button" id="removeButton" value="close" />');
     });
@@ -721,11 +741,12 @@ $(document).ready(function(){
     });
 
     $('#attachment').click(function() {
-        document.getElementById('sortable').innerHTML +="<p class=\"ui-state-default\"><span id=\"attachment2"+intattachmentPanel+"\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=\"../Images/sort_icons.png\" /><input type=file name=\"browse"+intattachmenticon+"\" style=\"display: none;\">" +
-        "<input type=text name=\"file"+intattachmentinput+"\" style=\"font-style:veranda; font-size:12px; width:300px; text-align:center;\" >" +
-        "<input type=\"image\" name=\"select\" src=\"../Images/AttchmentHeader.gif\" border=\"0\" onClick=\"browse"+intattachmenticon+".click(); \"file"+intattachmentinput+"\".value=\"browse"+intattachmenticon+"\".value;\">" +
+        document.getElementById('sortable').innerHTML +="<p class=\"ui-state-default\"><span id=\"attachment2"+intattachmentPanel+"\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=\"../Images/sort_icons.png\" width=\"20px\" height=\"20px\" /><input type=file name=\"browse"+intattachmenticon+"\" style=\"display: none;\">" +
+        "<input type=text name=\"file"+intattachmentinput+"\" style=width:300px;\" >" +
+        "<input type=\"image\" name=\"select\" src=\"../Images/AttchmentHeader.gif\" border=\"0\" onClick=\"browse"+intattachmenticon+".click(); file"+intattachmentinput+".value=browse"+intattachmenticon+".value;\">" +
         "<br/></span></p>";
 
+        intattachmentinput++;
         intattachmentPanel++;
         intattachmenticon++;
 
