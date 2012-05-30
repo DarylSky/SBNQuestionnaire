@@ -14,7 +14,6 @@ function changeBtn()
 }
 
 
-
 function resizeElementHeight(element) {
     var height = 0;
     var body = window.document.body;
@@ -30,8 +29,7 @@ function resizeElementHeight(element) {
 
 
 $(document).ready(function(){
-
-
+	
     $("#PlusBtn").click(function(){
         $("#tableslide").slideToggle("slow");
     });
@@ -82,12 +80,17 @@ $(document).ready(function(){
 
 
     $('#question').click(function(){
-
+        
+    	
         document.getElementById('question1').innerHTML +="<head><script src=\"../Js/jquery-1.7.2.js\"></script>" +
         "<script src=\"../Js/JqueryUI/jquery.ui.core.js\"></script>" +
         "<script src=\"../Js/JqueryUI/jquery.ui.widget.js\"></script>" +
         "<script src=\"../Js/JqueryUI/jquery.ui.mouse.js\"></script>" +
         "<script src=\"../Js/JqueryUI/jquery.ui.sortable.js\"></script>" +
+        "<script src=\"../Js/JqueryUI/jquery.ui.datepicker.js\"></script>" +
+        "<script src=\"../Js/JqueryUI/jquery-ui-1.8.20.custom.js\"></script>" +
+        "<link rel=\"stylesheet\" href=\"../../themes/base/jquery.ui.all.css\" />" +
+        "<link rel=\"stylesheet\" href=\"../CSS/jquery-ui-1.8.20.custom.css\" />" +
         "<link rel=\"stylesheet\" type=\"text/css\" href=\"../CSS/style.css\" /></head>" +
         "<table border=\"1\"><tr><th width=\"965\"><p class=\"flip\">Question #</p></th><th><button type=\"button\" href=\"#\" class=\"plusBtn\" id=\"PlusBtn\" value=\"+\">+</button></th></tr>" +
         "<tr width=\"965\"><td><div class=\"demo\" id=\"sortable\">" +
@@ -100,31 +103,29 @@ $(document).ready(function(){
         "<p id=\"questionrow\" class=\"ui-state-default\"><span id=\"check\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
         "<p id=\"questionrow\" class=\"ui-state-default\"><span id=\"textu\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
         "<p id=\"questionrow\" class=\"ui-state-default\"><span id=\"radiobutton\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
+        "<p id=\"questionrow\" class=\"ui-state-default\"><span id=\"timetables\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
         "</ul></div></td></tr></table>";
 
         $(document).ready(function(){
 
             $(function() {
-
                 $( "#sortable" ).sortable();
             });
 
-            $('#sortable').live('mouseover', function(){
-                $('#sortable > a').addClass('highlight');
-            });
-
-            $('#sortable').live('mouseout', function(){
-                $('#sortable > a').removeClass('highlight');
-            });
-
-
+        	$(function() {
+        		$( "#timetables" ).datepicker();
+        	});
+        	
+            
             $("#PlusBtn").click(function(){
                 $("#tableslide").slideToggle("slow");
 
             });
         });
     });
-
+    
+   
+    	
     $('#nav li').hover(
             function () {
                 //show its submenu
@@ -411,6 +412,48 @@ $(document).ready(function(){
         foo.appendChild(enter2);
 
     });
+    
+    $(function(){
+        $("input:text.inputTypeDate").datepicker({
+            dateFormat: "dd.mm.yy",
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+
+    $('#timetable').click(function() {
+    	
+    	type = "text";
+    	
+    	var foo = $("#timetables");
+    	var datepicker = document.createElement("input");
+    	datepicker.setAttribute("type",type);
+    	datepicker.setAttribute("id","datepicker");
+    	datepicker.setAttribute("class","inputTypeDate");
+    	//datepicker.setAttribute("onclick", "object()");
+    	/*$(datepicker).attr({
+    		type: "text"
+    	});*/
+    	
+    	/*.click(function (e){
+    		$( "#timetables" ).datepicker();
+    		
+    	});*/
+    	
+       
+        
+        //Append the element in page (in span).
+       
+    	foo.append(datepicker);
+        var enter = document.createElement("br");
+        foo.append(enter);
+        var enter2 = document.createElement("br");
+        foo.append(enter2);
+        
+
+
+    });
+    
 
     $("img").on("click",function(){
 
@@ -418,5 +461,10 @@ $(document).ready(function(){
         a = $(image).attr("id");
         document.getElementById("questionnum").innerHTML+=("<p>" + a + "</p>");
     });
+    
+    
+    
+    
+    
 
 });
