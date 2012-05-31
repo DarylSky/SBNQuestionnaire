@@ -10,7 +10,18 @@
 <script src="../Js/jquery-1.7.2.js"></script>
 <script src="../Js/jquery-ui-1.8.20.custom.js"></script>
 <script src="../Js/basic.js"></script>
+<script src="../Js/JqueryUI/jquery.ui.datepicker.js"></script>
+
+
+
 <style type="text/css">
+
+
+
+
+
+
+
 #draggable {
     width: 100px;
     height: 70px;
@@ -23,9 +34,12 @@
 $(document).ready(function() {
    
    });
+   
+$(function() {
+	$( "#datepicker" ).datepicker();
+});
  
 </script>
-
 
 </head>
 <body
@@ -50,7 +64,7 @@ $(document).ready(function() {
                     <li id="checkbox"><a href="#">Check Box</a></li>
                     <li id="dropdown"><a href="#">Drop Down List</a></li>
                     <li id="radio"><a href="#">Radio Button</a></li>
-                    <li id="datetime"><a href="#">Date Time</a></li>
+                    <li id="datepicker"><a href="#">Date Time</a></li>
                 </ul></li>
             <li id="guidance"><a href="#">Guidance</a></li>
             <li id="attachment"><a href="#">Attachment</a></li>
@@ -61,9 +75,11 @@ $(document).ready(function() {
         <br />
 
         <div id="question1"></div>
-
+		
     </div>
     
+    <p>Date: <input type="text" id="datepicker"></p>
+
     <center><div id="version"><label>SBN Questionnaire System beta: 0.1</label></div></center>
 </body>
 </html>
