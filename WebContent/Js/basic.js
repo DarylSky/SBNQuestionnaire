@@ -64,15 +64,7 @@ $(document).ready(function(){
         "</tr>" +
         "<tr width=\"965\" id=\"tableslide\">" +
         "<td><div class=\"demo\" id=\"sortable\">" +
-        "<p class=\"ui-state-default\"><span id=\"shorttextbox\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
-     
-        "<p class=\"ui-state-default\"><span id=\"longtextbox\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
-        "<p class=\"ui-state-default\"><span id=\"textbox\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
-        "<p class=\"ui-state-default\"><span id=\"paragraphtext\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
-        "<p class=\"ui-state-default\"><span id=\"dropdownlist\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
-        "<p class=\"ui-state-default\"><span id=\"check\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
-        "<p class=\"ui-state-default\"><span id=\"textu\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
-        "<p class=\"ui-state-default\"><span id=\"radiobutton\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
+        
         "</div></td></tr></table></div>";
 
         intquestionPanel++;
@@ -709,15 +701,19 @@ $(document).ready(function(){
         foo.append(enter2);*/
         var foo = $('#sortable');
         var fieldWrapper = $("<p/>");
-        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/><select style=width:100px id="+  dropdownid+"/>");
+        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/>");
         var second = $("<img src=../Images/plus_icon.png height=15px width=15px/>");
+        var select = $("<select style=width:100px id="+  dropdownid+"/>");
         var text = $("<input type=text />");
         second.click(function() {
-        	first.append('<option value=' + $(this).val()+'>'+ $(this).val() +'</option>');
+        	select.append('<option value=' + $(text).val()+'>'+ $(text).val() +'</option>');
         });
         var third = $("<img src=../Images/minus_icon.png height=15px width=15px/>");
         third.click(function() {
-        	//$(this).parent().append('<option value=' + $(textbox).val()+'>'+ $(textbox).val() +'</option>');
+        	var x=$(select).attr("id");
+            var y =$(select).attr("value");
+            //foo.append(x);
+            $("#" + x +" option[value='"+y+"']").remove();
         });
         var fourth = $("<img src=../Images/Delete.jpg height=10px width=10px/>");
         fourth.click(function() {
@@ -725,6 +721,7 @@ $(document).ready(function(){
         });
         foo.append(fieldWrapper);
         fieldWrapper.append(first);
+        fieldWrapper.append(select);
         fieldWrapper.append(text);
         fieldWrapper.append(second);
         fieldWrapper.append(third);
@@ -736,9 +733,10 @@ $(document).ready(function(){
         type="width:100px";
         type2="text";
         inttextunit++;
+        textwithunitdropdown="textwithunitdropdown" + inttextunit;
         textwithunit= "textwithunit"+inttextunit;
 
-        var draggable_image = document.createElement("img");
+        /*var draggable_image = document.createElement("img");
         draggable_image.setAttribute("src", "../Images/sort_icons.png");
         draggable_image.setAttribute("height", "20px");
         draggable_image.setAttribute("width", "20px");
@@ -805,7 +803,7 @@ $(document).ready(function(){
 
         }).click(function (e) {
 
-            /*$(e.delegateTarget).prev().remove();
+            $(e.delegateTarget).prev().remove();
 	        		$(e.delegateTarget).prev().remove();
 	        		$(e.delegateTarget).prev().remove();
 	        		$(e.delegateTarget).prev().remove();
@@ -818,7 +816,7 @@ $(document).ready(function(){
 	        		$(e.delegateTarget).prev().remove();
 	        		$(e.delegateTarget).prev().remove();
 	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();*/
+	        		$(e.delegateTarget).prev().remove();
         	var $target = $(event.target);
             $(e.target).prev().remove();
             $(e.target).prev().remove();
@@ -844,7 +842,7 @@ $(document).ready(function(){
         foo.append(element2);
         foo.append(element);
 
-        /*$("#textu").append("&nbsp;");
+        $("#textu").append("&nbsp;");
 	          $("#textu").append("&nbsp;");
 	          $("#textu").append("&nbsp;");
 	          $("#textu").append("&nbsp;");
@@ -858,7 +856,7 @@ $(document).ready(function(){
 	          $("#textu").append("&nbsp;");
 	          $("#textu").append("&nbsp;");
 	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;"); */
+	          $("#textu").append("&nbsp;"); 
 
 
         foo.append(textbox);
@@ -869,7 +867,35 @@ $(document).ready(function(){
         foo.append(enter2);
 
         var enter3 = document.createElement("br");
-        foo.append(enter3);
+        foo.append(enter3);*/
+        
+        var foo = $('#sortable');
+        var fieldWrapper = $("<p/>");
+        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/><b>Answer:</b><input type=text disabled=disabled id=" + textwithunit+">");
+        var second = $("<img src=../Images/plus_icon.png height=15px width=15px/>");
+        var select = $("<select style=width:100px id="+  textwithunitdropdown+"/>");
+        var text = $("<input type=text />");
+        second.click(function() {
+        	select.append('<option value=' + $(text).val()+'>'+ $(text).val() +'</option>');
+        });
+        var third = $("<img src=../Images/minus_icon.png height=15px width=15px/>");
+        third.click(function() {
+        	var x=$(select).attr("id");
+            var y =$(select).attr("value");
+            //foo.append(x);
+            $("#" + x +" option[value='"+y+"']").remove();
+        });
+        var fourth = $("<img src=../Images/Delete.jpg height=10px width=10px/>");
+        fourth.click(function() {
+        	 $(this).parent().remove();
+        });
+        foo.append(fieldWrapper);
+        fieldWrapper.append(first);
+        fieldWrapper.append(select);
+        fieldWrapper.append(text);
+        fieldWrapper.append(second);
+        fieldWrapper.append(third);
+        fieldWrapper.append(fourth);
 
     });
 
