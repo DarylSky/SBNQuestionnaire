@@ -30,7 +30,7 @@ function resizeElementHeight(element) {
 
 $(document).ready(function(){
 
-    intquestionPanel=0;
+    intquestionPanel=1;
     intattachmenticon=0;
     intattachmentinput=0;
     intattachmentPanel=0;
@@ -43,16 +43,8 @@ $(document).ready(function(){
     intcheck=0;
     intdropdown=0;
     inttextunit=0;
+    
 
-    $('#append').click(function() {
-        $(this).parent().append('<div id="divId"><br/><input type="checkbox" id="checkboxId" /><input id="inputId" /><br/><br/><input type="button" id="removeButton" value="close" />');
-    });
-    $('#removeButton').click(function() {
-        $(this).parent().remove();
-    });
-    $('#drag').draggable({
-        cancel: 'input'
-    });
 
 
 
@@ -67,13 +59,13 @@ $(document).ready(function(){
         "<div class=\"demo\" id=\"sortable2\">" +
         "<table id=\"questionPanel"+intquestionPanel+"\" class=\"ui-icon ui-icon-arrowthick-2-n-s\" border=\"1\">" +
         "<tr>" +
-        "<th width=\"965\"><p class=\"flip\">Question "+(intquestionPanel+1)+"</p></th>" +
+        "<th width=\"965\"><p class=\"flip\">Question "+(intquestionPanel)+"</p></th>" +
         "<th><button type=\"button\" href=\"#\" class=\"plusBtn\" id=\"PlusBtn\" value=\"-\">-</button></th>" +
         "</tr>" +
         "<tr width=\"965\" id=\"tableslide\">" +
         "<td><div class=\"demo\" id=\"sortable\">" +
         "<p class=\"ui-state-default\"><span id=\"shorttextbox\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
-        "<p class=\"ui-state-default\"><span id=\"questionnum\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
+     
         "<p class=\"ui-state-default\"><span id=\"longtextbox\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
         "<p class=\"ui-state-default\"><span id=\"textbox\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
         "<p class=\"ui-state-default\"><span id=\"paragraphtext\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
@@ -81,7 +73,7 @@ $(document).ready(function(){
         "<p class=\"ui-state-default\"><span id=\"check\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
         "<p class=\"ui-state-default\"><span id=\"textu\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
         "<p class=\"ui-state-default\"><span id=\"radiobutton\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
-        "</ul></div></td></tr></table></div>";
+        "</div></td></tr></table></div>";
 
         intquestionPanel++;
 
@@ -150,7 +142,7 @@ $(document).ready(function(){
         imagenumber ="imagenumber"+intquestion;
         questionname="questionnumber" + intquestion;
 
-        var draggable_image = document.createElement("img");
+        /*var draggable_image = document.createElement("img");
         draggable_image.setAttribute("src", "../Images/sort_icons.png");
         draggable_image.setAttribute("height", "20px");
         draggable_image.setAttribute("width", "20px");
@@ -172,18 +164,28 @@ $(document).ready(function(){
             width: "10px",
             id: imagenumber
         }).click(function (e) {
-            $(e.delegateTarget).prev().remove();
+        	
+        	var $target = $(event.target);
+        	$(e.delegateTarget).prev().remove();
             $(e.delegateTarget).prev().remove('b');
-            $(e.target).prev().remove('br');
-            $(e.target).prev().remove('br');
-            $(e.target).remove();
+            $(e.delegateTarget).prev().remove();
+            if($target.prev().is('br')){
+            	$(e.delegateTarget).prev().remove('br');
+	            $(e.delegateTarget).prev().remove('br');
+            } else{
+	            $(e.delegateTarget).next().remove('br');
+	            $(e.delegateTarget).next().remove('br');
+            }
+            $(e.delegateTarget).remove();
 
 
 
-        });
+        });*/
+        
+        //var foo = $('#sortable');
+        //foo.append("<p><span id=\"questionnum\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/><b>Question #:</b><input type=text id="+ questionname +"size=5 maxlength=5/> <img src=../Images/Delete.jpg height=10px width=10px id="+imagenumber +"/></p>");
 
-
-        var foo = $('#questionnum');
+        /*var foo = $('#questionnum');
         foo.append(draggable_image);
         $("#questionnum").append("<b>Question #:</b>");
 
@@ -195,8 +197,18 @@ $(document).ready(function(){
         var enter = document.createElement("br");
         foo.append(enter);
         var enter2 = document.createElement("br");
-        foo.append(enter2);
-
+        foo.append(enter2);*/
+        var foo = $('#sortable');
+        var fieldWrapper = $("<p/>");
+        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/><b>Question #:</b><input type=text size=5 id="+ questionname +"maxlength=5/>");
+        var second = $("<img src=../Images/Delete.jpg height=10px width=10px id="+imagenumber +"/>");
+        second.click(function() {
+            $(this).parent().remove();
+        });
+        foo.append(fieldWrapper);
+        fieldWrapper.append(first);
+        fieldWrapper.append(second);
+        
     });
 
     $('#shorttext').click(function() {
@@ -205,7 +217,7 @@ $(document).ready(function(){
         shortimagenumber ="shortimagenumber"+intshort;
         shortbox="shorttextbox" + intshort;
 
-        var draggable_image = document.createElement("img");
+        /*var draggable_image = document.createElement("img");
         draggable_image.setAttribute("src", "../Images/sort_icons.png");
         draggable_image.setAttribute("height", "20px");
         draggable_image.setAttribute("width", "20px");
@@ -225,11 +237,18 @@ $(document).ready(function(){
             width: "10px",
             id: shortimagenumber
         }).click(function (e) {
-            $(e.delegateTarget).prev().remove();
+        	var $target = $(event.target);
+        	$(e.delegateTarget).prev().remove();
             $(e.delegateTarget).prev().remove('b');
-            $(e.target).prev().remove('br');
-            $(e.target).prev().remove('br');
-            $(e.target).remove();
+            $(e.delegateTarget).prev().remove();
+            if($target.prev().is('br')){
+            	$(e.delegateTarget).prev().remove('br');
+	            $(e.delegateTarget).prev().remove('br');
+            } else{
+	            $(e.delegateTarget).next().remove('br');
+	            $(e.delegateTarget).next().remove('br');
+            }
+            $(e.delegateTarget).remove();
 
 
         });
@@ -245,7 +264,18 @@ $(document).ready(function(){
         var enter = document.createElement("br");
         foo.append(enter);
         var enter2 = document.createElement("br");
-        foo.append(enter2);
+        foo.append(enter2);*/
+        
+        var foo = $('#sortable');
+        var fieldWrapper = $("<p/>");
+        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/><b>Question #:</b><input type=text size=20 id="+ shortbox+"/>");
+        var second = $("<img src=../Images/Delete.jpg height=10px width=10px id="+shortimagenumber +"/>");
+        second.click(function() {
+            $(this).parent().remove();
+        });
+        foo.append(fieldWrapper);
+        fieldWrapper.append(first);
+        fieldWrapper.append(second);
     });
 
 
@@ -255,7 +285,7 @@ $(document).ready(function(){
         longimagenumber ="longimagenumber"+intlong;
         longbox="longtext" + intlong;
 
-        var draggable_image = document.createElement("img");
+        /*var draggable_image = document.createElement("img");
         draggable_image.setAttribute("src", "../Images/sort_icons.png");
         draggable_image.setAttribute("height", "20px");
         draggable_image.setAttribute("width", "20px");
@@ -274,11 +304,18 @@ $(document).ready(function(){
             width: "10px",
             id: longimagenumber
         }).click(function (e) {
-            $(e.delegateTarget).prev().remove();
+        	var $target = $(event.target);
+        	$(e.delegateTarget).prev().remove();
             $(e.delegateTarget).prev().remove('b');
-            $(e.target).prev().remove('br');
-            $(e.target).prev().remove('br');
-            $(e.target).remove();
+            $(e.delegateTarget).prev().remove();
+            if($target.prev().is('br')){
+            	$(e.delegateTarget).prev().remove('br');
+	            $(e.delegateTarget).prev().remove('br');
+            } else{
+	            $(e.delegateTarget).next().remove('br');
+	            $(e.delegateTarget).next().remove('br');
+            }
+            $(e.delegateTarget).remove();
         });
 
         var foo = $('#longtextbox');
@@ -290,7 +327,18 @@ $(document).ready(function(){
         var enter = document.createElement("br");
         foo.append(enter);
         var enter2 = document.createElement("br");
-        foo.append(enter2);
+        foo.append(enter2);*/
+        var foo = $('#sortable');
+        var fieldWrapper = $("<p/>");
+        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/><b>Question #:</b><input type=text size=100 id="+ longbox+"/>");
+        var second = $("<img src=../Images/Delete.jpg height=10px width=10px id="+longimagenumber +"/>");
+        second.click(function() {
+            $(this).parent().remove();
+        });
+        foo.append(fieldWrapper);
+        fieldWrapper.append(first);
+        fieldWrapper.append(second);
+        
     });
     $('#text').click(function() {
         type="text";
@@ -298,7 +346,7 @@ $(document).ready(function(){
         imagetextnumber ="imagetextnumber"+inttext;
         textnumber="text" + inttext;
 
-        var draggable_image = document.createElement("img");
+        /*var draggable_image = document.createElement("img");
         draggable_image.setAttribute("src", "../Images/sort_icons.png");
         draggable_image.setAttribute("height", "20px");
         draggable_image.setAttribute("width", "20px");
@@ -317,11 +365,18 @@ $(document).ready(function(){
             width: "10px",
             id: imagetextnumber
         }).click(function (e) {
-            $(e.delegateTarget).prev().remove();
+        	var $target = $(event.target);
+        	$(e.delegateTarget).prev().remove();
             $(e.delegateTarget).prev().remove('b');
-            $(e.target).prev().remove('br');
-            $(e.target).prev().remove('br');
-            $(e.target).remove();
+            $(e.delegateTarget).prev().remove();
+            if($target.prev().is('br')){
+            	$(e.delegateTarget).prev().remove('br');
+	            $(e.delegateTarget).prev().remove('br');
+            } else{
+	            $(e.delegateTarget).next().remove('br');
+	            $(e.delegateTarget).next().remove('br');
+            }
+            $(e.delegateTarget).remove();
 
         });
 
@@ -336,7 +391,18 @@ $(document).ready(function(){
         var enter = document.createElement("br");
         foo.append(enter);
         var enter2 = document.createElement("br");
-        foo.append(enter2);
+        foo.append(enter2);*/
+        
+        var foo = $('#sortable');
+        var fieldWrapper = $("<p/>");
+        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/><b>Answer:</b><input type=text disabled=disabled id="+  textnumber+"/>");
+        var second = $("<img src=../Images/Delete.jpg height=10px width=10px id="+ imagetextnumber +"/>");
+        second.click(function() {
+            $(this).parent().remove();
+        });
+        foo.append(fieldWrapper);
+        fieldWrapper.append(first);
+        fieldWrapper.append(second);
     });
 
     $('#radio').click(function() {
@@ -347,7 +413,7 @@ $(document).ready(function(){
         radiotextnumber="radiotextnumber" + intradio;
         radiobuttonnumber = "radiobuttonnumber" +intradio;
 
-        var draggable_image = document.createElement("img");
+        /*var draggable_image = document.createElement("img");
         draggable_image.setAttribute("src", "../Images/sort_icons.png");
         draggable_image.setAttribute("height", "20px");
         draggable_image.setAttribute("width", "20px");
@@ -372,10 +438,17 @@ $(document).ready(function(){
             width: "10px",
             id: imageradionumber
         }).click(function (e) {
-            $(e.delegateTarget).prev().remove();
-            $(e.delegateTarget).prev().remove();
-            $(e.target).prev().remove('br');
-            $(e.target).prev().remove('br');
+        	var $target = $(event.target);
+            $(e.target).prev().remove('input');
+            $(e.target).prev().remove('input');
+            $(e.target).prev().remove('img');
+            if($target.prev().is('br')){
+            	$(e.delegateTarget).prev().remove('br');
+	            $(e.delegateTarget).prev().remove('br');
+            } else{
+	            $(e.delegateTarget).next().remove('br');
+	            $(e.delegateTarget).next().remove('br');
+            }
             $(e.target).remove();
 
         });
@@ -392,7 +465,18 @@ $(document).ready(function(){
         var enter = document.createElement("br");
         foo.append(enter);
         var enter2 = document.createElement("br");
-        foo.append(enter2);
+        foo.append(enter2);*/
+        var foo = $('#sortable');
+        var fieldWrapper = $("<p/>");
+        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/><input type=radio disabled=disabled id="+  radiobuttonnumber+"/> <input type=text id="+  radiotextnumber+"/>");
+        var second = $("<img src=../Images/Delete.jpg height=10px width=10px id="+ imageradionumber +"/>");
+        second.click(function() {
+            $(this).parent().remove();
+        });
+        foo.append(fieldWrapper);
+        fieldWrapper.append(first);
+        fieldWrapper.append(second);
+        
     });
 
     $('#paragraph').click(function() {
@@ -401,7 +485,7 @@ $(document).ready(function(){
         paragraphnumber = "paragraphnumber" + intparagraph;
         paragraphimagenumber = "paragraphimagenumber" + intparagraph;
 
-        var draggable_image = document.createElement("img");
+        /*var draggable_image = document.createElement("img");
         draggable_image.setAttribute("src", "../Images/sort_icons.png");
         draggable_image.setAttribute("height", "20px");
         draggable_image.setAttribute("width", "20px");
@@ -421,12 +505,18 @@ $(document).ready(function(){
             width: "10px",
             id: paragraphimagenumber
         }).click(function (e) {
-            $(e.delegateTarget).prev().remove();
+        	var $target = $(event.target);
+        	$(e.delegateTarget).prev().remove();
             $(e.delegateTarget).prev().remove('b');
-            $(e.target).prev().remove('br');
-            $(e.target).prev().remove('br');
-            $(e.target).remove();
-
+            $(e.delegateTarget).prev().remove();
+            if($target.prev().is('br')){
+            	$(e.delegateTarget).prev().remove('br');
+	            $(e.delegateTarget).prev().remove('br');
+            } else{
+	            $(e.delegateTarget).next().remove('br');
+	            $(e.delegateTarget).next().remove('br');
+            }
+            $(e.delegateTarget).remove();
         });
 
         var foo = $("#paragraphtext");
@@ -438,7 +528,17 @@ $(document).ready(function(){
         var enter = document.createElement("br");
         foo.append(enter);
         var enter2 = document.createElement("br");
-        foo.append(enter2);
+        foo.append(enter2);*/
+        var foo = $('#sortable');
+        var fieldWrapper = $("<p/>");
+        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/><b>Answer:</b><textarea rows=4 columns=20 disabled=disabled id="+  paragraphnumber+"/>");
+        var second = $("<img src=../Images/Delete.jpg height=10px width=10px id="+ paragraphimagenumber +"/>");
+        second.click(function() {
+            $(this).parent().remove();
+        });
+        foo.append(fieldWrapper);
+        fieldWrapper.append(first);
+        fieldWrapper.append(second);
     });
 
     $('#checkbox').click(function() {
@@ -449,7 +549,7 @@ $(document).ready(function(){
         checktextbox="checktextnumber" + intcheck;
         checkbuttonbox = "checkbuttonnumber" +intcheck;
 
-        var draggable_image = document.createElement("img");
+        /*var draggable_image = document.createElement("img");
         draggable_image.setAttribute("src", "../Images/sort_icons.png");
         draggable_image.setAttribute("height", "20px");
         draggable_image.setAttribute("width", "20px");
@@ -473,10 +573,17 @@ $(document).ready(function(){
             width: "10px",
             id: imagecheckbox
         }).click(function (e) {
-            $(e.delegateTarget).prev().remove();
-            $(e.delegateTarget).prev().remove();
-            $(e.target).prev().remove('br');
-            $(e.target).prev().remove('br');
+        	var $target = $(event.target);
+            $(e.target).prev().remove('input');
+            $(e.target).prev().remove('input');
+            $(e.target).prev().remove('img');
+            if($target.prev().is('br')){
+            	$(e.delegateTarget).prev().remove('br');
+	            $(e.delegateTarget).prev().remove('br');
+            } else{
+	            $(e.delegateTarget).next().remove('br');
+	            $(e.delegateTarget).next().remove('br');
+            }
             $(e.target).remove();
 
         });
@@ -493,7 +600,18 @@ $(document).ready(function(){
         var enter = document.createElement("br");
         foo.append(enter);
         var enter2 = document.createElement("br");
-        foo.append(enter2);
+        foo.append(enter2);*/
+        
+        var foo = $('#sortable');
+        var fieldWrapper = $("<p/>");
+        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/><input type=checkbox disabled=disabled id="+  checkbuttonbox+"/> <input type=text id="+  checktextbox+"/>");
+        var second = $("<img src=../Images/Delete.jpg height=10px width=10px id="+ imagecheckbox +"/>");
+        second.click(function() {
+            $(this).parent().remove();
+        });
+        foo.append(fieldWrapper);
+        fieldWrapper.append(first);
+        fieldWrapper.append(second);
     });
 
     $('#dropdown').click(function() {
@@ -501,10 +619,10 @@ $(document).ready(function(){
         style="width:100px";
         type2="text";
         dropdownid= "dropdownid" + intdropdown;
-        var textbox = document.createElement("input");
-        textbox.setAttribute("type", "text");
+        /*var textbox = document.createElement("input");
+        textbox.setAttribute("type", "text");*/
 
-        var draggable_image = document.createElement("img");
+        /*var draggable_image = document.createElement("img");
         draggable_image.setAttribute("src", "../Images/sort_icons.png");
         draggable_image.setAttribute("height", "20px");
         draggable_image.setAttribute("width", "20px");
@@ -558,12 +676,19 @@ $(document).ready(function(){
 
         }).click(function (e) {
 
-            $(e.delegateTarget).prev().remove();
-            $(e.delegateTarget).prev().remove();
-            $(e.delegateTarget).prev().remove();
-            $(e.delegateTarget).prev().remove();
-            $(e.target).prev().remove('br');
-            $(e.target).prev().remove('br');
+        	var $target = $(event.target);
+            $(e.target).prev().remove();
+            $(e.target).prev().remove();
+            $(e.target).prev().remove();
+            $(e.target).prev().remove();
+            $(e.target).prev().remove();
+            if($target.prev().is('br')){
+            	$(e.delegateTarget).prev().remove('br');
+	            $(e.delegateTarget).prev().remove('br');
+            } else{
+	            $(e.delegateTarget).next().remove('br');
+	            $(e.delegateTarget).next().remove('br');
+            }
             $(e.target).remove();
 
         });
@@ -581,7 +706,29 @@ $(document).ready(function(){
         var enter = document.createElement("br");
         foo.append(enter);
         var enter2 = document.createElement("br");
-        foo.append(enter2);
+        foo.append(enter2);*/
+        var foo = $('#sortable');
+        var fieldWrapper = $("<p/>");
+        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/><select style=width:100px id="+  dropdownid+"/>");
+        var second = $("<img src=../Images/plus_icon.png height=15px width=15px/>");
+        var text = $("<input type=text />");
+        second.click(function() {
+        	first.append('<option value=' + $(this).val()+'>'+ $(this).val() +'</option>');
+        });
+        var third = $("<img src=../Images/minus_icon.png height=15px width=15px/>");
+        third.click(function() {
+        	//$(this).parent().append('<option value=' + $(textbox).val()+'>'+ $(textbox).val() +'</option>');
+        });
+        var fourth = $("<img src=../Images/Delete.jpg height=10px width=10px/>");
+        fourth.click(function() {
+        	 $(this).parent().remove();
+        });
+        foo.append(fieldWrapper);
+        fieldWrapper.append(first);
+        fieldWrapper.append(text);
+        fieldWrapper.append(second);
+        fieldWrapper.append(third);
+        fieldWrapper.append(fourth);
 
     });
 
@@ -672,15 +819,21 @@ $(document).ready(function(){
 	        		$(e.delegateTarget).prev().remove();
 	        		$(e.delegateTarget).prev().remove();
 	        		$(e.delegateTarget).prev().remove();*/
-            $(e.delegateTarget).prev().remove();
-            $(e.delegateTarget).prev().remove();
-            $(e.delegateTarget).prev().remove();
-            $(e.delegateTarget).prev().remove();
-            $(e.delegateTarget).prev().remove();
-            $(e.delegateTarget).prev().remove();
-            $(e.delegateTarget).prev().remove();
-            $(e.target).prev().remove('br');
-            $(e.target).prev().remove('br');
+        	var $target = $(event.target);
+            $(e.target).prev().remove();
+            $(e.target).prev().remove();
+            $(e.target).prev().remove();
+            $(e.target).prev().remove();
+            $(e.target).prev().remove();
+            $(e.target).prev().remove();
+            $(e.target).prev().remove();
+            if($target.prev().is('br')){
+            	$(e.delegateTarget).prev().remove('br');
+	            $(e.delegateTarget).prev().remove('br');
+            } else{
+	            $(e.delegateTarget).next().remove('br');
+	            $(e.delegateTarget).next().remove('br');
+            }
             $(e.target).remove();
 
         });
