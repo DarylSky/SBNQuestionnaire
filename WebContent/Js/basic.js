@@ -735,6 +735,7 @@ $(document).ready(function(){
         var text = $("<input type=text />");
         second.click(function() {
               select.append('<option value=' + $(text).val()+'>'+ $(text).val() +'</option>');
+              $(text).attr("value", "");
               
         });
         var third = $("<img src=../Images/minus_icon.png height=15px width=15px/>");
