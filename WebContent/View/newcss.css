@@ -8,6 +8,7 @@ body {
        margin-top: 0;
        margin-left:auto;
        margin-right:auto;
+   
        
 }
 
@@ -29,11 +30,15 @@ body {
 }
 
 #textField {
-       list-style-image: url(../Images/TextFieldHeader.gif);
+       list-style-image: url(../Images/TextFieldHeader.png);
+
+       
 }
 
 #answerField {
-       list-style-image: url(../Images/AnswerFieldHeader.gif);
+       list-style-image: url(../Images/AnswerFieldHeader.png);
+             
+       
 }
 
 #guidance {
@@ -50,7 +55,7 @@ body {
 #nav li {
        float: left;
        width: 200px;
-       background: #3399FF;
+       background: #808080;
        position: relative;
        z-index: 500;
        margin: 0 1px;
@@ -67,7 +72,10 @@ body {
        vertical-align: middle;
        color: white;
        font-size: 120%;
+       font-family:"Eurostile"} 
+
 }
+
 
 #nav li a:hover {
        color: #FEF0C9;
@@ -112,6 +120,12 @@ body {
        margin: 0 0 0 -2px;
 }
 
+p:hover {
+    
+     border: 1px solid #aaaaaa;     
+    
+}
+
 div.fullscreen {
        display: block;
        /*set the div in the top right corner*/
@@ -149,19 +163,19 @@ div.fullscreen {
        color: blue;
 }
 
-p.flip {
-       margin: 0px;
-       padding: 5px;
-       text-align: center;
-       background: #A9A9F5;
-       border: solid 1px #c3c3c3;
+#version{
+    
+    background-color: #F0AB00;
+    font-weight:bold;
+    olor:white;
+    width= 1000px;
 }
 
 p.flip {
        margin: 0px;
        padding: 5px;
        text-align: center;
-       background: #FCF8DC;
+       background: #F2F2F2;
        border: solid 1px #c3c3c3;
 }
 
@@ -170,3 +184,4 @@ div.panel {
        display: none;
        background: white;
 }
+
