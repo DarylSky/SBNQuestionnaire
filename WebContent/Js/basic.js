@@ -45,6 +45,34 @@ $(document).ready(function(){
     inttextunit=0;
     
 
+    if ($('#question1').html() =='')
+
+    {
+    // here
+    
+    textField.disabled="true";
+    fieldsInTextField.disabled="true";
+    answerField.disabled="true";
+    guidance.disabled="true";
+    attachment.disabled="true";
+    
+    $('#attachment').click(function(){
+    	
+    	alert("hello");
+    });
+    
+    
+    }
+
+    $('#question').click(function(){
+           textField.disabled=false;
+           fieldsInTextField.disabled=false;
+           answerField.disabled=false;
+           guidance.disabled=false;
+           attachment.disabled=false;
+});
+
+
 
 
 
@@ -64,15 +92,6 @@ $(document).ready(function(){
         "</tr>" +
         "<tr width=\"965\" id=\"tableslide\">" +
         "<td><div class=\"demo\" id=\"sortable\">" +
-        "<p class=\"ui-state-default\"><span id=\"shorttextbox\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
-     
-        "<p class=\"ui-state-default\"><span id=\"longtextbox\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
-        "<p class=\"ui-state-default\"><span id=\"textbox\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
-        "<p class=\"ui-state-default\"><span id=\"paragraphtext\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
-        "<p class=\"ui-state-default\"><span id=\"dropdownlist\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
-        "<p class=\"ui-state-default\"><span id=\"check\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
-        "<p class=\"ui-state-default\"><span id=\"textu\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
-        "<p class=\"ui-state-default\"><span id=\"radiobutton\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"></span></p>" +
         "</div></td></tr></table></div>";
 
         intquestionPanel++;
@@ -164,17 +183,17 @@ $(document).ready(function(){
             width: "10px",
             id: imagenumber
         }).click(function (e) {
-        	
-        	var $target = $(event.target);
-        	$(e.delegateTarget).prev().remove();
+              
+              var $target = $(event.target);
+              $(e.delegateTarget).prev().remove();
             $(e.delegateTarget).prev().remove('b');
             $(e.delegateTarget).prev().remove();
             if($target.prev().is('br')){
-            	$(e.delegateTarget).prev().remove('br');
-	            $(e.delegateTarget).prev().remove('br');
+              $(e.delegateTarget).prev().remove('br');
+                   $(e.delegateTarget).prev().remove('br');
             } else{
-	            $(e.delegateTarget).next().remove('br');
-	            $(e.delegateTarget).next().remove('br');
+                   $(e.delegateTarget).next().remove('br');
+                   $(e.delegateTarget).next().remove('br');
             }
             $(e.delegateTarget).remove();
 
@@ -237,16 +256,16 @@ $(document).ready(function(){
             width: "10px",
             id: shortimagenumber
         }).click(function (e) {
-        	var $target = $(event.target);
-        	$(e.delegateTarget).prev().remove();
+              var $target = $(event.target);
+              $(e.delegateTarget).prev().remove();
             $(e.delegateTarget).prev().remove('b');
             $(e.delegateTarget).prev().remove();
             if($target.prev().is('br')){
-            	$(e.delegateTarget).prev().remove('br');
-	            $(e.delegateTarget).prev().remove('br');
+              $(e.delegateTarget).prev().remove('br');
+                   $(e.delegateTarget).prev().remove('br');
             } else{
-	            $(e.delegateTarget).next().remove('br');
-	            $(e.delegateTarget).next().remove('br');
+                   $(e.delegateTarget).next().remove('br');
+                   $(e.delegateTarget).next().remove('br');
             }
             $(e.delegateTarget).remove();
 
@@ -304,16 +323,16 @@ $(document).ready(function(){
             width: "10px",
             id: longimagenumber
         }).click(function (e) {
-        	var $target = $(event.target);
-        	$(e.delegateTarget).prev().remove();
+              var $target = $(event.target);
+              $(e.delegateTarget).prev().remove();
             $(e.delegateTarget).prev().remove('b');
             $(e.delegateTarget).prev().remove();
             if($target.prev().is('br')){
-            	$(e.delegateTarget).prev().remove('br');
-	            $(e.delegateTarget).prev().remove('br');
+              $(e.delegateTarget).prev().remove('br');
+                   $(e.delegateTarget).prev().remove('br');
             } else{
-	            $(e.delegateTarget).next().remove('br');
-	            $(e.delegateTarget).next().remove('br');
+                   $(e.delegateTarget).next().remove('br');
+                   $(e.delegateTarget).next().remove('br');
             }
             $(e.delegateTarget).remove();
         });
@@ -365,16 +384,16 @@ $(document).ready(function(){
             width: "10px",
             id: imagetextnumber
         }).click(function (e) {
-        	var $target = $(event.target);
-        	$(e.delegateTarget).prev().remove();
+              var $target = $(event.target);
+              $(e.delegateTarget).prev().remove();
             $(e.delegateTarget).prev().remove('b');
             $(e.delegateTarget).prev().remove();
             if($target.prev().is('br')){
-            	$(e.delegateTarget).prev().remove('br');
-	            $(e.delegateTarget).prev().remove('br');
+              $(e.delegateTarget).prev().remove('br');
+                   $(e.delegateTarget).prev().remove('br');
             } else{
-	            $(e.delegateTarget).next().remove('br');
-	            $(e.delegateTarget).next().remove('br');
+                   $(e.delegateTarget).next().remove('br');
+                   $(e.delegateTarget).next().remove('br');
             }
             $(e.delegateTarget).remove();
 
@@ -406,7 +425,7 @@ $(document).ready(function(){
     });
 
     $('#radio').click(function() {
-        type="text";
+       type="text";
         type2="radio";
         inttext++;
         imageradionumber ="imageradionumber"+intradio;
@@ -438,16 +457,16 @@ $(document).ready(function(){
             width: "10px",
             id: imageradionumber
         }).click(function (e) {
-        	var $target = $(event.target);
+              var $target = $(event.target);
             $(e.target).prev().remove('input');
             $(e.target).prev().remove('input');
             $(e.target).prev().remove('img');
             if($target.prev().is('br')){
-            	$(e.delegateTarget).prev().remove('br');
-	            $(e.delegateTarget).prev().remove('br');
+              $(e.delegateTarget).prev().remove('br');
+                   $(e.delegateTarget).prev().remove('br');
             } else{
-	            $(e.delegateTarget).next().remove('br');
-	            $(e.delegateTarget).next().remove('br');
+                   $(e.delegateTarget).next().remove('br');
+                   $(e.delegateTarget).next().remove('br');
             }
             $(e.target).remove();
 
@@ -505,16 +524,16 @@ $(document).ready(function(){
             width: "10px",
             id: paragraphimagenumber
         }).click(function (e) {
-        	var $target = $(event.target);
-        	$(e.delegateTarget).prev().remove();
+              var $target = $(event.target);
+              $(e.delegateTarget).prev().remove();
             $(e.delegateTarget).prev().remove('b');
             $(e.delegateTarget).prev().remove();
             if($target.prev().is('br')){
-            	$(e.delegateTarget).prev().remove('br');
-	            $(e.delegateTarget).prev().remove('br');
+              $(e.delegateTarget).prev().remove('br');
+                   $(e.delegateTarget).prev().remove('br');
             } else{
-	            $(e.delegateTarget).next().remove('br');
-	            $(e.delegateTarget).next().remove('br');
+                   $(e.delegateTarget).next().remove('br');
+                   $(e.delegateTarget).next().remove('br');
             }
             $(e.delegateTarget).remove();
         });
@@ -572,17 +591,17 @@ $(document).ready(function(){
             height: "10px",
             width: "10px",
             id: imagecheckbox
-        }).click(function (e) {
-        	var $target = $(event.target);
+       }).click(function (e) {
+              var $target = $(event.target);
             $(e.target).prev().remove('input');
             $(e.target).prev().remove('input');
             $(e.target).prev().remove('img');
             if($target.prev().is('br')){
-            	$(e.delegateTarget).prev().remove('br');
-	            $(e.delegateTarget).prev().remove('br');
+              $(e.delegateTarget).prev().remove('br');
+                   $(e.delegateTarget).prev().remove('br');
             } else{
-	            $(e.delegateTarget).next().remove('br');
-	            $(e.delegateTarget).next().remove('br');
+                   $(e.delegateTarget).next().remove('br');
+                   $(e.delegateTarget).next().remove('br');
             }
             $(e.target).remove();
 
@@ -676,18 +695,18 @@ $(document).ready(function(){
 
         }).click(function (e) {
 
-        	var $target = $(event.target);
+              var $target = $(event.target);
             $(e.target).prev().remove();
             $(e.target).prev().remove();
             $(e.target).prev().remove();
             $(e.target).prev().remove();
             $(e.target).prev().remove();
             if($target.prev().is('br')){
-            	$(e.delegateTarget).prev().remove('br');
-	            $(e.delegateTarget).prev().remove('br');
+              $(e.delegateTarget).prev().remove('br');
+                   $(e.delegateTarget).prev().remove('br');
             } else{
-	            $(e.delegateTarget).next().remove('br');
-	            $(e.delegateTarget).next().remove('br');
+                   $(e.delegateTarget).next().remove('br');
+                   $(e.delegateTarget).next().remove('br');
             }
             $(e.target).remove();
 
@@ -707,24 +726,31 @@ $(document).ready(function(){
         foo.append(enter);
         var enter2 = document.createElement("br");
         foo.append(enter2);*/
+        
         var foo = $('#sortable');
         var fieldWrapper = $("<p/>");
-        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/><select style=width:100px id="+  dropdownid+"/>");
+        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/>");
         var second = $("<img src=../Images/plus_icon.png height=15px width=15px/>");
+        var select = $("<select style=width:100px id="+  dropdownid+"/>");
         var text = $("<input type=text />");
         second.click(function() {
-        	first.append('<option value=' + $(this).val()+'>'+ $(this).val() +'</option>');
+              select.append('<option value=' + $(text).val()+'>'+ $(text).val() +'</option>');
+              
         });
         var third = $("<img src=../Images/minus_icon.png height=15px width=15px/>");
         third.click(function() {
-        	//$(this).parent().append('<option value=' + $(textbox).val()+'>'+ $(textbox).val() +'</option>');
+              var x=$(select).attr("id");
+            var y =$(select).attr("value");
+            //foo.append(x);
+            $("#" + x +" option[value='"+y+"']").remove();
         });
         var fourth = $("<img src=../Images/Delete.jpg height=10px width=10px/>");
         fourth.click(function() {
-        	 $(this).parent().remove();
+               $(this).parent().remove();
         });
         foo.append(fieldWrapper);
         fieldWrapper.append(first);
+        fieldWrapper.append(select);
         fieldWrapper.append(text);
         fieldWrapper.append(second);
         fieldWrapper.append(third);
@@ -736,9 +762,10 @@ $(document).ready(function(){
         type="width:100px";
         type2="text";
         inttextunit++;
+        textwithunitdropdown="textwithunitdropdown" + inttextunit;
         textwithunit= "textwithunit"+inttextunit;
 
-        var draggable_image = document.createElement("img");
+        /*var draggable_image = document.createElement("img");
         draggable_image.setAttribute("src", "../Images/sort_icons.png");
         draggable_image.setAttribute("height", "20px");
         draggable_image.setAttribute("width", "20px");
@@ -778,7 +805,7 @@ $(document).ready(function(){
         });
 
         //Append the element in page (in span).
-        var image2 = document.createElement("img");
+       var image2 = document.createElement("img");
 
 
         $(image2).attr({
@@ -805,21 +832,21 @@ $(document).ready(function(){
 
         }).click(function (e) {
 
-            /*$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();*/
-        	var $target = $(event.target);
+            $(e.delegateTarget).prev().remove();
+                            $(e.delegateTarget).prev().remove();
+                            $(e.delegateTarget).prev().remove();
+                            $(e.delegateTarget).prev().remove();
+                            $(e.delegateTarget).prev().remove();
+                            $(e.delegateTarget).prev().remove();
+                            $(e.delegateTarget).prev().remove();
+                            $(e.delegateTarget).prev().remove();
+                            $(e.delegateTarget).prev().remove();
+                            $(e.delegateTarget).prev().remove();
+                            $(e.delegateTarget).prev().remove();
+                            $(e.delegateTarget).prev().remove();
+                            $(e.delegateTarget).prev().remove();
+                            $(e.delegateTarget).prev().remove();
+              var $target = $(event.target);
             $(e.target).prev().remove();
             $(e.target).prev().remove();
             $(e.target).prev().remove();
@@ -828,11 +855,11 @@ $(document).ready(function(){
             $(e.target).prev().remove();
             $(e.target).prev().remove();
             if($target.prev().is('br')){
-            	$(e.delegateTarget).prev().remove('br');
-	            $(e.delegateTarget).prev().remove('br');
+              $(e.delegateTarget).prev().remove('br');
+                   $(e.delegateTarget).prev().remove('br');
             } else{
-	            $(e.delegateTarget).next().remove('br');
-	            $(e.delegateTarget).next().remove('br');
+                   $(e.delegateTarget).next().remove('br');
+                   $(e.delegateTarget).next().remove('br');
             }
             $(e.target).remove();
 
@@ -844,21 +871,21 @@ $(document).ready(function(){
         foo.append(element2);
         foo.append(element);
 
-        /*$("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;"); */
+        $("#textu").append("&nbsp;");
+                 $("#textu").append("&nbsp;");
+                 $("#textu").append("&nbsp;");
+                 $("#textu").append("&nbsp;");
+                 $("#textu").append("&nbsp;");
+                 $("#textu").append("&nbsp;");
+                 $("#textu").append("&nbsp;");
+                 $("#textu").append("&nbsp;");
+                 $("#textu").append("&nbsp;");
+                 $("#textu").append("&nbsp;");
+                 $("#textu").append("&nbsp;");
+                 $("#textu").append("&nbsp;");
+                 $("#textu").append("&nbsp;");
+                 $("#textu").append("&nbsp;");
+                 $("#textu").append("&nbsp;"); 
 
 
         foo.append(textbox);
@@ -869,7 +896,35 @@ $(document).ready(function(){
         foo.append(enter2);
 
         var enter3 = document.createElement("br");
-        foo.append(enter3);
+        foo.append(enter3);*/
+        
+        var foo = $('#sortable');
+        var fieldWrapper = $("<p/>");
+        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/><b>Answer:</b><input type=text disabled=disabled id=" + textwithunit+">");
+        var second = $("<img src=../Images/plus_icon.png height=15px width=15px/>");
+        var select = $("<select style=width:100px id="+  textwithunitdropdown+"/>");
+        var text = $("<input type=text />");
+        second.click(function() {
+              select.append('<option value=' + $(text).val()+'>'+ $(text).val() +'</option>');
+        });
+        var third = $("<img src=../Images/minus_icon.png height=15px width=15px/>");
+        third.click(function() {
+              var x=$(select).attr("id");
+            var y =$(select).attr("value");
+            //foo.append(x);
+            $("#" + x +" option[value='"+y+"']").remove();
+        });
+        var fourth = $("<img src=../Images/Delete.jpg height=10px width=10px/>");
+        fourth.click(function() {
+               $(this).parent().remove();
+        });
+        foo.append(fieldWrapper);
+        fieldWrapper.append(first);
+        fieldWrapper.append(select);
+        fieldWrapper.append(text);
+        fieldWrapper.append(second);
+        fieldWrapper.append(third);
+        fieldWrapper.append(fourth);
 
     });
 
@@ -887,4 +942,5 @@ $(document).ready(function(){
 
 
 });
+
 
