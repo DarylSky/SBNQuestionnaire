@@ -49,7 +49,32 @@ $(document).ready(function(){
     intdropdown=0;
     inttextunit=0;
     
+    if ($('#question1').html() =='')
 
+    {
+    // here
+    
+    textField.disabled="true";
+    fieldsInTextField.disabled="true";
+    answerField.disabled="true";
+    guidance.disabled="true";
+    attachment.disabled="true";
+    
+    $('#attachment').click(function(){
+       
+       alert("hello");
+    });
+    
+    
+    }
+
+    $('#question').click(function(){
+           textField.disabled=false;
+           fieldsInTextField.disabled=false;
+           answerField.disabled=false;
+           guidance.disabled=false;
+           attachment.disabled=false;
+});
 
 
 
@@ -719,6 +744,7 @@ $(document).ready(function(){
         var text = $("<input type=text />");
         second.click(function() {
         	select.append('<option value=' + $(text).val()+'>'+ $(text).val() +'</option>');
+        	$(text).attr("value", "");
         });
         var third = $("<img src=../Images/minus_icon.png height=15px width=15px/>");
         third.click(function() {
@@ -942,6 +968,6 @@ $(document).ready(function(){
     });
 
 
-
 });
+
 

@@ -78,8 +78,6 @@ $(function() {
 		
     </div>
     
-    <p>Date: <input type="text" id="datepicker"></p>
-
     <center><div id="version"><label>SBN Questionnaire System beta: 0.1</label></div></center>
 </body>
 </html>
