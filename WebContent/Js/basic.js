@@ -48,6 +48,8 @@ $(document).ready(function(){
     intcheck=0;
     intdropdown=0;
     inttextunit=0;
+    intsubquestion=0;
+    
     
     if ($('#question1').html() =='')
 
@@ -165,6 +167,35 @@ $(document).ready(function(){
                 $('ul', this).slideUp(100);
             }
     );
+    $('#subquestion').click(function() {
+        type="text";
+        inttext++;
+        imagetextnumber ="imagetextnumber"+inttext;
+        textnumber="text" + inttext;
+        
+        
+        
+        var myArray = [ 'a', 'b', 'c', 'd', 'e', 'f' ];
+
+        
+        var alphabet = myArray[intsubquestion];
+        
+        var foo = $('#sortable');
+        var fieldWrapper = $("<p/>");
+        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/>" +
+        		"<input type=text size="+15+" value=\"Sub Question ("+alphabet+")\" id="+  textnumber+"/>");
+        var second = $("<img src=../Images/Delete.jpg height=10px width=10px id="+ imagetextnumber +"/>");
+        second.click(function() {
+            $(this).parent().remove();
+        });
+        foo.append(fieldWrapper);
+        fieldWrapper.append(first);
+        fieldWrapper.append(second);
+        intsubquestion++;
+    });
+    
+    
+    
     $('#questionnumber').click(function() {
         type="text";
         intquestion++;
@@ -229,7 +260,7 @@ $(document).ready(function(){
         foo.append(enter2);*/
         var foo = $('#sortable');
         var fieldWrapper = $("<p/>");
-        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/><b>Question #:</b><input type=text size=5 id="+ questionname +"maxlength=5/>");
+        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/><b>Question:</b><input type=text size=5 id="+ questionname +"maxlength=5/>");
         var second = $("<img src=../Images/Delete.jpg height=10px width=10px id="+imagenumber +"/>");
         second.click(function() {
             $(this).parent().remove();
@@ -297,7 +328,7 @@ $(document).ready(function(){
         
         var foo = $('#sortable');
         var fieldWrapper = $("<p/>");
-        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/><b>Question #:</b><input type=text size=20 id="+ shortbox+"/>");
+        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/><b>Question:</b><input type=text size=20 id="+ shortbox+"/>");
         var second = $("<img src=../Images/Delete.jpg height=10px width=10px id="+shortimagenumber +"/>");
         second.click(function() {
             $(this).parent().remove();
@@ -359,7 +390,7 @@ $(document).ready(function(){
         foo.append(enter2);*/
         var foo = $('#sortable');
         var fieldWrapper = $("<p/>");
-        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/><b>Question #:</b><input type=text size=100 id="+ longbox+"/>");
+        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/><b>Question:</b><input type=text size=100 id="+ longbox+"/>");
         var second = $("<img src=../Images/Delete.jpg height=10px width=10px id="+longimagenumber +"/>");
         second.click(function() {
             $(this).parent().remove();

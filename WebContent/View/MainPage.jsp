@@ -52,9 +52,9 @@ $(function() {
             <li id="question"><a href="#">Question</a></li>
             <li id="textField"><a href="#">Text Field</a>
                 <ul id="fieldsInTextField" style="list-style: none;">
-                    <li id="questionnumber"><a href="#">Question Number</a></li>
-                    <li id="shorttext"><a href="#">Short</a></li>
-                    <li id="longtext"><a href="#">Long</a></li>
+                    <li id="subquestion"><a href="#">Sub Question</a></li>
+                    <li id="shorttext"><a href="#">Short Field</a></li>
+                    <li id="longtext"><a href="#">Long Field</a></li>
                 </ul></li>
             <li id="answerField"><a href="#">Answer Field</a>
                 <ul style="list-style: none;">
@@ -79,5 +79,6 @@ $(function() {
     </div>
     
     <center><div id="version"><label>SBN Questionnaire System beta: 0.1</label></div></center>
+ 
 </body>
 </html>
