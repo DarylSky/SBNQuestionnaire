@@ -180,61 +180,6 @@ $(document).ready(function(){
         imagenumber ="imagenumber"+intquestion;
         questionname="questionnumber" + intquestion;
 
-        /*var draggable_image = document.createElement("img");
-        draggable_image.setAttribute("src", "../Images/sort_icons.png");
-        draggable_image.setAttribute("height", "20px");
-        draggable_image.setAttribute("width", "20px");
-
-        var element = document.createElement("input");
-        //Assign different attributes to the element.
-        element.setAttribute("type", type);
-        element.setAttribute("id", questionname);
-        element.setAttribute("name", questionname);
-        element.setAttribute("size", 5);
-        element.setAttribute("maxlength", 5);
-
-        var image = document.createElement("img");
-
-
-        $(image).attr({
-            src: "../Images/Delete.jpg",
-            height: "10px",
-            width: "10px",
-            id: imagenumber
-        }).click(function (e) {
-
-        	var $target = $(event.target);
-        	$(e.delegateTarget).prev().remove();
-            $(e.delegateTarget).prev().remove('b');
-            $(e.delegateTarget).prev().remove();
-            if($target.prev().is('br')){
-            	$(e.delegateTarget).prev().remove('br');
-	            $(e.delegateTarget).prev().remove('br');
-            } else{
-	            $(e.delegateTarget).next().remove('br');
-	            $(e.delegateTarget).next().remove('br');
-            }
-            $(e.delegateTarget).remove();
-
-
-
-        });*/
-
-        //var foo = $('#sortable');
-        //foo.append("<p><span id=\"questionnum\" class=\"ui-icon ui-icon-arrowthick-2-n-s\"><img src=../Images/sort_icons.png height=20px width=20px/><b>Question #:</b><input type=text id="+ questionname +"size=5 maxlength=5/> <img src=../Images/Delete.jpg height=10px width=10px id="+imagenumber +"/></p>");
-        /*var foo = $('#questionnum');
-        foo.append(draggable_image);
-        $("#questionnum").append("<b>Question #:</b>");
-
-
-        foo.append(element);
-        //Append the element in page (in span).
-        //foo.appendChild(element);
-        foo.append(image);
-        var enter = document.createElement("br");
-        foo.append(enter);
-        var enter2 = document.createElement("br");
-        foo.append(enter2);*/
         var foo = $('#sortable');
         var fieldWrapper = $("<p/>");
         var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><b>Question #:</b><input type=text size=5 id="+ questionname +"maxlength=5/>");
@@ -253,55 +198,6 @@ $(document).ready(function(){
         intshort++;
         shortimagenumber ="shortimagenumber"+intshort;
         shortbox="shorttextbox" + intshort;
-
-        /*var draggable_image = document.createElement("img");
-        draggable_image.setAttribute("src", "../Images/sort_icons.png");
-        draggable_image.setAttribute("height", "20px");
-        draggable_image.setAttribute("width", "20px");
-
-
-        var element = document.createElement("input");
-        //Assign different attributes to the element.
-        element.setAttribute("type", type);
-        element.setAttribute("name",shortbox);
-        element.setAttribute("id", shortbox);
-        element.setAttribute("size", 20);
-
-        var image = document.createElement("img");
-        $(image).attr({
-            src:  "../Images/Delete.jpg",
-            height: "10px",
-            width: "10px",
-            id: shortimagenumber
-        }).click(function (e) {
-        	var $target = $(event.target);
-        	$(e.delegateTarget).prev().remove();
-            $(e.delegateTarget).prev().remove('b');
-            $(e.delegateTarget).prev().remove();
-            if($target.prev().is('br')){
-            	$(e.delegateTarget).prev().remove('br');
-	            $(e.delegateTarget).prev().remove('br');
-            } else{
-	            $(e.delegateTarget).next().remove('br');
-	            $(e.delegateTarget).next().remove('br');
-            }
-            $(e.delegateTarget).remove();
-
-
-        });
-
-        var foo = $('#shorttextbox');
-        foo.append(draggable_image);
-
-        $("#shorttextbox").append("<b>Question:</b>");
-        foo.append(element);
-        //Append the element in page (in span).
-        //foo.appendChild(element);
-        foo.append(image);
-        var enter = document.createElement("br");
-        foo.append(enter);
-        var enter2 = document.createElement("br");
-        foo.append(enter2);*/
 
         var foo = $('#sortable');
         var fieldWrapper = $("<p/>");
@@ -322,49 +218,7 @@ $(document).ready(function(){
         longimagenumber ="longimagenumber"+intlong;
         longbox="longtext" + intlong;
 
-        /*var draggable_image = document.createElement("img");
-        draggable_image.setAttribute("src", "../Images/sort_icons.png");
-        draggable_image.setAttribute("height", "20px");
-        draggable_image.setAttribute("width", "20px");
-
-
-        var element = document.createElement("input");
-        //Assign different attributes to the element.
-        element.setAttribute("type", type);
-        element.setAttribute("id", longbox);
-        element.setAttribute("size", 100);
-
-        var image = document.createElement("img");
-        $(image).attr({
-            src:  "../Images/Delete.jpg",
-            height: "10px",
-            width: "10px",
-            id: longimagenumber
-        }).click(function (e) {
-        	var $target = $(event.target);
-        	$(e.delegateTarget).prev().remove();
-            $(e.delegateTarget).prev().remove('b');
-            $(e.delegateTarget).prev().remove();
-            if($target.prev().is('br')){
-            	$(e.delegateTarget).prev().remove('br');
-	            $(e.delegateTarget).prev().remove('br');
-            } else{
-	            $(e.delegateTarget).next().remove('br');
-	            $(e.delegateTarget).next().remove('br');
-            }
-            $(e.delegateTarget).remove();
-        });
-
-        var foo = $('#longtextbox');
-        foo.append(draggable_image);
-
-        $("#longtextbox").append("<b>Question:</b>");
-        foo.append(element);
-        foo.append(image);
-        var enter = document.createElement("br");
-        foo.append(enter);
-        var enter2 = document.createElement("br");
-        foo.append(enter2);*/
+       
         var foo = $('#sortable');
         var fieldWrapper = $("<p/>");
         var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><b>Question: </b><input type=text size=100 id="+ longbox+"/>");
@@ -383,53 +237,6 @@ $(document).ready(function(){
         imagetextnumber ="imagetextnumber"+inttext;
         textnumber="text" + inttext;
 
-        /*var draggable_image = document.createElement("img");
-        draggable_image.setAttribute("src", "../Images/sort_icons.png");
-        draggable_image.setAttribute("height", "20px");
-        draggable_image.setAttribute("width", "20px");
-
-        var element = document.createElement("input");
-        //Assign different attributes to the element.
-        element.setAttribute("type", type);
-        element.setAttribute("name", textnumber);
-        element.setAttribute("id",textnumber);
-        element.setAttribute("disabled","disabled");
-
-        var image = document.createElement("img");
-        $(image).attr({
-            src:  "../Images/Delete.jpg",
-            height: "10px",
-            width: "10px",
-            id: imagetextnumber
-        }).click(function (e) {
-        	var $target = $(event.target);
-        	$(e.delegateTarget).prev().remove();
-            $(e.delegateTarget).prev().remove('b');
-            $(e.delegateTarget).prev().remove();
-            if($target.prev().is('br')){
-            	$(e.delegateTarget).prev().remove('br');
-	            $(e.delegateTarget).prev().remove('br');
-            } else{
-	            $(e.delegateTarget).next().remove('br');
-	            $(e.delegateTarget).next().remove('br');
-            }
-            $(e.delegateTarget).remove();
-
-        });
-
-        var foo = $('#textbox');
-        foo.append(draggable_image);
-
-        $("#textbox").append("<b>Answer:</b>");
-        foo.append(element);
-        //Append the element in page (in span).
-        //foo.appendChild(element);
-        foo.append(image);
-        var enter = document.createElement("br");
-        foo.append(enter);
-        var enter2 = document.createElement("br");
-        foo.append(enter2);*/
-
         var foo = $('#sortable');
         var fieldWrapper = $("<p/>");
         var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><b>Answer: </b><input type=text disabled=disabled id="+  textnumber+"/>");
@@ -443,75 +250,44 @@ $(document).ready(function(){
     });
 
     $('#radio').click(function() {
-        type="text";
+    	type="text";
         type2="radio";
-        inttext++;
+        intradio++;
         imageradionumber ="imageradionumber"+intradio;
         radiotextnumber="radiotextnumber" + intradio;
         radiobuttonnumber = "radiobuttonnumber" +intradio;
 
-        /*var draggable_image = document.createElement("img");
-        draggable_image.setAttribute("src", "../Images/sort_icons.png");
-        draggable_image.setAttribute("height", "20px");
-        draggable_image.setAttribute("width", "20px");
-
-
-        var element = document.createElement("input");
-        //Assign different attributes to the element.
-        element.setAttribute("type", type);
-        element.setAttribute("name", radiotextnumber);
-        element.setAttribute("id",radiotextnumber);
-
-
-        var element2= document.createElement("input");
-        element2.setAttribute("type", type2);
-        element2.setAttribute("name", radiobuttonnumber);
-        element2.setAttribute("id",radiobuttonnumber);
-
-        var image = document.createElement("img");
-        $(image).attr({
-            src:  "../Images/Delete.jpg",
-            height: "10px",
-            width: "10px",
-            id: imageradionumber
-        }).click(function (e) {
-        	var $target = $(event.target);
-            $(e.target).prev().remove('input');
-            $(e.target).prev().remove('input');
-            $(e.target).prev().remove('img');
-            if($target.prev().is('br')){
-            	$(e.delegateTarget).prev().remove('br');
-	            $(e.delegateTarget).prev().remove('br');
-            } else{
-	            $(e.delegateTarget).next().remove('br');
-	            $(e.delegateTarget).next().remove('br');
-            }
-            $(e.target).remove();
-
-        });
-
-
-
-        var foo = $('#radiobutton');
-        foo.append(draggable_image);
-        foo.append(element2);
-        foo.append(element);
-        //Append the element in page (in span).
-        //foo.appendChild(element);
-        foo.append(image);
-        var enter = document.createElement("br");
-        foo.append(enter);
-        var enter2 = document.createElement("br");
-        foo.append(enter2);*/
+       
         var foo = $('#sortable');
         var fieldWrapper = $("<p/>");
-        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><b>Answer: </b><input type=radio disabled=disabled id="+  radiobuttonnumber+"/> <input type=text id="+  radiotextnumber+"/>");
+        //var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"/>");
+        var input = $("<input type=radio disabled=disabled id="+  radiobuttonnumber+"/> <input type=text id="+  radiotextnumber+"/>");
         var second = $("<img src=../Images/delete_icon.png height=10px width=10px id="+ imageradionumber +"/>");
         second.click(function() {
             $(this).parent().remove();
         });
+        var third = $("<img src=../Images/plus_icon.png height=20px width=20px/>");
+        third.click(function() {
+        	 intradio++;
+        	 fieldWrapper.append("<br/>");
+        	 fieldWrapper.append("<input type=radio disabled=disabled id="+  radiobuttonnumber+"/> <input type=text id="+  radiotextnumber+"/>");
+             
+        	
+        });
+       
+        var fourth = $("<img src=../Images/minus_icon.png height=20px width=20px/>");
+        fourth.click(function(e) {
+          	
+        	$(second).next('br').remove('br');
+            $(second).next('img').remove('img');
+            $(second).next('input').remove('input');
+            $(second).next('input').remove('input');
+           
+       });
         foo.append(fieldWrapper);
-        fieldWrapper.append(first);
+        fieldWrapper.append(input);
+        fieldWrapper.append(third);
+        fieldWrapper.append(fourth);
         fieldWrapper.append(second);
 
     });
@@ -522,50 +298,7 @@ $(document).ready(function(){
         paragraphnumber = "paragraphnumber" + intparagraph;
         paragraphimagenumber = "paragraphimagenumber" + intparagraph;
 
-        /*var draggable_image = document.createElement("img");
-        draggable_image.setAttribute("src", "../Images/sort_icons.png");
-        draggable_image.setAttribute("height", "20px");
-        draggable_image.setAttribute("width", "20px");
-
-        var element = document.createElement("textarea");
-        //Assign different attributes to the element.
-        //element.setAttribute("type", type);
-        element.setAttribute("name", type);
-        element.setAttribute("rows",4);
-        element.setAttribute("columns",20);
-        element.setAttribute("disabled","disabled");
-
-        var image = document.createElement("img");
-        $(image).attr({
-            src:  "../Images/Delete.jpg",
-            height: "10px",
-            width: "10px",
-            id: paragraphimagenumber
-        }).click(function (e) {
-        	var $target = $(event.target);
-        	$(e.delegateTarget).prev().remove();
-            $(e.delegateTarget).prev().remove('b');
-            $(e.delegateTarget).prev().remove();
-            if($target.prev().is('br')){
-            	$(e.delegateTarget).prev().remove('br');
-	            $(e.delegateTarget).prev().remove('br');
-            } else{
-	            $(e.delegateTarget).next().remove('br');
-	            $(e.delegateTarget).next().remove('br');
-            }
-            $(e.delegateTarget).remove();
-        });
-
-        var foo = $("#paragraphtext");
-        foo.append(draggable_image);
-        foo.append("<b>Paragraph:</b>");
-        //Append the element in page (in span).
-        foo.append(element);
-        foo.append(image);
-        var enter = document.createElement("br");
-        foo.append(enter);
-        var enter2 = document.createElement("br");
-        foo.append(enter2);*/
+      
         var foo = $('#sortable');
         var fieldWrapper = $("<p/>");
         var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><b>Answer: </b><textarea rows=4 columns=20 disabled=disabled id="+  paragraphnumber+"/>");
@@ -579,199 +312,43 @@ $(document).ready(function(){
     });
 
     $('#checkbox').click(function() {
-        type="text";
-        type2="checkbox";
-        intcheck++;
-        imagecheckbox ="imagechecknumber"+intcheck;
-        checktextbox="checktextnumber" + intcheck;
-        checkbuttonbox = "checkbuttonnumber" +intcheck;
-
-        /*var draggable_image = document.createElement("img");
-        draggable_image.setAttribute("src", "../Images/sort_icons.png");
-        draggable_image.setAttribute("height", "20px");
-        draggable_image.setAttribute("width", "20px");
-
-        var element = document.createElement("input");
-        //Assign different attributes to the element.
-        element.setAttribute("type", type);
-        element.setAttribute("name", checktextbox);
-        element.setAttribute("id",checktextbox);
-
-
-        var element2= document.createElement("input");
-        element2.setAttribute("type", type2);
-        element2.setAttribute("name", checkbuttonbox);
-        element2.setAttribute("id",checkbuttonbox);
-
-        var image = document.createElement("img");
-        $(image).attr({
-            src:  "../Images/Delete.jpg",
-            height: "10px",
-            width: "10px",
-            id: imagecheckbox
-        }).click(function (e) {
-        	var $target = $(event.target);
-            $(e.target).prev().remove('input');
-            $(e.target).prev().remove('input');
-            $(e.target).prev().remove('img');
-            if($target.prev().is('br')){
-            	$(e.delegateTarget).prev().remove('br');
-	            $(e.delegateTarget).prev().remove('br');
-            } else{
-	            $(e.delegateTarget).next().remove('br');
-	            $(e.delegateTarget).next().remove('br');
-            }
-            $(e.target).remove();
-
+    	 type="text";
+         type2="checkbox";
+         intcheck++;
+         imagecheckbox ="imagechecknumber"+intcheck;
+         checktextbox="checktextnumber" + intcheck;
+         checkbuttonbox = "checkbuttonnumber" +intcheck;
+         
+         var foo = $('#sortable');
+         var fieldWrapper = $("<p/>");
+         var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><input type=checkbox disabled=disabled id="+  checkbuttonbox+"/> <input type=text id="+  checktextbox+"/>");
+         var second = $("<img src=../Images/delete_icon.png  height=10px width=10px id="+ imagecheckbox +"/>");
+         second.click(function() {
+             $(this).parent().remove();
+         });
+         var third = $("<img src=../Images/plus_icon.png height=20px width=20px/>");
+         third.click(function() {
+         	 intcheck++;
+         	 fieldWrapper.append("<br/>");
+         	 fieldWrapper.append("<input type=checkbox disabled=disabled id="+  checkbuttonbox+"/> <input type=text id="+  checktextbox+"/>");
+              
+         	
+         });
+        
+         var fourth = $("<img src=../Images/minus_icon.png height=20px width=20px/>");
+         fourth.click(function(e) {
+           	
+         	$(second).next('br').remove('br');
+             $(second).next('input').remove('input');
+             $(second).next('input').remove('input');
+            
         });
-
-
-
-        var foo = $('#check');
-        foo.append(draggable_image);
-        foo.append(element2);
-        foo.append(element);
-        //Append the element in page (in span).
-        //foo.appendChild(element);
-        foo.append(image);
-        var enter = document.createElement("br");
-        foo.append(enter);
-        var enter2 = document.createElement("br");
-        foo.append(enter2);*/
-
-        var foo = $('#sortable');
-        var fieldWrapper = $("<p/>");
-        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><b>Answer: </b><input type=checkbox disabled=disabled id="+  checkbuttonbox+"/> <input type=text id="+  checktextbox+"/>");
-        var second = $("<img src=../Images/delete_icon.png height=10px width=10px id="+ imagecheckbox +"/>");
-        second.click(function() {
-            $(this).parent().remove();
-        });
-        foo.append(fieldWrapper);
-        fieldWrapper.append(first);
-        fieldWrapper.append(second);
-    });
-
-    $('#dropdown').click(function() {
-        intdropdown++;
-        style="width:100px";
-        type2="text";
-        dropdownid= "dropdownid" + intdropdown;
-        /*var textbox = document.createElement("input");
-        textbox.setAttribute("type", "text");*/
-
-        /*var draggable_image = document.createElement("img");
-        draggable_image.setAttribute("src", "../Images/sort_icons.png");
-        draggable_image.setAttribute("height", "20px");
-        draggable_image.setAttribute("width", "20px");
-
-        //var a = $(textbox).val();
-
-
-        var element = document.createElement("select");
-        //Assign different attributes to the element.
-        element.setAttribute("style", style);
-        element.setAttribute("id", dropdownid);
-        var image = document.createElement("img");
-
-
-        var foo = $("#dropdownlist");
-        $(image).attr({
-            src: "../Images/plus_icon.png",
-            height: "15px",
-            width: "15px",
-
-        }).click(function (e) {
-
-            $(element).append('<option value=' + $(textbox).val()+'>'+ $(textbox).val() +'</option>');
-
-        });
-
-        var image2 = document.createElement("img");
-
-
-        $(image2).attr({
-            src: "../Images/minus_icon.png",
-            height: "15px",
-            width: "15px",
-
-        }).click(function (e) {
-
-            var x=$(element).attr("id");
-            var y =$(element).attr("value");
-            //foo.append(x);
-            $("#" + x +" option[value='"+y+"']").remove();
-
-        });
-
-        var image3 = document.createElement("img");
-
-
-        $(image3).attr({
-            src:  "../Images/Delete.jpg",
-            height: "10px",
-            width: "10px",
-
-        }).click(function (e) {
-
-        	var $target = $(event.target);
-            $(e.target).prev().remove();
-            $(e.target).prev().remove();
-            $(e.target).prev().remove();
-            $(e.target).prev().remove();
-            $(e.target).prev().remove();
-            if($target.prev().is('br')){
-            	$(e.delegateTarget).prev().remove('br');
-	            $(e.delegateTarget).prev().remove('br');
-            } else{
-	            $(e.delegateTarget).next().remove('br');
-	            $(e.delegateTarget).next().remove('br');
-            }
-            $(e.target).remove();
-
-        });
-
-
-
-        //Append the element in page (in span).
-        foo.append(draggable_image);
-        foo.append(element);
-
-        foo.append(textbox);
-        foo.append(image);
-        foo.append(image2);
-        foo.append(image3);
-        var enter = document.createElement("br");
-        foo.append(enter);
-        var enter2 = document.createElement("br");
-        foo.append(enter2);*/
-        var foo = $('#sortable');
-        var fieldWrapper = $("<p/>");
-        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><b>Answer: </b>");
-        var second = $("<img src=../Images/plus_icon.png height=15px width=15px/>");
-        var select = $("<select style=width:100px id="+  dropdownid+"/>");
-        var text = $("<input type=text />");
-        second.click(function() {
-            select.append('<option value=' + $(text).val()+'>'+ $(text).val() +'</option>');
-            $(text).attr("value", "");
-        });
-        var third = $("<img src=../Images/minus_icon.png height=15px width=15px/>");
-        third.click(function() {
-            var x=$(select).attr("id");
-            var y =$(select).attr("value");
-            //foo.append(x);
-            $("#" + x +" option[value='"+y+"']").remove();
-        });
-        var fourth = $("<img src=../Images/delete_icon.png height=10px width=10px/>");
-        fourth.click(function() {
-            $(this).parent().remove();
-        });
-        foo.append(fieldWrapper);
-        fieldWrapper.append(first);
-        fieldWrapper.append(select);
-        fieldWrapper.append(text);
-        fieldWrapper.append(second);
-        fieldWrapper.append(third);
-        fieldWrapper.append(fourth);
+         
+         foo.append(fieldWrapper);
+         fieldWrapper.append(first);
+         fieldWrapper.append(third);
+         fieldWrapper.append(fourth);
+         fieldWrapper.append(second);
 
     });
 
@@ -782,138 +359,6 @@ $(document).ready(function(){
         textwithunitdropdown="textwithunitdropdown" + inttextunit;
         textwithunit= "textwithunit"+inttextunit;
 
-        /*var draggable_image = document.createElement("img");
-        draggable_image.setAttribute("src", "../Images/sort_icons.png");
-        draggable_image.setAttribute("height", "20px");
-        draggable_image.setAttribute("width", "20px");
-
-
-        var element = document.createElement("select");
-        //Assign different attributes to the element.
-        element.setAttribute("style", type);
-        element.setAttribute("id", textwithunit);
-
-
-
-        var textbox = document.createElement("input");
-        textbox.setAttribute("type", "text");
-
-
-        var element2 = document.createElement("input");
-        //Assign different attributes to the element.
-        element2.setAttribute("type", type2);
-        element2.setAttribute("name", type2);
-        element2.setAttribute("disabled","disabled");
-
-
-
-
-        var foo = $("#textu");
-        var image = document.createElement("img");
-        $(image).attr({
-            src: "../Images/plus_icon.png",
-            height: "15px",
-            width: "15px",
-
-        }).click(function (e) {
-
-            $(element).append('<option value=' + $(textbox).val()+'>'+ $(textbox).val() +'</option>');
-
-        });
-
-        //Append the element in page (in span).
-        var image2 = document.createElement("img");
-
-
-        $(image2).attr({
-            src: "../Images/minus_icon.png",
-            height: "15px",
-            width: "15px",
-
-        }).click(function (e) {
-
-            var x=$(element).attr("id");
-            var y =$(element).attr("value");
-            //foo.append(x);
-            $("#" + x +" option[value='"+y+"']").remove();
-
-        });
-
-        var image3 = document.createElement("img");
-
-
-        $(image3).attr({
-            src:  "../Images/Delete.jpg",
-            height: "10px",
-            width: "10px",
-
-        }).click(function (e) {
-
-            $(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-	        		$(e.delegateTarget).prev().remove();
-        	var $target = $(event.target);
-            $(e.target).prev().remove();
-            $(e.target).prev().remove();
-            $(e.target).prev().remove();
-            $(e.target).prev().remove();
-            $(e.target).prev().remove();
-            $(e.target).prev().remove();
-            $(e.target).prev().remove();
-            if($target.prev().is('br')){
-            	$(e.delegateTarget).prev().remove('br');
-	            $(e.delegateTarget).prev().remove('br');
-            } else{
-	            $(e.delegateTarget).next().remove('br');
-	            $(e.delegateTarget).next().remove('br');
-            }
-            $(e.target).remove();
-
-        });
-
-
-        foo.append(draggable_image);
-        $("#textu").append("<b>Answer:</b>");
-        foo.append(element2);
-        foo.append(element);
-
-        $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-	          $("#textu").append("&nbsp;");
-
-
-        foo.append(textbox);
-        foo.append(image);
-        foo.append(image2);
-        foo.append(image3);
-        var enter2 = document.createElement("br");
-        foo.append(enter2);
-
-        var enter3 = document.createElement("br");
-        foo.append(enter3);*/
 
         var foo = $('#sortable');
         var fieldWrapper = $("<p/>");
