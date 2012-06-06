@@ -185,6 +185,23 @@ div.panel {
     background: white;
 }
 
-#sortable2:hover{
+table.tab {
+
+    background: white;
 
 }
+
+table.tab.active {
+
+    background: blue;
+
+}
+
+/* table.tab:hover {
+
+    background: aqua;
+
+}
+ */
+
+

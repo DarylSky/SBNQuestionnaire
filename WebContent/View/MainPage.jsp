@@ -9,7 +9,6 @@
 <script src="../Js/jquery-1.7.2.js"></script>
 <script src="../Js/jquery-ui-1.8.20.custom.js"></script>
 <script src="../Js/basic.js"></script>
-<script src="../Js/JqueryUI/jquery.ui.datepicker.js"></script>
 
 
 
@@ -26,13 +25,13 @@
 $(document).ready(function() {
    
 
-    $(function() {
+   /* $(function() {
 
         $( "#question1" ).sortable();
     });
 
     
-   });
+   });*/
    
 $(function() {
 	$( "#datepicker" ).datepicker();
@@ -78,7 +77,7 @@ $(function() {
     <br /> <br />
     <div class="clear"></div>
     <br />
-    <div id="question1"></div>
+    <div id="question1" class="groupOfQuestions"></div>
 
   </div>
 

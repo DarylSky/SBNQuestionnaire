@@ -1,29 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style type="text/css">
-#ex1
-{
-border: thin dotted #FF0000;
-}
-</style>
-<script type="text/javascript">
-function displayResult()
-{
-document.getElementById("ex1").innerHTML += "<button id=\"1\">adsadsad</button><br/>";
-}
-
-$(document).ready(function(){
-$('1').sortable();
-});
-
-</script>
-</head>
-<body>
-
-<div id="ex1"><div>
-<br />
-<button type="button" onclick="displayResult()">Change border</button>
-
-</body>
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <style> 
+  p { color:red; margin:5px; cursor:pointer; } 
+  p:hover { background:yellow; } 
+  </style> 
+  <script src="http://code.jquery.com/jquery-latest.js"></script> 
+</head> 
+<body> 
+  <p>First Paragraph</p> 
+ 
+  <p>Second Paragraph</p> 
+  <p>Yet one more Paragraph</p> 
+<script> 
+    $("p").click(function () { 
+      $(this).alert()
+    }); 
+</script> 
+ 
+</body> 
 </html>
