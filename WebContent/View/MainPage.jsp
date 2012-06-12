@@ -10,6 +10,11 @@
 <script src="../Js/jquery-ui-1.8.20.custom.js"></script>
 <script src="../Js/basic.js"></script>
 
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
+
 
 
 <style type="text/css">
@@ -24,14 +29,14 @@
 <script>
 $(document).ready(function() {
    
-
-   /* $(function() {
+  
+    $(function() {
 
         $( "#question1" ).sortable();
-    });
+    });   
 
     
-   });*/
+   });
    
 $(function() {
 	$( "#datepicker" ).datepicker();
@@ -56,9 +61,8 @@ $(function() {
       <li id="question"><a href="#">Question</a></li>
       <li id="textField"><a href="#">Text Field</a>
         <ul id="fieldsInTextField" style="list-style: none;">
-          <li id="subquestion"><a href="#">Sub-Question</a></li>
-          <li id="shorttext"><a href="#">Short</a></li>
-          <li id="longtext"><a href="#">Long</a></li>
+          <li id="shorttext"><a href="#">Short Field</a></li>
+          <li id="longtext"><a href="#">Long Field</a></li>
         </ul></li>
       <li id="answerField"><a href="#">Answer Field</a>
         <ul style="list-style: none;">
@@ -77,7 +81,7 @@ $(function() {
     <br /> <br />
     <div class="clear"></div>
     <br />
-    <div id="question1" class="groupOfQuestions"></div>
+    <div id="question1"></div>
 
   </div>
 

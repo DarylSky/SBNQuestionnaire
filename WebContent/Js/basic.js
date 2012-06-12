@@ -13,12 +13,6 @@ function changeBtn()
     }
 }
 
-function fuck(x)
-{
-  var y = x.substring(13,x.length);
-  alert("ID: "+y);
-  document.getElementById(y).setAttribute("class","tab.active");
-};
 
 function resizeElementHeight(element) {
     var height = 0;
@@ -69,10 +63,6 @@ $(document).ready(function(){
         guidance.disabled="true";
         attachment.disabled="true";
 
-        $('#attachment').click(function(){
-
-        });
-
 
     }
 
@@ -84,38 +74,21 @@ $(document).ready(function(){
 
       });*/
 
-
     $('#question').click(function(){
 
-        document.getElementById('question1').innerHTML +="<head><script src=\"../Js/jquery-1.7.2.js\"></script>" +
-        "<script src=\"../Js/JqueryUI/jquery.ui.core.js\"></script>" +
-        "<script src=\"../Js/JqueryUI/jquery.ui.widget.js\"></script>" +
-        "<script src=\"../Js/JqueryUI/jquery.ui.mouse.js\"></script>" +
-        "<script src=\"../Js/JqueryUI/jquery.ui.sortable.js\"></script>" +
-        "<link rel=\"stylesheet\" type=\"text/css\" href=\"../View/newcss.css\" />" +
-        "<script src=\"../Js/JqueryUI/jquery.ui.datepicker.js\"></script>"+
-
-        //"<script src=\"../Js/jquery-ui-1.8.20.custom.js\"></script>" +
-        //"<script src=\"../Js/JqueryUI/jquery.ui.datepicker.js\"></script>" +
-        //"<link rel=\"stylesheet\" href=\"../../themes/base/jquery.ui.all.css\" />" +
-        //"<link rel=\"stylesheet\" href=\"../CSS/jquery-ui-1.8.20.custom.css\">"+
-        "</head>";
         intquestionPanel++;
         questionPanel ="questionPanel"+intquestionPanel;
         sortableDiv= "sortable"+intquestionPanel;
+        mainDiv= "mainDiv"+intquestionPanel;
 
 
 
         var question = $('#question1');
-        var test = $("<div></div>");
-        var table2= $("<table class=\"abc\" id='"+questionPanel+ "' border=\"0\" onclick=\"\"><tr><th width=\"965\"><p class=\"flip\">Question</p></th><th><button type=\"button\" href=\"#\" class=\"plusBtn\" id=\"PlusBtn\" value=\"-\">-</button></tr><tr width=\"965\" id=\"tableslide\"><td></td></tr></th></table>");
+        var test = $("<div id='"+mainDiv+"'></div>");
+        var table2= $("<table class=\"abc\" id='"+questionPanel+ "' border=\"0\" onclick=\"\"><tr><th width=\"965\"><p class=\"flip\"><input type=\"text\" size=\"8\" value=\"Question\"/></p></th><th><button type=\"button\" href=\"#\" class=\"plusBtn\" id=\"PlusBtn\" value=\"-\">-</button></tr><tr width=\"965\" id=\"tableslide\"><td></td></tr></th></table>");
         var div = $("<div class=\"demo\" id= '"+sortableDiv+"'> </div>");
 
-        question.append(test);
-        test.append(table2);
-        test.append(div);
-
-        $("#"+questionPanel).live("click",function(e) {
+        $("#"+questionPanel).live("click", function(e) {
 
             var x = $(div).attr("id");
             temp = x;
@@ -125,9 +98,16 @@ $(document).ready(function(){
             guidance.disabled=false;
             attachment.disabled=false;
 
-
-
+            $("#" + temp).sortable();
           });
+
+
+
+
+        question.append(test);
+        test.append(table2);
+        test.append(div);
+
 
 /*        $("#"+questionPanel).live("click",function(e) {
             var x=$(this).attr("id");
@@ -141,10 +121,7 @@ $(document).ready(function(){
 
         $(document).ready(function(){
 
-            $(function() {
-
-                $("#sortable1").sortable();
-            });
+            $("#" + temp).sortable();
 
             $("#PlusBtn").click(function(){
                 $("#tableslide").slideToggle("slow");
@@ -168,7 +145,10 @@ $(document).ready(function(){
             }
         }
 
-    });    $('#nav li').hover(
+    });
+
+
+    $('#nav li').hover(
             function () {
                 //show its submenu
                 $('ul', this).slideDown(100);
@@ -206,6 +186,7 @@ $(document).ready(function(){
         fieldWrapper.append(second);
         intsubquestion++;
     });
+// here
 
 
 
@@ -274,7 +255,7 @@ $(document).ready(function(){
 
         var foo = $("#"+temp);
         var fieldWrapper = $("<p/>");
-        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><b>Answer: </b><input type=text disabled=disabled id="+  textnumber+"/>");
+        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><b>Answer: </b><input type=text style=\"background:grey\" disabled=disabled id="+  textnumber+"/>");
         var second = $("<img src=../Images/delete_icon.png height=10px width=10px id="+ imagetextnumber +"/>");
         second.click(function() {
             $(this).parent().remove();
@@ -336,7 +317,7 @@ $(document).ready(function(){
 
         var foo = $("#"+temp);
         var fieldWrapper = $("<p/>");
-        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><b>Answer: </b><textarea rows=4 columns=20 disabled=disabled id="+  paragraphnumber+"/>");
+        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><b>Answer: </b><textarea rows=4 columns=20  style=\"background:grey\" disabled=disabled id="+  paragraphnumber+"/>");
         var second = $("<img src=../Images/delete_icon.png height=10px width=10px id="+ paragraphimagenumber +"/>");
         second.click(function() {
             $(this).parent().remove();
@@ -397,12 +378,18 @@ $(document).ready(function(){
 
         var foo = $("#"+temp);
         var fieldWrapper = $("<p/>");
-        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><b>Answer: </b><input type=text disabled=disabled id=" + textwithunit+">");
+        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><b>Answer: </b><input type=text disabled=disabled style=\"background:grey\" id=" + textwithunit+">");
         var second = $("<img src=../Images/plus_icon.png height=15px width=15px/>");
         var select = $("<select style=width:100px id="+  textwithunitdropdown+"/>");
-        var text = $("<input type=text />");
+        var text=$("<input type=text id=autocomplete/>");
+        $(text).autocomplete({
+            source: ["mm", "cm", "m", "km", "mg", "g", "kg", "Metric Ton",
+                     "Degree Celsius", "Square Meter", "Hectare", "Degree", "ml", "Cubic Centimeter", "L", "m/s",
+                     "km/h","Newton","Watt","KiloWatt","Ampere"]
+        });
         second.click(function() {
             select.append('<option value=' + $(text).val()+'>'+ $(text).val() +'</option>');
+            $(text).attr("value", "");
         });
         var third = $("<img src=../Images/minus_icon.png height=15px width=15px/>");
         third.click(function() {
@@ -431,14 +418,18 @@ $(document).ready(function(){
         attachmentIcon = "attachmentIcon" + intattachmentIcon;
         attachmentInput = "attachementInput" + intattachmentInput;
 
+        intattachmentPanel++;
+        intattachmentIcon++;
+        intattachmentInput++;
+
         var foo = $("#"+temp);
         var fieldWrapper = $("<p/>");
-        var first = ("<p class=\"ui-state-default\"><span id="+attachmentPanel+" class=\"ui-icon ui-icon-arrowthick-2-n-s\"><input type=file id="+attachmentIcon+" style=\"display: none;\"><b>Attachment: </b>");
-        var second = ("<input type=text id="+attachmentInput+" style=\"font-style:veranda; font-size:13px; height:20px; width:300px; text-align:center;\" >");
-        var third = ("<img name=\"select\" src=\"../Images/AttchmentHeader.gif\" border=\"0\" onClick="+attachmentIcon+".click(); file"+attachmentInput+" .value="+attachmentIcon+".value;\">");
-        var four = ("<img id=\"remove\" src=../Images/delete_icon.png height=10px width=10px/><br/></span></p>");
+        var first = $("<p class=\"ui-state-default\"><span id="+attachmentPanel+" class=\"ui-icon ui-icon-arrowthick-2-n-s\"><input type=file id="+attachmentIcon+" style=\"display: none;\"><b>Attachment: </b>");
+        var second = $("<input type=text id="+attachmentInput+" style=\"font-style:veranda; font-size:13px; height:20px; width:300px; text-align:center;\" >");
+        var third = $("<img name=\"select\" src=\"../Images/AttchmentHeader.gif\" border=\"0\" onClick="+attachmentIcon+".click(); file"+attachmentInput+" .value="+attachmentIcon+".value;\">");
+        var four = $("<img src=../Images/delete_icon.png height=10px width=10px/><br/></span></p>");
 
-        $('#remove').click(function() {
+        four.click(function() {
             $(this).parent().remove();
         });
 
@@ -448,9 +439,6 @@ $(document).ready(function(){
         fieldWrapper.append(third);
         fieldWrapper.append(four);
 
-        intattachmentPanel++;
-        intattachmentIcon++;
-        intattachmentInput++;
     });
 
     $('#datepicker').click(function() {
@@ -482,9 +470,13 @@ $(document).ready(function(){
         var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\">");
         var second = $("<img src=../Images/plus_icon.png height=15px width=15px/>");
         var select = $("<select style=width:100px id="+  dropdownid+"/>");
-        var text = $("<input type=text />");
+        var text=$("<input type=text/>");
+
+
+        fieldWrapper.append(text);
         second.click(function() {
                 select.append('<option value=' + $(text).val()+'>'+ $(text).val() +'</option>');
+                $(text).attr("value", "");
         });
         var third = $("<img src=../Images/minus_icon.png height=15px width=15px/>");
         third.click(function() {
