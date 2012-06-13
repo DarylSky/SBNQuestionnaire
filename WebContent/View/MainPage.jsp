@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Questionnaire System</title>
 
-<link rel="stylesheet" type="text/css" href="newcss.css" />
+<link rel="stylesheet" type="text/css" href="../CSS/MainPage.css" />
 <script src="../Js/jquery-1.7.2.js"></script>
 <script src="../Js/jquery-ui-1.8.20.custom.js"></script>
 <script src="../Js/basic.js"></script>
@@ -51,7 +51,7 @@ $(function() {
   <div id="mainPanel" width="1000">
 
     <div id="hello">
-      <img src="../Images/Untitled.png" width="1010" height="60" style="position: fixed" /><br />
+      <img src="../Images/MainPage/MainPageBanner.png" width="1010" height="60" style="position: fixed" /><br />
       <br />
       <br />
       <br />

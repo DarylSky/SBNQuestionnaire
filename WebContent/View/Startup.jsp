@@ -2,8 +2,7 @@
 
 <HEAD>
 
-<script type="text/javascript"
-       src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 
 <TITLE>SBN Questionnaire</TITLE>
 
@@ -42,7 +41,7 @@ table {
        <table align="center">
 
               <tr>
-                     <td colspan="2"><img src="../Images/FirstPageBanner.png"
+                     <td colspan="2"><img src="../Images/Startup/FirstPageBanner.png"
                            width="387" height="61"><br/><br/></td>
 
               </tr>
@@ -77,7 +76,7 @@ table {
                      <td>
               </tr>
 <tr>
-<td colspan="2" style="text-align:right"><a href="" onclick="javascript:cancelAction();"><input type="image" src="../Images/FirstPageNextBtn.png" width="150" height="55"></a></td>
+<td colspan="2" style="text-align:right"><a href="" onclick="javascript:cancelAction();"><input type="image" src="../Images/Startup/FirstPageNextBtn.png" width="150" height="55"></a></td>
 
 </tr>
 

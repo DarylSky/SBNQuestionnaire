@@ -23,24 +23,24 @@ body {
 }
 
 #question {
-    list-style-image: url(../Images/QuestionHeader.gif);
+    list-style-image: url(../Images/MainPage/MenuIcon/QuestionHeader.gif);
     vertical-align: middle;
 }
 
 #textField {
-    list-style-image: url(../Images/TextFieldHeader.png);
+    list-style-image: url(../Images/MainPage/MenuIcon/TextFieldHeader.png);
 }
 
 #answerField {
-    list-style-image: url(../Images/AnswerFieldHeader.png);
+    list-style-image: url(../Images/MainPage/MenuIcon/AnswerFieldHeader.png);
 }
 
 #guidance {
-    list-style-image: url(../Images/GuidanceHeader.gif);
+    list-style-image: url(../Images/MainPage/MenuIcon/GuidanceHeader.gif);
 }
 
 #attachment {
-    list-style-image: url(../Images/AttchmentHeader.gif);
+    list-style-image: url(../Images/MainPage/MenuIcon/AttchmentHeader.gif);
 }
 
 /* make the LI display inline * /
@@ -74,7 +74,7 @@ body {
     color: #FEF0C9;
 }
 
-/* you can make a different style for default selected value */
+
 #nav a.selected {
     color: #f00;
 }
@@ -94,7 +94,6 @@ body {
     border-top: 1px solid #fff;
 }
 
-/* display block will make the link fill the whole area of LI */
 #nav ul a {
     display: block;
     height: 15px;
@@ -106,9 +105,7 @@ body {
     text-decoration: underline;
 }
 
-/* fix ie6 small issue */
-/* we should always avoid using hack like this */
-/* should put it into separate file : ) */
+
 * html #nav ul {
     margin: 0 0 0 -2px;
 }
@@ -197,11 +194,5 @@ table.tab.active {
 
 }
 
-/* table.tab:hover {
-
-    background: aqua;
-
-}
- */
 
 
