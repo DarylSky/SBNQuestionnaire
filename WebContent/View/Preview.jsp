@@ -17,6 +17,29 @@ $(document).ready(function() {
 
 });
 
+$(function() {
+	$( "#datepicker" ).datepicker();
+});
+
+function getParams(){
+	var idx = document.URL.indexOf('?');
+	var params = new Array();
+	if (idx != -1) {
+	var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+	for (var i=0; i<pairs.length; i++){
+	nameVal = pairs[i].split('=');
+	params[nameVal[0]] = nameVal[1];
+	}
+	}
+	return params;
+	}
+
+
+	params = getParams();
+	shorttext = unescape(params["shorttext"]);
+	document.write (shorttext);
+
+
 </script>
 
 </head>
@@ -37,7 +60,7 @@ $(document).ready(function() {
       <li ><a href="#">.</a>
        <li ><a href="#">.</a>
     </ul>
-
+	<%request.getParameter("shorttext"); %>
     <br /> <br />
     <div class="clear"></div>
     <br />

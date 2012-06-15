@@ -168,6 +168,14 @@ div.fullscreen {
 
 }
 
+#questionnairediv {
+	border: 1px #ddd;
+    background-color: white;
+	text-align:center;
+	font-size:18px;
+	font-style:bold;
+}
+
 p.flip {
     margin: 0px;
     padding: 5px;

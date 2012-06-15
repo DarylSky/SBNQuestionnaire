@@ -94,17 +94,24 @@ function getParams(){
 					<li id="radio"><a href="#">Radio Button</a></li>
 					<li id="datepicker"><a href="#">Date Time</a></li>
 				</ul></li>
-			<li id="guidance"><a href="#">Guidance</a></li>
-			<li id="attachment"><a href="#">Attachment</a></li>
+			<li id="guidance"><a href="#">Guidance</a>
+				<ul style="list-style: none;">
+					<li id="guidanceAdd"><a href="#">Add</a></li>
+					<li id="guidanceRemove"><a href="#">Remove</a></li>
+				</ul></li>
+			<li id="attachment"><a href="#">Attachment</a>
+				<ul style="list-style: none;">
+					<li id="attachemntAdd"><a href="#">Add</a></li>
+					<li id="attachmentRemove"><a href="#">Remove</a></li>
+				</ul></li>
+
 		</ul>
 
 		<br /> <br />
 		<div class="clear"></div>
 		<br />
 		<div id="questionnairediv">
-			<label id="questionnaireTitle">
-				<%String title=request.getParameter("title");out.println(title);%>
-			</label>
+			<%String title=request.getParameter("title");out.println(title);%>
 		</div>
 
 		<br />
