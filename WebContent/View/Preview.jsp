@@ -14,7 +14,6 @@
 
 <script>
 $(document).ready(function() {
-   
 
 });
 
@@ -48,8 +47,8 @@ $(document).ready(function() {
 
   <center>
     <div id="version">
-      <label>SBN Questionnaire System beta: 0.1</label>
-    </div>
+ <img src="../Images/MainPage/MainPageFooter.png" width="1010" height="23" />
+     </div>
 
   </center>
 </body>

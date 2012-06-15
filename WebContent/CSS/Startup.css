@@ -1,4 +1,4 @@
-@body,input {
+body,input {
 	font-family: Calibri, Arial;
 	font-size: 18px;
 }
@@ -16,4 +16,6 @@ table {
 	position: relative position:absolute;
 	top: 50%;
 	margin-top: 10em;
+
+
 }
