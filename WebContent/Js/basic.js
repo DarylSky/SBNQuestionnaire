@@ -63,7 +63,7 @@ $(document).ready(function(){
                 onOk: "ModalPopupsPromptOk()",
                 onCancel: "ModalPopupsPromptCancel()"});
     }
-
+    
 
 
     if ($('#question1').html() =='')
@@ -98,16 +98,32 @@ $(document).ready(function(){
 				"<tr width=\"965\" id=\"tableslide\"><td></td></tr></th></table>");
 		var div = $("<div class=\"demo\" id= '"+sortableDiv+"'> </div>");
         var div = $("<div class=\"demo\" id= '"+sortableDiv+"'> </div>");
+        
 
+    	
+
+       
+        
         $("#"+questionPanel).live("click", function(e) {
 
-            var x = $(div).attr("id");
+        	$('.flip').click(function() {
+        	    $('.flip').removeClass('highlight');
+        		$(this).addClass('highlight').siblings().removeClass('highlight');
+        	    
+        	    
+        	});
+        	
+        	var x = $(div).attr("id");
             temp = x;
             textField.disabled=false;
             fieldsInTextField.disabled=false;
             answerField.disabled=false;
-
+           
+            
+    		
             $("#" + temp).sortable();
+            
+            
 
         });
 
@@ -697,14 +713,17 @@ $(document).ready(function(){
     $('#datepicker').click(function() {
         var foo = $("#"+temp);
         var fieldWrapper = $("<p/>");
-        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><b>Answer: </b><input type=text id=datepicker/>");
-        var second = $("<img src=../Images/MainPage/TextAnswerField/delete_icon.png height=10px width=10px id="+imagenumber +"/>");
-        second.click(function() {
+        var first =$("<input id=\"demo1\" type=\"text\" size=\"25\">");
+        var second = $("<a href=\"javascript:NewCal('demo1','ddmmyyyy')\"><img src=\"../Images/cal.gif\" width=\"16\" height=\"16\" border=\"0\" alt=\"Pick a date\"></a>");
+        var third = $("<img src=../Images/MainPage/TextAnswerField/delete_icon.png height=10px width=10px/>");
+        third.click(function() {
             $(this).parent().remove();
         });
         foo.append(fieldWrapper);
         fieldWrapper.append(first);
         fieldWrapper.append(second);
+        fieldWrapper.append(third);
+        
 
     });
 

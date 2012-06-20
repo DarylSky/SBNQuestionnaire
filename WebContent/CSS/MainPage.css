@@ -184,6 +184,22 @@ p.flip {
     border: solid 1px #c3c3c3;
 }
 
+p.flip:hover {
+    margin: 0px;
+    padding: 5px;
+    text-align: center;
+    background: #FCFCFC;
+    border: solid 1px #c3c3c3;
+}
+p.flip.highlight {
+	margin: 0px;
+    padding: 5px;
+    text-align: center;
+    background: #FFAF0A;
+    border: solid 1px black;
+}
+
+
 div.panel {
     height: 120px;
     display: none;
@@ -201,6 +217,24 @@ table.tab.active {
     background: blue;
 
 }
+
+
+.main{
+    width:325px;
+}
+div.tab {
+    background: white;
+    width: 100px;
+    border: 1px solid grey;
+    padding-left:5px;
+}
+div.tab.active {
+    background: blue;
+}
+div.tab:hover {
+    background: aqua;
+}
+.blue {background: blue;}
 
 
 

@@ -10,7 +10,7 @@
 <script src="../Js/jquery-1.7.2.js"></script>
 <script src="../Js/jquery-ui-1.8.20.custom.js"></script>
 <script src="../Js/basic.js"></script>
-
+<script src="../Js/datetimepicker.js"></script>
 <link
 	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
 	rel="stylesheet" type="text/css">
@@ -126,5 +126,6 @@ function getParams(){
 		</div>
 
 	</center>
+	
 </body>
 </html>
