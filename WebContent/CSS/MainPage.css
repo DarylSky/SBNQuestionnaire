@@ -73,7 +73,6 @@ body {
 #nav li a:hover {
     color: #FEF0C9;
 }
-
 #nav a.selected {
     color: #f00;
 }
@@ -183,6 +182,22 @@ p.flip {
     cursor: move;
 }
 
+p.flip:hover {
+    margin: 0px;
+    padding: 5px;
+    text-align: center;
+    background: #FCFCFC;
+    border: solid 1px #c3c3c3;
+}
+p.flip.highlight {
+	margin: 0px;
+    padding: 5px;
+    text-align: center;
+    background: #FFAF0A;
+    border: solid 1px black;
+}
+
+
 div.panel {
     height: 120px;
     display: none;
@@ -196,3 +211,11 @@ table.tab {
 table.tab.active {
     background: blue;
 }
+
+.main{
+    width:325px;
+}
+
+
+
+
