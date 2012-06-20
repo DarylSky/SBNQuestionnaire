@@ -35,10 +35,6 @@ $(function() {
 $(document).ready(function(){
 
     intquestionPanel=0;
-    intattachmentIcon=0;
-    intattachmentInput=0;
-    intattachmentinput=0;
-    intattachmentPanel=0;
     intquestion=0;
     intshort=0;
     intlong=0;
@@ -52,18 +48,7 @@ $(document).ready(function(){
     temp="";
     atemp="";
     shorttexttemp="";
-
-
-    function ModalPopupsPrompt() {
-        ModalPopups.Prompt("idPrompt1",
-            "Prompt",
-            "Please enter your ID number",  {
-                width: 300,
-                height: 100,
-                onOk: "ModalPopupsPromptOk()",
-                onCancel: "ModalPopupsPromptCancel()"});
-    }
-
+    plusbtn="";
 
 
     if ($('#question1').html() =='')
@@ -87,62 +72,57 @@ $(document).ready(function(){
         questionPanel ="questionPanel"+intquestionPanel;
         sortableDiv= "sortable"+intquestionPanel;
         mainDiv= "mainDiv"+intquestionPanel;
-
-
+        plusBtn= "plusBtn"+intquestionPanel;
 
         var question = $('#question1');
         var test = $("<div id='"+mainDiv+"'></div>");
         var table2= $("<table class=\"abc\" id='"+questionPanel+ "' border=\"0\" onclick=\"\">" +
-				"<tr><th width=\"965\"><p class=\"flip\" contentEditable=\"true\">Question</p></th>" +
-				"<th><button type=\"button\" href=\"#\" class=\"plusBtn\" id=\"PlusBtn\" value=\"-\">-</button></tr>" +
-				"<tr width=\"965\" id=\"tableslide\"><td></td></tr></th></table>");
-		var div = $("<div class=\"demo\" id= '"+sortableDiv+"'> </div>");
-        var div = $("<div class=\"demo\" id= '"+sortableDiv+"'> </div>");
+                "<tr><th width=\"965\"><p class=\"flip\" contentEditable=\"true\">Question "+intquestionPanel+" </p></th>" +
+                "<th><img src=\"../Images/MainPage/minimize.gif\" href=\"#\" class=\"plusBtn\" id='"+plusBtn+"' value=\"-\" /></th></tr>" +
+        "<tr width=\"965\" id=\"tableslide\"><td></td></tr></table>");
+        var div = $("<div class=\"demo\" id= '"+sortableDiv+"'></div>");
 
         $("#"+questionPanel).live("click", function(e) {
 
             var x = $(div).attr("id");
             temp = x;
+
             textField.disabled=false;
             fieldsInTextField.disabled=false;
             answerField.disabled=false;
+            attachment.disabled=false;
 
             $("#" + temp).sortable();
 
+
+
         });
-
-
-
 
         question.append(test);
         test.append(table2);
         test.append(div);
 
         $(document).ready(function(){
-
-            $("#" + temp).sortable();
-
-            $("#PlusBtn").click(function(){
-                $("#tableslide").slideToggle("slow");
-                changeBtn();
+            $("#"+plusBtn).click(function(){
+                $("#"+temp).slideToggle("slow");
             });
 
         });
 
-        function changeBtn()
+/*        function changeBtn()
         {
-            if (document.getElementById('PlusBtn').value == "-")
+            if (document.getElementById("#"+plusBtn).value == "-")
             {
-                $("#PlusBtn").html('+');
-                document.getElementById('PlusBtn').value = "+";
+                $("#"+plusBtn).html('+');
+                document.getElementById("#"+plusBtn).value = "+";
             }
 
-            else if (document.getElementById('PlusBtn').value == "+")
+            else if (document.getElementById("#"+plusBtn).value == "+")
             {
-                $("#PlusBtn").html('-');
-                document.getElementById('PlusBtn').value = "-";
+                $("#"+plusBtn).html('-');
+                document.getElementById("#"+plusBtn).value = "-";
             }
-        }
+        }*/
 
     });
 
@@ -213,12 +193,12 @@ $(document).ready(function(){
         shortimagenumber ="shortimagenumber"+intshort;
         shortbox="shorttextbox" + intshort;
         guidanceHeader="guidanceHeadershorttext"+ intshort;
-        attachmentHeader="attachemntHeadershorttext"+ intshort;
         p="pshorttext" + intshort;
+        guidanceid="guidanceidshorttext" + intshort;
 
         var foo = $("#"+temp);
         var fieldWrapper = $("<p id='"+p+"' />");
-        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><b>Question: </b><input type=text size=20 value=\"Short Textfield\" onclick=\"if(this.value=='Short Textfield'){this.value=''}\" onblur=\"if(this.value==''){this.value='Short Textfield'}\" id='"+ shortbox+"' />");
+        var first =$("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\"><b>Question: </b><input type=text size=20 value=\"\" id='"+ shortbox+"' />");
         var second = $("<img src=../Images/MainPage/TextAnswerField/delete_icon.png height=10px width=10px id='"+shortimagenumber +"'/>");
         second.click(function() {
             $(this).parent().remove();
@@ -226,17 +206,71 @@ $(document).ready(function(){
 
         var third = $("<img src=../Images/MainPage/MenuIcon/GuidanceHeader.gif id='"+guidanceHeader +"'/>");
         third.click(function(){
-           prompt("Please enter the guidance below: ");
+
+            $(function() {
+                // a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
+                $("#dialog:ui-dialog").dialog("destroy");
+
+                var guidance = $("#" +guidanceid), allFields = $([]).add(guidance), tips = $(".validateTips");
+
+                function updateTips(t) {
+                    tips.text(t).addClass("ui-state-highlight");
+                    setTimeout(function() {
+                        tips.removeClass("ui-state-highlight", 1500);
+                    }, 500);
+                }
+
+                function checkLength(o, n, min, max) {
+                    if (o.val().length > max || o.val().length < min) {
+                        o.addClass("ui-state-error");
+                        updateTips("Length of " + n + " must be between " + min + " and " + max + ".");
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+
+                function checkRegexp(o, regexp, n) {
+                    if (!(regexp.test(o.val()))) {
+                        o.addClass("ui-state-error");
+                        updateTips(n);
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+
+                $("#dialog-form")
+                .dialog(
+                        {
+                            autoOpen : false,
+                            height : 300,
+                            width : 350,
+                            modal : true,
+                            buttons : {
+                                "Save" : function() {
+
+                                    $(this).dialog("close");
+
+                                },
+                                Cancel : function() {
+                                    $(this).dialog("close");
+                                }
+                            },
+                            close : function() {
+                                allFields.val("").removeClass("ui-state-error");
+                            }
+                        });
+
+                $("#dialog-form").dialog("open");
+
+
+                document.getElementById('dialog-form').innerHTML="<form>"+
+                "<fieldset><label><b>Key the guidance here: <b/></label><br /><textarea name=\"guidanceid\" id="+guidanceid+" rows=\"10\" cols=\"50\"></textarea>" +
+                "</fieldset></form>";
+            });
 
         });
-
-        var fourth = $("<img src=../Images/MainPage/MenuIcon/AttchmentHeader.gif id='"+attachmentHeader +"'/>");
-
-        fourth.click(function(){
-
-            ModalPopupsPrompt();
-
-         });
 
         foo.append(fieldWrapper);
         fieldWrapper.append(first);
@@ -245,9 +279,8 @@ $(document).ready(function(){
         $("#"+p).live("click", function(e) {
 
             guidance.disabled=false;
-            attachment.disabled=false;
 
-/*            var x = $(fieldWrapper).attr("id");
+            /*var x = $(fieldWrapper).attr("id");
             shorttexttemp = x;
 
             alert(atemp);*/
@@ -256,13 +289,7 @@ $(document).ready(function(){
 
 
                 fieldWrapper.append(third);
-
-            });
-
-            $('#attachemntAdd').click(function(){
-
-
-                fieldWrapper.append(fourth);
+                fieldWrapper.append(second);
 
             });
 
@@ -277,9 +304,9 @@ $(document).ready(function(){
         longimagenumber ="longimagenumber"+intlong;
         longbox="longtext" + intlong;
         guidanceHeader="guidanceHeaderlongtext"+ intlong;
-        attachmentHeader="attachemntHeaderlongtext"+ intlong;
         p="plongtext" + intlong;
         span="spanlongtext" + intlong;
+        guidanceid="guidanceidlongtext" + intlong;
 
 
         var foo = $("#"+temp);
@@ -293,31 +320,69 @@ $(document).ready(function(){
         });
 
         var third = $("<img src=../Images/MainPage/MenuIcon/GuidanceHeader.gif id='"+guidanceHeader +"'/>");
+        third.click(function(){
 
-        var fourth = $("<img src=../Images/MainPage/MenuIcon/AttchmentHeader.gif id='"+attachmentHeader +"'/>");
+            $(function() {
+                // a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
+                $("#dialog:ui-dialog").dialog("destroy");
 
-        $("#"+p).live("click", function(e) {
+                var guidance = $("#" +guidanceid), allFields = $([]).add(guidance), tips = $(".validateTips");
 
-            guidance.disabled=false;
-            attachment.disabled=false;
+                function updateTips(t) {
+                    tips.text(t).addClass("ui-state-highlight");
+                    setTimeout(function() {
+                        tips.removeClass("ui-state-highlight", 1500);
+                    }, 500);
+                }
 
-/*            var x = $(fieldWrapper).attr("id");
-            shorttexttemp = x;
+                function checkLength(o, n, min, max) {
+                    if (o.val().length > max || o.val().length < min) {
+                        o.addClass("ui-state-error");
+                        updateTips("Length of " + n + " must be between " + min + " and " + max + ".");
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
 
-            alert(atemp);*/
+                function checkRegexp(o, regexp, n) {
+                    if (!(regexp.test(o.val()))) {
+                        o.addClass("ui-state-error");
+                        updateTips(n);
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
 
-            $('#guidanceAdd').click(function(){
+                $("#dialog-form")
+                .dialog(
+                        {
+                            autoOpen : false,
+                            height : 300,
+                            width : 350,
+                            modal : true,
+                            buttons : {
+                                "Save" : function() {
+
+                                    $(this).dialog("close");
+
+                                },
+                                Cancel : function() {
+                                    $(this).dialog("close");
+                                }
+                            },
+                            close : function() {
+                                allFields.val("").removeClass("ui-state-error");
+                            }
+                        });
+
+                $("#dialog-form").dialog("open");
 
 
-                fieldWrapper.append(third);
-
-            });
-
-            $('#attachemntAdd').click(function(){
-
-
-                fieldWrapper.append(fourth);
-
+                document.getElementById('dialog-form').innerHTML="<form>"+
+                "<fieldset><label><b>Key the guidance here: <b/></label><br /><textarea name=\"guidanceid\" id="+guidanceid+" rows=\"10\" cols=\"50\"></textarea>" +
+                "</fieldset></form>";
             });
 
         });
@@ -328,6 +393,25 @@ $(document).ready(function(){
         first.append(longtext);
         fieldWrapper.append(second);
 
+        $("#"+p).live("click", function(e) {
+
+            guidance.disabled=false;
+
+            /*var x = $(fieldWrapper).attr("id");
+            shorttexttemp = x;
+
+            alert(atemp);*/
+
+            $('#guidanceAdd').click(function(){
+
+
+                fieldWrapper.append(third);
+                fieldWrapper.append(second);
+
+            });
+
+        });
+
     });
     $('#text').click(function() {
         type="text";
@@ -335,8 +419,8 @@ $(document).ready(function(){
         imagetextnumber ="imagetextnumber"+inttext;
         textnumber="text" + inttext;
         guidanceHeader="guidanceHeadertext"+ inttext;
-        attachmentHeader="attachemntHeadertext"+ inttext;
         p="ptext" + inttext;
+        guidanceid="guidanceidtext" + inttext;
 
         var foo = $("#"+temp);
         var fieldWrapper = $("<p id='"+p+"'/>");
@@ -347,15 +431,82 @@ $(document).ready(function(){
         });
 
         var third = $("<img src=../Images/MainPage/MenuIcon/GuidanceHeader.gif id='"+guidanceHeader +"'/>");
+        third.click(function(){
 
-        var fourth = $("<img src=../Images/MainPage/MenuIcon/AttchmentHeader.gif id='"+attachmentHeader +"'/>");
+            $(function() {
+                // a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
+                $("#dialog:ui-dialog").dialog("destroy");
+
+                var guidance = $("#" +guidanceid), allFields = $([]).add(guidance), tips = $(".validateTips");
+
+                function updateTips(t) {
+                    tips.text(t).addClass("ui-state-highlight");
+                    setTimeout(function() {
+                        tips.removeClass("ui-state-highlight", 1500);
+                    }, 500);
+                }
+
+                function checkLength(o, n, min, max) {
+                    if (o.val().length > max || o.val().length < min) {
+                        o.addClass("ui-state-error");
+                        updateTips("Length of " + n + " must be between " + min + " and " + max + ".");
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+
+                function checkRegexp(o, regexp, n) {
+                    if (!(regexp.test(o.val()))) {
+                        o.addClass("ui-state-error");
+                        updateTips(n);
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+
+                $("#dialog-form")
+                .dialog(
+                        {
+                            autoOpen : false,
+                            height : 300,
+                            width : 350,
+                            modal : true,
+                            buttons : {
+                                "Save" : function() {
+
+                                    $(this).dialog("close");
+
+                                },
+                                Cancel : function() {
+                                    $(this).dialog("close");
+                                }
+                            },
+                            close : function() {
+                                allFields.val("").removeClass("ui-state-error");
+                            }
+                        });
+
+                $("#dialog-form").dialog("open");
+
+
+                document.getElementById('dialog-form').innerHTML="<form>"+
+                "<fieldset><label><b>Key the guidance here: <b/></label><br /><textarea name=\"guidanceid\" id="+guidanceid+" rows=\"10\" cols=\"50\"></textarea>" +
+                "</fieldset></form>";
+            });
+
+        });
+
+        foo.append(fieldWrapper);
+        fieldWrapper.append(first);
+        fieldWrapper.append(second);
 
         $("#"+p).live("click", function(e) {
 
             guidance.disabled=false;
-            attachment.disabled=false;
 
-/*            var x = $(fieldWrapper).attr("id");
+            /*var x = $(fieldWrapper).attr("id");
             shorttexttemp = x;
 
             alert(atemp);*/
@@ -364,21 +515,11 @@ $(document).ready(function(){
 
 
                 fieldWrapper.append(third);
-
-            });
-
-            $('#attachemntAdd').click(function(){
-
-
-                fieldWrapper.append(fourth);
+                fieldWrapper.append(second);
 
             });
 
         });
-
-        foo.append(fieldWrapper);
-        fieldWrapper.append(first);
-        fieldWrapper.append(second);
 
     });
 
@@ -390,8 +531,8 @@ $(document).ready(function(){
         radiotextnumber="radiotextnumber" + intradio;
         radiobuttonnumber = "radiobuttonnumber" +intradio;
         guidanceHeader="guidanceHeaderradio"+ intradio;
-        attachmentHeader="attachemntHeaderradio"+ intradio;
         p="pradio" + intradio;
+        guidanceid="guidanceidradio" + intradio;
 
 
         var foo = $("#"+temp);
@@ -422,31 +563,69 @@ $(document).ready(function(){
         });
 
         var fifth = $("<img src=../Images/MainPage/MenuIcon/GuidanceHeader.gif id='"+guidanceHeader +"'/>");
+        fifth.click(function(){
 
-        var sixth = $("<img src=../Images/MainPage/MenuIcon/AttchmentHeader.gif id='"+attachmentHeader +"'/>");
+            $(function() {
+                // a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
+                $("#dialog:ui-dialog").dialog("destroy");
 
-        $("#"+p).live("click", function(e) {
+                var guidance = $("#" +guidanceid), allFields = $([]).add(guidance), tips = $(".validateTips");
 
-            guidance.disabled=false;
-            attachment.disabled=false;
+                function updateTips(t) {
+                    tips.text(t).addClass("ui-state-highlight");
+                    setTimeout(function() {
+                        tips.removeClass("ui-state-highlight", 1500);
+                    }, 500);
+                }
 
-/*            var x = $(fieldWrapper).attr("id");
-            shorttexttemp = x;
+                function checkLength(o, n, min, max) {
+                    if (o.val().length > max || o.val().length < min) {
+                        o.addClass("ui-state-error");
+                        updateTips("Length of " + n + " must be between " + min + " and " + max + ".");
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
 
-            alert(atemp);*/
+                function checkRegexp(o, regexp, n) {
+                    if (!(regexp.test(o.val()))) {
+                        o.addClass("ui-state-error");
+                        updateTips(n);
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
 
-            $('#guidanceAdd').click(function(){
+                $("#dialog-form")
+                .dialog(
+                        {
+                            autoOpen : false,
+                            height : 300,
+                            width : 350,
+                            modal : true,
+                            buttons : {
+                                "Save" : function() {
+
+                                    $(this).dialog("close");
+
+                                },
+                                Cancel : function() {
+                                    $(this).dialog("close");
+                                }
+                            },
+                            close : function() {
+                                allFields.val("").removeClass("ui-state-error");
+                            }
+                        });
+
+                $("#dialog-form").dialog("open");
 
 
-                fieldWrapper.append(fifth);
-
-            });
-
-            $('#attachemntAdd').click(function(){
-
-
-                fieldWrapper.append(sixth);
-
+                document.getElementById('dialog-form').innerHTML="<form>"+
+                "<fieldset><label><b>Key the guidance here: <b/></label><br /><textarea name=\"guidanceid\" id="+guidanceid+" rows=\"10\" cols=\"50\"></textarea>" +
+                "</fieldset></form>";
             });
 
         });
@@ -457,6 +636,25 @@ $(document).ready(function(){
         fieldWrapper.append(fourth);
         fieldWrapper.append(second);
 
+        $("#"+p).live("click", function(e) {
+
+            guidance.disabled=false;
+
+            /*var x = $(fieldWrapper).attr("id");
+            shorttexttemp = x;
+
+            alert(atemp);*/
+
+            $('#guidanceAdd').click(function(){
+
+
+                fieldWrapper.append(fifth);
+                fieldWrapper.append(second);
+
+            });
+
+        });
+
     });
 
     $('#paragraph').click(function() {
@@ -465,8 +663,8 @@ $(document).ready(function(){
         paragraphnumber = "paragraphnumber" + intparagraph;
         paragraphimagenumber = "paragraphimagenumber" + intparagraph;
         guidanceHeader="guidanceHeaderparagraph"+ intparagraph;
-        attachmentHeader="attachemntHeaderparagraph"+ intparagraph;
         p="pparagragh" + intparagraph;
+        guidanceid="guidanceidparagraph" + intparagraph;
 
 
         var foo = $("#"+temp);
@@ -478,15 +676,82 @@ $(document).ready(function(){
         });
 
         var third = $("<img src=../Images/MainPage/MenuIcon/GuidanceHeader.gif id='"+guidanceHeader +"'/>");
+        third.click(function(){
 
-        var fourth = $("<img src=../Images/MainPage/MenuIcon/AttchmentHeader.gif id='"+attachmentHeader +"'/>");
+            $(function() {
+                // a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
+                $("#dialog:ui-dialog").dialog("destroy");
+
+                var guidance = $("#" +guidanceid), allFields = $([]).add(guidance), tips = $(".validateTips");
+
+                function updateTips(t) {
+                    tips.text(t).addClass("ui-state-highlight");
+                    setTimeout(function() {
+                        tips.removeClass("ui-state-highlight", 1500);
+                    }, 500);
+                }
+
+                function checkLength(o, n, min, max) {
+                    if (o.val().length > max || o.val().length < min) {
+                        o.addClass("ui-state-error");
+                        updateTips("Length of " + n + " must be between " + min + " and " + max + ".");
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+
+                function checkRegexp(o, regexp, n) {
+                    if (!(regexp.test(o.val()))) {
+                        o.addClass("ui-state-error");
+                        updateTips(n);
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+
+                $("#dialog-form")
+                .dialog(
+                        {
+                            autoOpen : false,
+                            height : 300,
+                            width : 350,
+                            modal : true,
+                            buttons : {
+                                "Save" : function() {
+
+                                    $(this).dialog("close");
+
+                                },
+                                Cancel : function() {
+                                    $(this).dialog("close");
+                                }
+                            },
+                            close : function() {
+                                allFields.val("").removeClass("ui-state-error");
+                            }
+                        });
+
+                $("#dialog-form").dialog("open");
+
+
+                document.getElementById('dialog-form').innerHTML="<form>"+
+                "<fieldset><label><b>Key the guidance here: <b/></label><br /><textarea name=\"guidanceid\" id="+guidanceid+" rows=\"10\" cols=\"50\"></textarea>" +
+                "</fieldset></form>";
+            });
+
+        });
+
+        foo.append(fieldWrapper);
+        fieldWrapper.append(first);
+        fieldWrapper.append(second);
 
         $("#"+p).live("click", function(e) {
 
             guidance.disabled=false;
-            attachment.disabled=false;
 
-/*            var x = $(fieldWrapper).attr("id");
+            /*var x = $(fieldWrapper).attr("id");
             shorttexttemp = x;
 
             alert(atemp);*/
@@ -495,21 +760,11 @@ $(document).ready(function(){
 
 
                 fieldWrapper.append(third);
-
-            });
-
-            $('#attachemntAdd').click(function(){
-
-
-                fieldWrapper.append(fourth);
+                fieldWrapper.append(second);
 
             });
 
         });
-
-        foo.append(fieldWrapper);
-        fieldWrapper.append(first);
-        fieldWrapper.append(second);
 
     });
 
@@ -521,8 +776,8 @@ $(document).ready(function(){
         checktextbox="checktextnumber" + intcheck;
         checkbuttonbox = "checkbuttonnumber" +intcheck;
         guidanceHeader="guidanceHeadercheckbox"+ intcheck;
-        attachmentHeader="attachemntHeadercheckbox"+ intcheck;
         p="pcheck" + intcheck;
+        guidanceid="guidanceidcheck" + intcheck;
 
         var foo = $("#"+temp);
         var fieldWrapper = $("<p id='"+p+"'/>");
@@ -550,15 +805,84 @@ $(document).ready(function(){
         });
 
         var fifth = $("<img src=../Images/MainPage/MenuIcon/GuidanceHeader.gif id='"+guidanceHeader +"'/>");
+        fifth.click(function(){
 
-        var sixth = $("<img src=../Images/MainPage/MenuIcon/AttchmentHeader.gif id='"+attachmentHeader +"'/>");
+            $(function() {
+                // a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
+                $("#dialog:ui-dialog").dialog("destroy");
+
+                var guidance = $("#" +guidanceid), allFields = $([]).add(guidance), tips = $(".validateTips");
+
+                function updateTips(t) {
+                    tips.text(t).addClass("ui-state-highlight");
+                    setTimeout(function() {
+                        tips.removeClass("ui-state-highlight", 1500);
+                    }, 500);
+                }
+
+                function checkLength(o, n, min, max) {
+                    if (o.val().length > max || o.val().length < min) {
+                        o.addClass("ui-state-error");
+                        updateTips("Length of " + n + " must be between " + min + " and " + max + ".");
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+
+                function checkRegexp(o, regexp, n) {
+                    if (!(regexp.test(o.val()))) {
+                        o.addClass("ui-state-error");
+                        updateTips(n);
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+
+                $("#dialog-form")
+                .dialog(
+                        {
+                            autoOpen : false,
+                            height : 300,
+                            width : 350,
+                            modal : true,
+                            buttons : {
+                                "Save" : function() {
+
+                                    $(this).dialog("close");
+
+                                },
+                                Cancel : function() {
+                                    $(this).dialog("close");
+                                }
+                            },
+                            close : function() {
+                                allFields.val("").removeClass("ui-state-error");
+                            }
+                        });
+
+                $("#dialog-form").dialog("open");
+
+
+                document.getElementById('dialog-form').innerHTML="<form>"+
+                "<fieldset><label><b>Key the guidance here: <b/></label><br /><textarea name=\"guidanceid\" id="+guidanceid+" rows=\"10\" cols=\"50\"></textarea>" +
+                "</fieldset></form>";
+            });
+
+        });
+
+        foo.append(fieldWrapper);
+        fieldWrapper.append(first);
+        fieldWrapper.append(third);
+        fieldWrapper.append(fourth);
+        fieldWrapper.append(second);
 
         $("#"+p).live("click", function(e) {
 
             guidance.disabled=false;
-            attachment.disabled=false;
 
-/*            var x = $(fieldWrapper).attr("id");
+            /*var x = $(fieldWrapper).attr("id");
             shorttexttemp = x;
 
             alert(atemp);*/
@@ -567,24 +891,11 @@ $(document).ready(function(){
 
 
                 fieldWrapper.append(fifth);
-
-            });
-
-            $('#attachemntAdd').click(function(){
-
-
-                fieldWrapper.append(sixth);
+                fieldWrapper.append(second);
 
             });
 
         });
-
-
-        foo.append(fieldWrapper);
-        fieldWrapper.append(first);
-        fieldWrapper.append(third);
-        fieldWrapper.append(fourth);
-        fieldWrapper.append(second);
 
     });
 
@@ -595,8 +906,8 @@ $(document).ready(function(){
         textwithunitdropdown="textwithunitdropdown" + inttextunit;
         textwithunit= "textwithunit"+inttextunit;
         guidanceHeader="guidanceHeadertextunit"+ inttextunit;
-        attachmentHeader="attachemntHeadertextunit"+ inttextunit;
         p="ptextunit" + inttextunit;
+        guidanceid="guidanceidtextunit" + inttextunit;
 
 
         var foo = $("#"+temp);
@@ -626,31 +937,69 @@ $(document).ready(function(){
         });
 
         var fifth = $("<img src=../Images/MainPage/MenuIcon/GuidanceHeader.gif id='"+guidanceHeader +"'/>");
+        fifth.click(function(){
 
-        var sixth = $("<img src=../Images/MainPage/MenuIcon/AttchmentHeader.gif id='"+attachmentHeader +"'/>");
+            $(function() {
+                // a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
+                $("#dialog:ui-dialog").dialog("destroy");
 
-        $("#"+p).live("click", function(e) {
+                var guidance = $("#" +guidanceid), allFields = $([]).add(guidance), tips = $(".validateTips");
 
-            guidance.disabled=false;
-            attachment.disabled=false;
+                function updateTips(t) {
+                    tips.text(t).addClass("ui-state-highlight");
+                    setTimeout(function() {
+                        tips.removeClass("ui-state-highlight", 1500);
+                    }, 500);
+                }
 
-/*            var x = $(fieldWrapper).attr("id");
-            shorttexttemp = x;
+                function checkLength(o, n, min, max) {
+                    if (o.val().length > max || o.val().length < min) {
+                        o.addClass("ui-state-error");
+                        updateTips("Length of " + n + " must be between " + min + " and " + max + ".");
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
 
-            alert(atemp);*/
+                function checkRegexp(o, regexp, n) {
+                    if (!(regexp.test(o.val()))) {
+                        o.addClass("ui-state-error");
+                        updateTips(n);
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
 
-            $('#guidanceAdd').click(function(){
+                $("#dialog-form")
+                .dialog(
+                        {
+                            autoOpen : false,
+                            height : 300,
+                            width : 350,
+                            modal : true,
+                            buttons : {
+                                "Save" : function() {
+
+                                    $(this).dialog("close");
+
+                                },
+                                Cancel : function() {
+                                    $(this).dialog("close");
+                                }
+                            },
+                            close : function() {
+                                allFields.val("").removeClass("ui-state-error");
+                            }
+                        });
+
+                $("#dialog-form").dialog("open");
 
 
-                fieldWrapper.append(fifth);
-
-            });
-
-            $('#attachemntAdd').click(function(){
-
-
-                fieldWrapper.append(sixth);
-
+                document.getElementById('dialog-form').innerHTML="<form>"+
+                "<fieldset><label><b>Key the guidance here: <b/></label><br /><textarea name=\"guidanceid\" id="+guidanceid+" rows=\"10\" cols=\"50\"></textarea>" +
+                "</fieldset></form>";
             });
 
         });
@@ -659,30 +1008,40 @@ $(document).ready(function(){
         fieldWrapper.append(first);
         fieldWrapper.append(select);
         fieldWrapper.append(text);
-       fieldWrapper.append(second);
+        fieldWrapper.append(second);
         fieldWrapper.append(third);
         fieldWrapper.append(fourth);
 
+        $("#"+p).live("click", function(e) {
+
+            guidance.disabled=false;
+
+            /*var x = $(fieldWrapper).attr("id");
+            shorttexttemp = x;
+
+            alert(atemp);*/
+
+            $('#guidanceAdd').click(function(){
+
+
+                fieldWrapper.append(fifth);
+                fieldWrapper.append(fourth);
+
+            });
+
+        });
+
     });
 
-    /*    $('#attachment').click(function() {
-
-        attachmentPanel = "attachmentPanel" + intattachmentPanel;
-        attachmentIcon = "attachmentIcon" + intattachmentIcon;
-        attachmentInput = "attachementInput" + intattachmentInput;
-
-        intattachmentPanel++;
-        intattachmentIcon++;
-        intattachmentInput++;
+    $('#attachmentCreator').click(function() {
 
         var foo = $("#"+temp);
         var fieldWrapper = $("<p/>");
-        var first = $("<p class=\"ui-state-default\"><span id="+attachmentPanel+" class=\"ui-icon ui-icon-arrowthick-2-n-s\"><input type=file id="+attachmentIcon+" style=\"display: none;\"><b>Attachment: </b>");
-        var second = $("<input type=text id="+attachmentInput+" style=\"font-style:veranda; font-size:13px; height:20px; width:300px; text-align:center;\" >");
-        var third = $("<img src=../Images/MainPage/MenuIcon/AttchmentHeader.gif name=select border=0 onClick="+attachmentIcon+".click(); file"+attachmentInput+" .value="+attachmentIcon+".value; />");
-        var four = $("<img src=../Images/MainPage/TextAnswerField/delete_icon.png height=10px width=10px/><br/></span></p>");
+        var first = $("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\">");
+        var second = $("<b>Attachments: </b><input type=\"file\" name=\"datafile\" size=\"40\">");
+        var third = $("<img src=../Images/MainPage/TextAnswerField/delete_icon.png height=10px width=10px/><br/></span></p>");
 
-        four.click(function() {
+        third.click(function() {
             $(this).parent().remove();
         });
 
@@ -690,9 +1049,27 @@ $(document).ready(function(){
         fieldWrapper.append(first);
         fieldWrapper.append(second);
         fieldWrapper.append(third);
-        fieldWrapper.append(four);
 
-    });*/
+    });
+
+    $('#attachmentUser').click(function() {
+
+        var foo = $("#"+temp);
+        var fieldWrapper = $("<p/>");
+        var first = $("<span class=\"ui-icon ui-icon-arrowthick-2-n-s\">");
+        var second = $("<b>Attachments: </b><input type=\"file\" disabled=disabled name=\"datafile\" size=\"40\">");
+        var third = $("<img src=../Images/MainPage/TextAnswerField/delete_icon.png height=10px width=10px/><br/></span></p>");
+
+        third.click(function() {
+            $(this).parent().remove();
+        });
+
+        foo.append(fieldWrapper);
+        fieldWrapper.append(first);
+        fieldWrapper.append(second);
+        fieldWrapper.append(third);
+
+    });
 
     $('#datepicker').click(function() {
         var foo = $("#"+temp);
@@ -714,8 +1091,8 @@ $(document).ready(function(){
         type2="text";
         dropdownid= "dropdownid" + intdropdown;
         guidanceHeader="guidanceHeaderdropdown"+ intdropdown;
-        attachmentHeader="attachemntHeaderdropdown"+ intdropdown;
         p="pdropdown" + intdropdown;
+        guidanceid="guidanceiddropdown" + intdropdown;
 
         var foo = $("#"+temp);
         var fieldWrapper = $("<p id='"+p+"'/>");
@@ -742,31 +1119,69 @@ $(document).ready(function(){
         });
 
         var fifth = $("<img src=../Images/MainPage/MenuIcon/GuidanceHeader.gif id='"+guidanceHeader +"'/>");
+        fifth.click(function(){
 
-        var sixth = $("<img src=../Images/MainPage/MenuIcon/AttchmentHeader.gif id='"+attachmentHeader +"'/>");
+            $(function() {
+                // a workaround for a flaw in the demo system (http://dev.jqueryui.com/ticket/4375), ignore!
+                $("#dialog:ui-dialog").dialog("destroy");
 
-        $("#"+p).live("click", function(e) {
+                var guidance = $("#" +guidanceid), allFields = $([]).add(guidance), tips = $(".validateTips");
 
-            guidance.disabled=false;
-            attachment.disabled=false;
+                function updateTips(t) {
+                    tips.text(t).addClass("ui-state-highlight");
+                    setTimeout(function() {
+                        tips.removeClass("ui-state-highlight", 1500);
+                    }, 500);
+                }
 
-/*            var x = $(fieldWrapper).attr("id");
-            shorttexttemp = x;
+                function checkLength(o, n, min, max) {
+                    if (o.val().length > max || o.val().length < min) {
+                        o.addClass("ui-state-error");
+                        updateTips("Length of " + n + " must be between " + min + " and " + max + ".");
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
 
-            alert(atemp);*/
+                function checkRegexp(o, regexp, n) {
+                    if (!(regexp.test(o.val()))) {
+                        o.addClass("ui-state-error");
+                        updateTips(n);
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
 
-            $('#guidanceAdd').click(function(){
+                $("#dialog-form")
+                .dialog(
+                        {
+                            autoOpen : false,
+                            height : 300,
+                            width : 350,
+                            modal : true,
+                            buttons : {
+                                "Save" : function() {
+
+                                    $(this).dialog("close");
+
+                                },
+                                Cancel : function() {
+                                    $(this).dialog("close");
+                                }
+                            },
+                            close : function() {
+                                allFields.val("").removeClass("ui-state-error");
+                            }
+                        });
+
+                $("#dialog-form").dialog("open");
 
 
-                fieldWrapper.append(fifth);
-
-            });
-
-            $('#attachemntAdd').click(function(){
-
-
-                fieldWrapper.append(sixth);
-
+                document.getElementById('dialog-form').innerHTML="<form>"+
+                "<fieldset><label><b>Key the guidance here: <b/></label><br /><textarea name=\"guidanceid\" id="+guidanceid+" rows=\"10\" cols=\"50\"></textarea>" +
+                "</fieldset></form>";
             });
 
         });
@@ -778,6 +1193,25 @@ $(document).ready(function(){
         fieldWrapper.append(second);
         fieldWrapper.append(third);
         fieldWrapper.append(fourth);
+
+        $("#"+p).live("click", function(e) {
+
+            guidance.disabled=false;
+
+            /*var x = $(fieldWrapper).attr("id");
+            shorttexttemp = x;
+
+            alert(atemp);*/
+
+            $('#guidanceAdd').click(function(){
+
+
+                fieldWrapper.append(fifth);
+                fieldWrapper.append(fourth);
+
+            });
+
+        });
 
     });
 

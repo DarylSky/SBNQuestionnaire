@@ -74,7 +74,6 @@ body {
     color: #FEF0C9;
 }
 
-
 #nav a.selected {
     color: #f00;
 }
@@ -104,7 +103,6 @@ body {
 #nav ul a:hover {
     text-decoration: underline;
 }
-
 
 * html #nav ul {
     margin: 0 0 0 -2px;
@@ -165,15 +163,15 @@ div.fullscreen {
     background-color: #F0AB00;
     font-weight: bold;
     color: white;
-
 }
 
 #questionnairediv {
-	border: 1px #ddd;
+    border: 2px #ddd;
     background-color: white;
-	text-align:center;
-	font-size:18px;
-	font-style:bold;
+    text-align: center;
+    font-size: 20px;
+    font-style: bold;
+    color: #F0AB00;
 }
 
 p.flip {
@@ -182,6 +180,7 @@ p.flip {
     text-align: center;
     background: #F2F2F2;
     border: solid 1px #c3c3c3;
+    cursor: move;
 }
 
 div.panel {
@@ -191,16 +190,9 @@ div.panel {
 }
 
 table.tab {
-
     background: white;
-
 }
 
 table.tab.active {
-
     background: blue;
-
 }
-
-
-
